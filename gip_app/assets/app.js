@@ -2,29 +2,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Mobile Navigation Toggle & Backdrop Overlay
     const toggleBtn = document.querySelector('.mobile-nav-toggle');
     const sidebar = document.querySelector('aside');
+    const triggerBtns = document.querySelectorAll('.mobile-nav-toggle, .trigger-sidebar');
     
-    if (toggleBtn && sidebar) {
-        toggleBtn.addEventListener('click', () => {
-            const isOpen = sidebar.classList.toggle('open');
-            toggleBtn.classList.toggle('open');
-            
-            let overlay = document.querySelector('.sidebar-overlay');
-            if (!overlay) {
-                overlay = document.createElement('div');
-                overlay.className = 'sidebar-overlay';
-                document.body.appendChild(overlay);
-                overlay.addEventListener('click', () => {
-                    sidebar.classList.remove('open');
-                    toggleBtn.classList.remove('open');
+    if (sidebar && triggerBtns.length > 0) {
+        triggerBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const isOpen = sidebar.classList.toggle('open');
+                if (toggleBtn) {
+                    toggleBtn.classList.toggle('open', isOpen);
+                }
+                
+                let overlay = document.querySelector('.sidebar-overlay');
+                if (!overlay) {
+                    overlay = document.createElement('div');
+                    overlay.className = 'sidebar-overlay';
+                    document.body.appendChild(overlay);
+                    overlay.addEventListener('click', () => {
+                        sidebar.classList.remove('open');
+                        if (toggleBtn) {
+                            toggleBtn.classList.remove('open');
+                        }
+                        overlay.classList.remove('show');
+                    });
+                }
+                
+                if (isOpen) {
+                    overlay.classList.add('show');
+                } else {
                     overlay.classList.remove('show');
-                });
-            }
-            
-            if (isOpen) {
-                overlay.classList.add('show');
-            } else {
-                overlay.classList.remove('show');
-            }
+                }
+            });
         });
     }
 
@@ -121,17 +128,37 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
-    // 5. Liquid Scroll Progress Bar Tracker (Optimized with requestAnimationFrame)
+    // 5. Liquid Scroll Progress Bar Tracker & Floating Menu Auto-Hide
     const progressBar = document.getElementById('scroll-progress');
-    if (progressBar) {
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (progressBar || mobileNavToggle) {
         let ticking = false;
         window.addEventListener('scroll', () => {
             if (!ticking) {
                 window.requestAnimationFrame(() => {
                     const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-                    progressBar.style.width = scrolled + '%';
+                    
+                    // 1. Scroll Progress Bar
+                    if (progressBar) {
+                        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                        const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+                        progressBar.style.width = scrolled + '%';
+                    }
+                    
+                    // 2. Auto-Hide Floating Menu on Scroll Down
+                    if (mobileNavToggle && sidebar) {
+                        if (!sidebar.classList.contains('open')) {
+                            if (winScroll > lastScrollY && winScroll > 80) {
+                                mobileNavToggle.classList.add('nav-hidden');
+                            } else {
+                                mobileNavToggle.classList.remove('nav-hidden');
+                            }
+                        }
+                    }
+                    
+                    lastScrollY = winScroll <= 0 ? 0 : winScroll;
                     ticking = false;
                 });
                 ticking = true;

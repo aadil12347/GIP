@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -236,10 +237,56 @@ class _GipWebViewScreenState extends State<GipWebViewScreen> {
                       verticalScrollBarEnabled: true,
                       horizontalScrollBarEnabled: false,
                       minimumFontSize: 8,
+                      useShouldOverrideUrlLoading: true,
                       userAgent: "Mozilla/5.0 (Linux; Android 13; Redmi Note 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
                     ),
                     onWebViewCreated: (controller) {
                       _webViewController = controller;
+                    },
+                    shouldOverrideUrlLoading: (controller, navigationAction) async {
+                      var uri = navigationAction.request.url;
+                      if (uri != null) {
+                        String urlString = uri.toString();
+                        
+                        // If it's the main course website, allow it to load inside the WebView
+                        if (urlString.contains("tgipbyhadi.vercel.app") || 
+                            urlString.contains("localhost") ||
+                            urlString.startsWith("file:///")) {
+                          return NavigationActionPolicy.ALLOW;
+                        }
+                        
+                        // Otherwise launch externally (shows system chooser prompt)
+                        try {
+                          final parsedUri = Uri.parse(urlString);
+                          if (await canLaunchUrl(parsedUri)) {
+                            await launchUrl(
+                              parsedUri,
+                              mode: LaunchMode.externalApplication,
+                            );
+                          } else {
+                            await launchUrl(
+                              parsedUri,
+                              mode: LaunchMode.externalApplication,
+                            );
+                          }
+                        } catch (e) {
+                          debugPrint("Could not launch external url: $e");
+                        }
+                        return NavigationActionPolicy.CANCEL;
+                      }
+                      return NavigationActionPolicy.ALLOW;
+                    },
+                    onDownloadStartRequest: (controller, downloadStartRequest) async {
+                      String urlString = downloadStartRequest.url.toString();
+                      try {
+                        final parsedUri = Uri.parse(urlString);
+                        await launchUrl(
+                          parsedUri,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      } catch (e) {
+                        debugPrint("Could not launch download url: $e");
+                      }
                     },
                     onProgressChanged: (controller, progress) {
                       setState(() {
