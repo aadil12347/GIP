@@ -121,14 +121,21 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
-    // 5. Liquid Scroll Progress Bar Tracker
+    // 5. Liquid Scroll Progress Bar Tracker (Optimized with requestAnimationFrame)
     const progressBar = document.getElementById('scroll-progress');
     if (progressBar) {
+        let ticking = false;
         window.addEventListener('scroll', () => {
-            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-            progressBar.style.width = scrolled + '%';
-        });
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+                    progressBar.style.width = scrolled + '%';
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
     }
 });
