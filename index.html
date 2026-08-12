@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIKTOK GIP COURSE - GIP Complete Guide</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css?v=1.3">
 </head>
 
 <body>
@@ -34,59 +34,60 @@
             <div class="logo-icon">CBA</div>
             <div class="logo-text">CheatsByHadi</div>
         </div>
+
         <ul class="nav-links">
             <li class="active"><a href="#setup-plugins">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                     </svg>
-                    Setup & Plugins
+                    <span data-i18n="navSetup">Setup & Plugins</span>
                 </a></li>
             <li><a href="#account-creation">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
                     </svg>
-                    Account Creation
+                    <span data-i18n="navAccount">Account Creation</span>
                 </a></li>
             <li><a href="#gip-explained">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="10" />
                         <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01" />
                     </svg>
-                    GIP Explained
+                    <span data-i18n="navGip">GIP Explained</span>
                 </a></li>
             <li><a href="#cpa-campaigns">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3" />
                     </svg>
-                    CPA Campaigns
+                    <span data-i18n="navCpa">CPA Campaigns</span>
                 </a></li>
             <li><a href="#followers-roadmap">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path
                             d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
                     </svg>
-                    1k Followers Roadmap
+                    <span data-i18n="navFollowers">1k Followers Roadmap</span>
                 </a></li>
             <li><a href="#views-tricks">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                         <circle cx="12" cy="12" r="3" />
                     </svg>
-                    Views & Tricks
+                    <span data-i18n="navViews">Views & Tricks</span>
                 </a></li>
             <li><a href="#payouts-tax">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <rect x="2" y="4" width="20" height="16" rx="2" />
                         <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
                     </svg>
-                    Payouts & Tax Info
+                    <span data-i18n="navPayouts">Payouts & Tax Info</span>
                 </a></li>
             <li><a href="#problems-solutions">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path
                             d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01" />
                     </svg>
-                    Problems & Appeals
+                    <span data-i18n="navProblems">Problems & Appeals</span>
                 </a></li>
             <li><a href="#multiple-accounts">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -95,22 +96,35 @@
                         <rect x="14" y="12" width="7" height="9" />
                         <rect x="3" y="16" width="7" height="5" />
                     </svg>
-                    Multiple Accounts
+                    <span data-i18n="navMulti">Multiple Accounts</span>
                 </a></li>
             <li><a href="#ai-translated">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                     </svg>
-                    AI Translated Course
+                    <span data-i18n="navAi">AI Translated Course</span>
                 </a></li>
             <li><a href="#contact">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                         <polyline points="22,6 12,13 2,6" />
                     </svg>
-                    Contact Me
+                    <span data-i18n="navContact">Contact Me</span>
                 </a></li>
         </ul>
+
+        <!-- Translation Toggle Widget -->
+        <div class="translation-widget">
+            <span class="lang-status" id="lang-status-text">English</span>
+            <label class="theme-switch">
+                <input type="checkbox" id="lang-toggle" checked>
+                <span class="slider">
+                    <span class="flag-icon left-flag">🇵🇰</span>
+                    <span class="flag-icon right-flag">🇬🇧</span>
+                    <span class="slider-ball"></span>
+                </span>
+            </label>
+        </div>
     </aside>
 
     <!-- Main Content Panel -->
@@ -118,10 +132,10 @@
         <header>
             <div class="hero-badge">
                 <span class="badge-dot"></span>
-                <span>TIKTOK GIP MASTERCLASS 2026</span>
+                <span data-i18n="heroBadge">TIKTOK GIP MASTERCLASS 2026</span>
             </div>
-            <h1>TikTok Gaming Incentive Program</h1>
-            <p class="hero-subtitle">Complete Step-by-Step Blueprint & Verified Strategies by Hadi</p>
+            <h1 data-i18n="heroTitle">TikTok Gaming Incentive Program</h1>
+            <p class="hero-subtitle" data-i18n="heroSubtitle">Complete Step-by-Step Blueprint & Verified Strategies by Hadi</p>
             <div class="hero-actions">
                 <button class="btn-modules trigger-sidebar">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -129,38 +143,35 @@
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <line x1="3" y1="18" x2="21" y2="18"></line>
                     </svg>
-                    <span>Course Modules</span>
+                    <span data-i18n="btnModules">Course Modules</span>
                 </button>
                 <div class="mentor-badge" style="margin-bottom: 0;">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" />
                     </svg>
-                    Mentor: <span>Hadi Awan</span>
+                    <span data-i18n="mentorLabel">Mentor: Hadi Awan</span>
                 </div>
             </div>
             <div class="alert-box hero-alert">
                 <div class="alert-icon">📘</div>
                 <div class="alert-content">
-                    <h5>Important Course Instructions</h5>
-                    <p>Read all instructions carefully and watch each video in sequence without skipping to ensure correct execution!</p>
+                    <h5 data-i18n="heroAlertTitle">Important Course Instructions</h5>
+                    <p data-i18n="heroAlertDesc">Read all instructions carefully and watch each video in sequence without skipping to ensure correct execution!</p>
                 </div>
             </div>
         </header>
 
         <!-- Setup & Plugins Section -->
         <section id="setup-plugins">
-            <h2 class="section-title">Setup & Plugins</h2>
+            <h2 class="section-title" data-i18n="titleSetup">Setup & Plugins</h2>
             <div class="card">
-                <div class="card-title">Step 1: Download Essential Mod Apps</div>
-                <p>First download two essential apps from the Resources link. You must uninstall the regular Google Play
-                    Store TikTok version before installing these, or they won't install. <strong>Login with your
-                        personal account.</strong></p>
+                <div class="card-title" data-i18n="setupCard1Title">Step 1: Download Essential Mod Apps</div>
+                <p data-i18n="setupCard1Desc">First download two essential apps from the Resources link. You must uninstall the regular Google Play Store TikTok version before installing these, or they won't install. <strong>Login with your personal account.</strong></p>
                 <div class="alert-box"
                     style="margin: 1rem 0; background: rgba(59, 130, 246, 0.08); border-color: rgba(59, 130, 246, 0.25);">
                     <div class="alert-icon" style="color: var(--accent-blue);">ℹ️</div>
                     <div class="alert-content">
-                        <p style="color: #93c5fd;">Make sure you have at least <strong>6GB free storage space</strong>
-                            on your mobile phone if the installation fails.</p>
+                        <p style="color: #93c5fd;" data-i18n="setupCard1Alert">Make sure you have at least <strong>6GB free storage space</strong> on your mobile phone if the installation fails.</p>
                     </div>
                 </div>
 
@@ -168,49 +179,47 @@
                     <a href="https://www.mediafire.com/folder/1mokwf0tf7l1p/Tiktok+apk%27s" target="_blank"
                         class="resource-card">
                         <div class="resource-icon">📁</div>
-                        <div class="resource-title">All APK Resources</div>
-                        <div class="resource-subtitle">MediaFire Folder</div>
+                        <div class="resource-title" data-i18n="resAllApkTitle">All APK Resources</div>
+                        <div class="resource-subtitle" data-i18n="resAllApkSub">MediaFire Folder</div>
                     </a>
                     <a href="https://www.mediafire.com/file/1isico3lbgub50n/%25E2%259C%2585%25EF%25B8%258FTikTok_Global_%2528_version_46.4.3_%2529.apk/file"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">🤖</div>
-                        <div class="resource-title">TikTok Global (v46.4.3)</div>
-                        <div class="resource-subtitle">MediaFire Download</div>
+                        <div class="resource-title" data-i18n="resTiktokGlobalTitle">TikTok Global (v46.4.3)</div>
+                        <div class="resource-subtitle" data-i18n="resDownloadSub">MediaFire Download</div>
                     </a>
                     <a href="https://www.mediafire.com/file/smsl2z1e8pgbqn3/%25E2%259C%2585%25EF%25B8%258FTikTok_Plugin_version_2.45.apk/file"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">⚙️</div>
-                        <div class="resource-title">TikTok Plugin (v2.45)</div>
-                        <div class="resource-subtitle">MediaFire Download</div>
+                        <div class="resource-title" data-i18n="resTiktokPluginTitle">TikTok Plugin (v2.45)</div>
+                        <div class="resource-subtitle" data-i18n="resDownloadSub">MediaFire Download</div>
                     </a>
                     <a href="https://www.mediafire.com/file/v2ykl4wahg3dmvb/TIKTOK_Asia_version_%257C%257C_41.9.3_Asia_universal.apk/file"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">🌏</div>
-                        <div class="resource-title">TikTok Asia (v41.9.3)</div>
-                        <div class="resource-subtitle">MediaFire Download</div>
+                        <div class="resource-title" data-i18n="resTiktokAsiaTitle">TikTok Asia (v41.9.3)</div>
+                        <div class="resource-subtitle" data-i18n="resDownloadSub">MediaFire Download</div>
                     </a>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-title">Step 2: Install Browser & VPN Tool</div>
-                <p>After installing TikTok Global and TikTok Plugin, install the following browser and VPN. These are
-                    used to create secure TikTok accounts in specific country regions (UK, USA, France, etc.).</p>
-                <p><em>Note: If you already have a premium VPN installed on your phone, you can use that as well.
-                        However, you MUST use the Orion Browser.</em></p>
+                <div class="card-title" data-i18n="setupCard2Title">Step 2: Install Browser & VPN Tool</div>
+                <p data-i18n="setupCard2Desc1">After installing TikTok Global and TikTok Plugin, install the following browser and VPN. These are used to create secure TikTok accounts in specific country regions (UK, USA, France, etc.).</p>
+                <p><em><span data-i18n="setupCard2Desc2">Note: If you already have a premium VPN installed on your phone, you can use that as well. However, you MUST use the Orion Browser.</span></em></p>
 
                 <div class="resources-grid">
                     <a href="https://play.google.com/store/apps/details?id=br.marcelo.monumentbrowser" target="_blank"
                         class="resource-card">
                         <div class="resource-icon">🌐</div>
-                        <div class="resource-title">Orion's Browser</div>
-                        <div class="resource-subtitle">Google Play Store</div>
+                        <div class="resource-title" data-i18n="resOrionBrowserTitle">Orion's Browser</div>
+                        <div class="resource-subtitle" data-i18n="resPlayStoreSub">Google Play Store</div>
                     </a>
                     <a href="https://www.mediafire.com/file/fvgfj2na100nm8s/Vpnify_Premium_v2.5.0_Modded_by_Getmodpc.apk/file"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">🔒</div>
-                        <div class="resource-title">Vpnify Premium (v2.5.0)</div>
-                        <div class="resource-subtitle">MediaFire Download</div>
+                        <div class="resource-title" data-i18n="resVpnifyTitle">Vpnify Premium (v2.5.0)</div>
+                        <div class="resource-subtitle" data-i18n="resDownloadSub">MediaFire Download</div>
                     </a>
                 </div>
             </div>
@@ -218,11 +227,10 @@
 
         <!-- Account Creation Section -->
         <section id="account-creation">
-            <h2 class="section-title">Account Creation</h2>
+            <h2 class="section-title" data-i18n="titleAccount">Account Creation</h2>
             <div class="card">
-                <div class="card-title">How to Create UK & USA TikTok Accounts</div>
-                <p>Follow the step-by-step video instructions to create fully verified UK, USA, or France accounts. In
-                    the video, Abdul Hadi explains the precise workflow of creating regional accounts securely.</p>
+                <div class="card-title" data-i18n="accountCardTitle">How to Create UK & USA TikTok Accounts</div>
+                <p data-i18n="accountCardDesc">Follow the step-by-step video instructions to create fully verified UK, USA, or France accounts. In the video, Abdul Hadi explains the precise workflow of creating regional accounts securely.</p>
 
                 <div class="video-grid">
                     <div>
@@ -232,8 +240,8 @@
                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>How to create TikTok UK/USA Account</h4>
-                            <p>Tutorial on creating geo-targeted accounts using Orion Browser and Vpnify Premium.</p>
+                            <h4 data-i18n="accountVideoTitle">How to create TikTok UK/USA Account</h4>
+                            <p data-i18n="accountVideoDesc">Tutorial on creating geo-targeted accounts using Orion Browser and Vpnify Premium.</p>
                         </div>
                     </div>
                 </div>
@@ -242,20 +250,20 @@
                     <a href="https://play.google.com/store/apps/details?id=br.marcelo.monumentbrowser" target="_blank"
                         class="resource-card">
                         <div class="resource-icon">🌐</div>
-                        <div class="resource-title">Orions Browser</div>
-                        <div class="resource-subtitle">App Link</div>
+                        <div class="resource-title" data-i18n="resOrionBrowserTitle">Orion's Browser</div>
+                        <div class="resource-subtitle" data-i18n="resAppLinkSub">App Link</div>
                     </a>
                     <a href="https://www.mediafire.com/file/fvgfj2na100nm8s/Vpnify_Premium_v2.5.0_Modded_by_Getmodpc.apk/file"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">🛡️</div>
-                        <div class="resource-title">Vpnify Premium</div>
-                        <div class="resource-subtitle">Mod APK Link</div>
+                        <div class="resource-title" data-i18n="resVpnifyTitle">Vpnify Premium</div>
+                        <div class="resource-subtitle" data-i18n="resModApkSub">Mod APK Link</div>
                     </a>
                     <a href="https://drive.google.com/file/d/1MlHxsg_xf0hkCtYAR0juzrlIWpMJYz1k/view?usp=drive_link"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">💾</div>
-                        <div class="resource-title">Download Video</div>
-                        <div class="resource-subtitle">Google Drive Link</div>
+                        <div class="resource-title" data-i18n="resDownloadVideoTitle">Download Video</div>
+                        <div class="resource-subtitle" data-i18n="resDriveLinkSub">Google Drive Link</div>
                     </a>
                 </div>
             </div>
@@ -263,49 +271,67 @@
 
         <!-- Gaming Incentive Explained -->
         <section id="gip-explained">
-            <h2 class="section-title">Gaming Incentive Explained</h2>
+            <h2 class="section-title" data-i18n="titleGip">Gaming Incentive Explained</h2>
             <div class="card">
-                <div class="card-title">💡 Critical Account Setup & Warm Up (Day 1 - 7)</div>
-                <p>Do not treat your accounts as upload machines immediately! We must warm them up to make the algorithm
-                    register that we are a real human user. Otherwise, you will run into the <strong>zero views
-                        issue</strong>.</p>
-                <p>Create 3-4 accounts (e.g., 2 UK and 2 USA) and follow the 4-day checklist below before uploading any
-                    campaign videos.</p>
+                <div class="card-title" data-i18n="gipCard1Title">💡 Critical Account Setup & Warm Up (Day 1 - 7)</div>
+                <p data-i18n="gipCard1Desc1">Do not treat your accounts as upload machines immediately! We must warm them up to make the algorithm register that we are a real human user. Otherwise, you will run into the <strong>zero views issue</strong>.</p>
+                <p data-i18n="gipCard1Desc2">Create 3-4 accounts (e.g., 2 UK and 2 USA) and follow the 4-day checklist below before uploading any campaign videos.</p>
 
                 <ul class="checklist">
                     <li class="checklist-item" data-day="1-2">
-                        <input type="checkbox" id="chk-day-1-2">
+                        <div class="premium-checkbox-wrapper">
+                            <input type="checkbox" id="chk-day-1-2" class="hidden-checkbox">
+                            <span class="custom-checkbox-box">
+                                <svg class="checkmark-svg" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="checklist-content">
-                            <div class="checklist-title">Day 1 - 2: Pure Interaction</div>
-                            <div class="checklist-description">Just browse TikTok in your gaming niche. Leave 5-10
-                                likes, 2-3 detailed comments (no emojis or "nice"), and follow 2-3 creators in your
-                                niche. Do not upload!</div>
+                            <div class="checklist-title" data-i18n="chkDay1_2Title">Day 1 - 2: Pure Interaction</div>
+                            <div class="checklist-description" data-i18n="chkDay1_2Desc">Just browse TikTok in your gaming niche. Leave 5-10 likes, 2-3 detailed comments (no emojis or "nice"), and follow 2-3 creators in your niche. Do not upload!</div>
                         </div>
                     </li>
                     <li class="checklist-item" data-day="3">
-                        <input type="checkbox" id="chk-day-3">
+                        <div class="premium-checkbox-wrapper">
+                            <input type="checkbox" id="chk-day-3" class="hidden-checkbox">
+                            <span class="custom-checkbox-box">
+                                <svg class="checkmark-svg" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="checklist-content">
-                            <div class="checklist-title">Day 3: Save & Share Activity</div>
-                            <div class="checklist-description">Repeat previous activities. Save 1 video, share 1 video
-                                (via copy link or WhatsApp). Do not upload!</div>
+                            <div class="checklist-title" data-i18n="chkDay3Title">Day 3: Save & Share Activity</div>
+                            <div class="checklist-description" data-i18n="chkDay3Desc">Repeat previous activities. Save 1 video, share 1 video (via copy link or WhatsApp). Do not upload!</div>
                         </div>
                     </li>
                     <li class="checklist-item" data-day="4">
-                        <input type="checkbox" id="chk-day-4">
+                        <div class="premium-checkbox-wrapper">
+                            <input type="checkbox" id="chk-day-4" class="hidden-checkbox">
+                            <span class="custom-checkbox-box">
+                                <svg class="checkmark-svg" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="checklist-content">
-                            <div class="checklist-title">Day 4: First Short Upload</div>
-                            <div class="checklist-description">Upload your first simple short video (7-15s). After
-                                uploading, keep scrolling on TikTok; don't close the app immediately. Ensure it's
-                                English/global content to test reach.</div>
+                            <div class="checklist-title" data-i18n="chkDay4Title">Day 4: First Short Upload</div>
+                            <div class="checklist-description" data-i18n="chkDay4Desc">Upload your first simple short video (7-15s). After uploading, keep scrolling on TikTok; don't close the app immediately. Ensure it's English/global content to test reach.</div>
                         </div>
                     </li>
                     <li class="checklist-item" data-day="5-7">
-                        <input type="checkbox" id="chk-day-5-7">
+                        <div class="premium-checkbox-wrapper">
+                            <input type="checkbox" id="chk-day-5-7" class="hidden-checkbox">
+                            <span class="custom-checkbox-box">
+                                <svg class="checkmark-svg" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="checklist-content">
-                            <div class="checklist-title">Day 5 - 7: Consistency Training</div>
-                            <div class="checklist-description">Upload exactly 1 video per day. Keep the niche, style,
-                                and upload timing identical. Avoid auto-tools, changing VPNs, or re-uploading duplicate
-                                videos.</div>
+                            <div class="checklist-title" data-i18n="chkDay5_7Title">Day 5 - 7: Consistency Training</div>
+                            <div class="checklist-description" data-i18n="chkDay5_7Desc">Upload exactly 1 video per day. Keep the niche, style, and upload timing identical. Avoid auto-tools, changing VPNs, or re-uploading duplicate videos.</div>
                         </div>
                     </li>
                 </ul>
@@ -314,18 +340,14 @@
                     style="background: rgba(34, 197, 94, 0.08); border-color: rgba(34, 197, 94, 0.25); margin-top: 1.5rem;">
                     <div class="alert-icon" style="color: var(--accent-green);">🔥</div>
                     <div class="alert-content">
-                        <h5 style="color: #a7f3d0;">Earning Verification Milestone</h5>
-                        <p style="color: #a7f3d0;">After Day 4, if your account gets 150+ views, it has good initial
-                            reach. Reach out to Abdul Hadi on WhatsApp with your account link once it is set up.
-                            <strong>He will provide you with the 1,000 followers needed to activate the GIP
-                                event!</strong>
-                        </p>
+                        <h5 style="color: #a7f3d0;" data-i18n="gipMilestoneTitle">Earning Verification Milestone</h5>
+                        <p style="color: #a7f3d0;" data-i18n="gipMilestoneDesc">After Day 4, if your account gets 150+ views, it has good initial reach. Reach out to Abdul Hadi on WhatsApp with your account link once it is set up. <strong>He will provide you with the 1,000 followers needed to activate the GIP event!</strong></p>
                     </div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-title">Course Lectures: What is GIP & Editing Guides</div>
+                <div class="card-title" data-i18n="gipCard2Title">Course Lectures: What is GIP & Editing Guides</div>
                 <div class="video-grid">
                     <div>
                         <div class="video-wrapper">
@@ -334,9 +356,8 @@
                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>Lecture 1: Introduction to TikTok GIP</h4>
-                            <p>Overview of the Gaming Incentive Program, benefits over CRP, and basic entry
-                                requirements.</p>
+                            <h4 data-i18n="gipLec1Title">Lecture 1: Introduction to TikTok GIP</h4>
+                            <p data-i18n="gipLec1Desc">Overview of the Gaming Incentive Program, benefits over CRP, and basic entry requirements.</p>
                         </div>
                     </div>
                     <div>
@@ -346,9 +367,8 @@
                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>Lecture 2: How to Edit Videos for GIP</h4>
-                            <p>Step-by-step editing process to create highly engaging gaming content tailored for TikTok
-                                GIP.</p>
+                            <h4 data-i18n="gipLec2Title">Lecture 2: How to Edit Videos for GIP</h4>
+                            <p data-i18n="gipLec2Desc">Step-by-step editing process to create highly engaging gaming content tailored for TikTok GIP.</p>
                         </div>
                     </div>
                     <div>
@@ -356,9 +376,8 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/e1NUvx-n62M?si=Ks6gCU4pbO7e4hju" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>Lecture 3: How to Properly Upload GIP Videos</h4>
-                            <p>Guide on hashtags, descriptions, and regional settings during video upload to maximize
-                                monetization results.</p>
+                            <h4 data-i18n="gipLec3Title">Lecture 3: How to Properly Upload GIP Videos</h4>
+                            <p data-i18n="gipLec3Desc">Guide on hashtags, descriptions, and regional settings during video upload to maximize monetization results.</p>
                         </div>
                     </div>
                 </div>
@@ -367,11 +386,10 @@
 
         <!-- CPA Campaigns Section -->
         <section id="cpa-campaigns">
-            <h2 class="section-title">GIP CPA Campaign's & Full-Time Plan</h2>
+            <h2 class="section-title" data-i18n="titleCpa">GIP CPA Campaign's & Full-Time Plan</h2>
             <div class="card">
-                <div class="card-title">CPA Campaigns & Minis Explained</div>
-                <p>Learn how to work with GIP CPA campaigns (Cost Per Action) and maximize earnings. Abdul Hadi outlines
-                    the complete full-time plan comparing GIP minis with CRP.</p>
+                <div class="card-title" data-i18n="cpaCard1Title">CPA Campaigns & Minis Explained</div>
+                <p data-i18n="cpaCard1Desc">Learn how to work with GIP CPA campaigns (Cost Per Action) and maximize earnings. Abdul Hadi outlines the complete full-time plan comparing GIP minis with CRP.</p>
 
                 <div class="video-grid">
                     <div>
@@ -379,8 +397,8 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/mp9oLahEt_I?si=O7eg1R1Y0ECrNsN4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>TikTok GIP CPA Campaigns</h4>
-                            <p>Deep-dive into CPA mechanics, high RPM strategies, and campaign selection.</p>
+                            <h4 data-i18n="cpaVideo1Title">TikTok GIP CPA Campaigns</h4>
+                            <p data-i18n="cpaVideo1Desc">Deep-dive into CPA mechanics, high RPM strategies, and campaign selection.</p>
                         </div>
                     </div>
                     <div>
@@ -388,17 +406,16 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/zBwFU6sCo9I?si=Gup5h4zr4dLRADNZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>TikTok Minis & Full Time GIP Plan</h4>
-                            <p>Strategy for building a sustainable, long-term full-time GIP campaign stream.</p>
+                            <h4 data-i18n="cpaVideo2Title">TikTok Minis & Full Time GIP Plan</h4>
+                            <p data-i18n="cpaVideo2Desc">Strategy for building a sustainable, long-term full-time GIP campaign stream.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-title">📋 What You Will Learn</div>
-                <p>A summary of the core concepts taught in GIP CPA Campaigns:</p>
-                <p>
+                <div class="card-title" data-i18n="cpaCard2Title">📋 What You Will Learn</div>
+                <p data-i18n="cpaLearnContent">
                     1. Introduction to TikTok Minis<br>
                     2. Creator Reward Program (CRP) requirements vs GIP Minis<br>
                     3. Hurdles faced in the TikTok Creator Reward Program<br>
@@ -411,64 +428,94 @@
 
         <!-- Followers Roadmap -->
         <section id="followers-roadmap">
-            <h2 class="section-title">1k Followers Roadmap (Gaming Creators Method)</h2>
+            <h2 class="section-title" data-i18n="titleFollowers">1k Followers Roadmap (Gaming Creators Method)</h2>
             <div class="card">
-                <div class="card-title">🎯 The 1000 Followers Gaming Strategy</div>
-                <p>Use this official safe follower strategy to build a real gaming audience and reach 1k followers
-                    organically within 1-2 weeks. Ensure you strictly follow the steps below to avoid spam flags.</p>
+                <div class="card-title" data-i18n="followersCardTitle">🎯 The 1000 Followers Gaming Strategy</div>
+                <p data-i18n="followersCardDesc">Use this official safe follower strategy to build a real gaming audience and reach 1k followers organically within 1-2 weeks. Ensure you strictly follow the steps below to avoid spam flags.</p>
 
                 <ul class="checklist">
                     <li class="checklist-item" data-step="1">
-                        <input type="checkbox" id="chk-step-1">
+                        <div class="premium-checkbox-wrapper">
+                            <input type="checkbox" id="chk-step-1" class="hidden-checkbox">
+                            <span class="custom-checkbox-box">
+                                <svg class="checkmark-svg" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="checklist-content">
-                            <div class="checklist-title">Step 1: Gaming Profile Optimization</div>
-                            <div class="checklist-description">Set a gaming username, upload a custom gaming
-                                logo/avatar, and set a clean bio (e.g., "Gaming Content 🎮 | Daily Clips"). Upload 3-5
-                                short clips before starting so profile looks active.</div>
+                            <div class="checklist-title" data-i18n="fStep1Title">Step 1: Gaming Profile Optimization</div>
+                            <div class="checklist-description" data-i18n="fStep1Desc">Set a gaming username, upload a custom gaming logo/avatar, and set a clean bio (e.g., "Gaming Content 🎮 | Daily Clips"). Upload 3-5 short clips before starting so profile looks active.</div>
                         </div>
                     </li>
                     <li class="checklist-item" data-step="2">
-                        <input type="checkbox" id="chk-step-2">
+                        <div class="premium-checkbox-wrapper">
+                            <input type="checkbox" id="chk-step-2" class="hidden-checkbox">
+                            <span class="custom-checkbox-box">
+                                <svg class="checkmark-svg" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="checklist-content">
-                            <div class="checklist-title">Step 2: Target Right Gaming Creators</div>
-                            <div class="checklist-description">Find niche creators having between 5k-50k followers.
-                                Focus on active accounts with alive comment sections. Target their followers and active
-                                commenters.</div>
+                            <div class="checklist-title" data-i18n="fStep2Title">Step 2: Target Right Gaming Creators</div>
+                            <div class="checklist-description" data-i18n="fStep2Desc">Find niche creators having between 5k-50k followers. Focus on active accounts with alive comment sections. Target their followers and active commenters.</div>
                         </div>
                     </li>
                     <li class="checklist-item" data-step="3">
-                        <input type="checkbox" id="chk-step-3">
+                        <div class="premium-checkbox-wrapper">
+                            <input type="checkbox" id="chk-step-3" class="hidden-checkbox">
+                            <span class="custom-checkbox-box">
+                                <svg class="checkmark-svg" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="checklist-content">
-                            <div class="checklist-title">Step 3: Safe Follow Plan (Limit 80-90/day)</div>
-                            <div class="checklist-description">Spread follows across three times: Morning (25-30),
-                                Afternoon (25-30), and Night (25-30). Do not follow all at once or use automation tools!
-                            </div>
+                            <div class="checklist-title" data-i18n="fStep3Title">Step 3: Safe Follow Plan (Limit 80-90/day)</div>
+                            <div class="checklist-description" data-i18n="fStep3Desc">Spread follows across three times: Morning (25-30), Afternoon (25-30), and Night (25-30). Do not follow all at once or use automation tools!</div>
                         </div>
                     </li>
                     <li class="checklist-item" data-step="4">
-                        <input type="checkbox" id="chk-step-4">
+                        <div class="premium-checkbox-wrapper">
+                            <input type="checkbox" id="chk-step-4" class="hidden-checkbox">
+                            <span class="custom-checkbox-box">
+                                <svg class="checkmark-svg" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="checklist-content">
-                            <div class="checklist-title">Step 4: The Double-Touch Interaction Trick</div>
-                            <div class="checklist-description">For each follow: Like 1 of their videos, and leave a
-                                genuine comment (e.g., "GG bro 👌", "Nice gameplay 🔥", "Clean gaming 🎮"). This doubles
-                                follow-back rate!</div>
+                            <div class="checklist-title" data-i18n="fStep4Title">Step 4: The Double-Touch Interaction Trick</div>
+                            <div class="checklist-description" data-i18n="fStep4Desc">For each follow: Like 1 of their videos, and leave a genuine comment (e.g., "GG bro 👌", "Nice gameplay 🔥", "Clean gaming 🎮"). This doubles follow-back rate!</div>
                         </div>
                     </li>
                     <li class="checklist-item" data-step="5">
-                        <input type="checkbox" id="chk-step-5">
+                        <div class="premium-checkbox-wrapper">
+                            <input type="checkbox" id="chk-step-5" class="hidden-checkbox">
+                            <span class="custom-checkbox-box">
+                                <svg class="checkmark-svg" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="checklist-content">
-                            <div class="checklist-title">Step 5: The 24-48 Hours Unfollow Rule</div>
-                            <div class="checklist-description">Wait 1-2 days. Keep those who follow back. Slowly
-                                unfollow those who don't (limit unfollows to 20-30 max at a time).</div>
+                            <div class="checklist-title" data-i18n="fStep5Title">Step 5: The 24-48 Hours Unfollow Rule</div>
+                            <div class="checklist-description" data-i18n="fStep5Desc">Wait 1-2 days. Keep those who follow back. Slowly unfollow those who don't (limit unfollows to 20-30 max at a time).</div>
                         </div>
                     </li>
                     <li class="checklist-item" data-step="6">
-                        <input type="checkbox" id="chk-step-6">
+                        <div class="premium-checkbox-wrapper">
+                            <input type="checkbox" id="chk-step-6" class="hidden-checkbox">
+                            <span class="custom-checkbox-box">
+                                <svg class="checkmark-svg" viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5"></path>
+                                </svg>
+                            </span>
+                        </div>
                         <div class="checklist-content">
-                            <div class="checklist-title">Step 6: Expectation Check (10-14 days to 1k)</div>
-                            <div class="checklist-description">With a 30-50% followback rate, 80 follows per day yields
-                                25-40 followers. You will reach your target 1000 followers milestone safely in 10-14
-                                days!</div>
+                            <div class="checklist-title" data-i18n="fStep6Title">Step 6: Expectation Check (10-14 days to 1k)</div>
+                            <div class="checklist-description" data-i18n="fStep6Desc">With a 30-50% followback rate, 80 follows per day yields 25-40 followers. You will reach your target 1000 followers milestone safely in 10-14 days!</div>
                         </div>
                     </li>
                 </ul>
@@ -477,11 +524,10 @@
 
         <!-- Views & Tricks Section -->
         <section id="views-tricks">
-            <h2 class="section-title">[ VIEWS & EASY CONTENT TRICKS ]</h2>
+            <h2 class="section-title" data-i18n="titleViews">Views & Tricks</h2>
             <div class="card">
-                <div class="card-title">Views & Easy Content Strategy</div>
-                <p>Abdul Hadi shares unique editing and sourcing templates to boost views and revenue without spending
-                    massive time editing. Watch the detailed tricks below.</p>
+                <div class="card-title" data-i18n="viewsCardTitle">Views & Easy Content Strategy</div>
+                <p data-i18n="viewsCardDesc">Abdul Hadi shares unique editing and sourcing templates to boost views and revenue without spending massive time editing. Watch the detailed tricks below.</p>
 
                 <div class="video-grid">
                     <div>
@@ -489,8 +535,8 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/ti-x55kNSXs?si=xPByA3hel0rY_2PC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>Part 1: Easy Content & Views Trick</h4>
-                            <p>How to increase views and RPM by selecting specific gaming niches.</p>
+                            <h4 data-i18n="viewsVideo1Title">Part 1: Easy Content & Views Trick</h4>
+                            <p data-i18n="viewsVideo1Desc">How to increase views and RPM by selecting specific gaming niches.</p>
                         </div>
                     </div>
                     <div>
@@ -498,8 +544,8 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/JnaKGFMr5mI?si=a5zQaeOr1xlAFEEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>Part 2: Exclusive Easy Content Sourcing</h4>
-                            <p>Learn how to source and package viral templates for GIP campaigns.</p>
+                            <h4 data-i18n="viewsVideo2Title">Part 2: Exclusive Easy Content Sourcing</h4>
+                            <p data-i18n="viewsVideo2Desc">Learn how to source and package viral templates for GIP campaigns.</p>
                         </div>
                     </div>
                 </div>
@@ -508,9 +554,8 @@
                     style="background: rgba(59, 130, 246, 0.08); border-color: rgba(59, 130, 246, 0.25); margin-top: 2rem;">
                     <div class="alert-icon" style="color: var(--accent-blue);">📹</div>
                     <div class="alert-content">
-                        <h5 style="color: #93c5fd;">Exclusive Side Content Layout</h5>
-                        <p style="color: #93c5fd;">This section includes an exclusive side content strategy to multiply
-                            views across multi-accounts.</p>
+                        <h5 style="color: #93c5fd;" data-i18n="viewsAlertTitle">Exclusive Side Content Layout</h5>
+                        <p style="color: #93c5fd;" data-i18n="viewsAlertDesc">This section includes an exclusive side content strategy to multiply views across multi-accounts.</p>
                     </div>
                 </div>
             </div>
@@ -518,11 +563,10 @@
 
         <!-- Payouts & Tax Info Section -->
         <section id="payouts-tax">
-            <h2 class="section-title">[ PAYOUTS & TAX VERIFICATION ]</h2>
+            <h2 class="section-title" data-i18n="titlePayouts">Payouts & Tax Info</h2>
             <div class="card">
-                <div class="card-title">Withdrawal Setup: PayPal Creation</div>
-                <p>Since GIP rewards are sent via PayPal, watch the guide to creating a fully working Canada PayPal
-                    account from Pakistan or any unsupported region, along with verification tricks.</p>
+                <div class="card-title" data-i18n="payoutsCard1Title">Withdrawal Setup: PayPal Creation</div>
+                <p data-i18n="payoutsCard1Desc">Since GIP rewards are sent via PayPal, watch the guide to creating a fully working Canada PayPal account from Pakistan or any unsupported region, along with verification tricks.</p>
 
                 <div class="video-grid">
                     <div>
@@ -530,17 +574,16 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/e0BJQ3vWUNg?si=WDZQkKP6QDZpVBwW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>How to Create PayPal (Canada)</h4>
-                            <p>Setup process, linking bank, and verifying identity to avoid limitations.</p>
+                            <h4 data-i18n="payoutsVideo1Title">How to Create PayPal (Canada)</h4>
+                            <p data-i18n="payoutsVideo1Desc">Setup process, linking bank, and verifying identity to avoid limitations.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-title">Tax Information Setup (USA & UK / France)</div>
-                <p>How to complete USA or UK tax questionnaires on TikTok to avoid payout holds or accounts being
-                    locked.</p>
+                <div class="card-title" data-i18n="payoutsCard2Title">Tax Information Setup (USA & UK / France)</div>
+                <p data-i18n="payoutsCard2Desc">How to complete USA or UK tax questionnaires on TikTok to avoid payout holds or accounts being locked.</p>
 
                 <div class="video-grid" style="margin-bottom: 2rem;">
                     <div>
@@ -548,8 +591,8 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/Jci2wSS4YKk?si=mVabv0RxmVygHxZa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>How to Fill USA Tax Information</h4>
-                            <p>Complete step-by-step walkthrough of inputting tax profiles for USA regions.</p>
+                            <h4 data-i18n="payoutsVideo2Title">How to Fill USA Tax Information</h4>
+                            <p data-i18n="payoutsVideo2Desc">Complete step-by-step walkthrough of inputting tax profiles for USA regions.</p>
                         </div>
                     </div>
                     <div>
@@ -557,8 +600,8 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/V1jxWyvO5Os?si=8RrbFSgaOzlBjCpY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>How to Fill UK/France Tax Information</h4>
-                            <p>Easy guide to submitting tax questionnaires for European accounts.</p>
+                            <h4 data-i18n="payoutsVideo3Title">How to Fill UK/France Tax Information</h4>
+                            <p data-i18n="payoutsVideo3Desc">Easy guide to submitting tax questionnaires for European accounts.</p>
                         </div>
                     </div>
                 </div>
@@ -567,14 +610,14 @@
                     <a href="https://docs.google.com/document/d/1JhS_XUZ6uFqOkIdrfBag9qx5gv7-FBH4UeChGYNEIZk/edit?usp=drive_link"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">📝</div>
-                        <div class="resource-title">USA Tax Document Guide</div>
-                        <div class="resource-subtitle">Google Docs</div>
+                        <div class="resource-title" data-i18n="resTaxGuideTitle">USA Tax Document Guide</div>
+                        <div class="resource-subtitle" data-i18n="resPlayStoreSub">Google Docs</div>
                     </a>
                     <a href="https://drive.google.com/file/d/1DiOIbGeKETEyPOQq_CIiXeR6AvIbEUaT/view?usp=drive_link"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">📂</div>
-                        <div class="resource-title">See More Tax Details</div>
-                        <div class="resource-subtitle">Google Drive</div>
+                        <div class="resource-title" data-i18n="resTaxDetailsTitle">See More Tax Details</div>
+                        <div class="resource-subtitle" data-i18n="resDriveLinkSub">Google Drive</div>
                     </a>
                 </div>
             </div>
@@ -582,11 +625,10 @@
 
         <!-- Problems & Appeals Section -->
         <section id="problems-solutions">
-            <h2 class="section-title">[ PROBLEMS & SOLUTIONS ]</h2>
+            <h2 class="section-title" data-i18n="titleProblems">Problems & Appeals</h2>
             <div class="card">
-                <div class="card-title">Disqualification Appeals & No Event Issues</div>
-                <p>If your videos get disqualified from a campaign or the GIP Event button disappears from your
-                    dashboard due to unusual activity, follow these appeal guidelines.</p>
+                <div class="card-title" data-i18n="problemsCardTitle">Disqualification Appeals & No Event Issues</div>
+                <p data-i18n="problemsCardDesc">If your videos get disqualified from a campaign or the GIP Event button disappears from your dashboard due to unusual activity, follow these appeal guidelines.</p>
 
                 <div class="video-grid">
                     <div>
@@ -596,8 +638,8 @@
                                 allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>How to Appeal Disqualified Videos</h4>
-                            <p>The correct wording and procedure to submit video appeals successfully.</p>
+                            <h4 data-i18n="problemsVideo1Title">How to Appeal Disqualified Videos</h4>
+                            <p data-i18n="problemsVideo1Desc">The correct wording and procedure to submit video appeals successfully.</p>
                         </div>
                     </div>
                     <div>
@@ -605,8 +647,8 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/PpU1SdIjnro?si=MQacF8EbAfYMwDs0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>No Event Showing Resolution</h4>
-                            <p>What to do if GIP options are hidden due to system flags or device settings.</p>
+                            <h4 data-i18n="problemsVideo2Title">No Event Showing Resolution</h4>
+                            <p data-i18n="problemsVideo2Desc">What to do if GIP options are hidden due to system flags or device settings.</p>
                         </div>
                     </div>
                 </div>
@@ -615,11 +657,10 @@
 
         <!-- Multiple Accounts Section -->
         <section id="multiple-accounts">
-            <h2 class="section-title">Managing Multiple Accounts & Mod Updates</h2>
+            <h2 class="section-title" data-i18n="titleMulti">Managing Multiple Accounts & Mod Updates</h2>
             <div class="card">
-                <div class="card-title">How to Work on Multiple Accounts Safely</div>
-                <p>Scale up your earnings by running multiple accounts simultaneously on the same device. Follow these
-                    safety configurations to prevent device/IP linkage bans.</p>
+                <div class="card-title" data-i18n="multiCardTitle">How to Work on Multiple Accounts Safely</div>
+                <p data-i18n="multiCardDesc">Scale up your earnings by running multiple accounts simultaneously on the same device. Follow these safety configurations to prevent device/IP linkage bans.</p>
 
                 <div class="video-grid" style="margin-bottom: 2rem;">
                     <div>
@@ -627,8 +668,8 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/4NJVfzrQ6jg?si=moYhu1rdjSKOMlXM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>Multi-Account Management Strategy</h4>
-                            <p>How to run clones and coordinate uploads across different regional parameters.</p>
+                            <h4 data-i18n="multiVideo1Title">Multi-Account Management Strategy</h4>
+                            <p data-i18n="multiVideo1Desc">How to run clones and coordinate uploads across different regional parameters.</p>
                         </div>
                     </div>
                     <div>
@@ -636,9 +677,8 @@
                             <iframe loading="lazy" src="https://www.youtube.com/embed/F2jO76W7KyM?si=xbJRG2TsAQUUr9pf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                         <div class="video-info">
-                            <h4>How to Update Apps By Yourself</h4>
-                            <p>Guide to manually updating and modding TikTok Global/Plugin when new versions release.
-                            </p>
+                            <h4 data-i18n="multiVideo2Title">How to Update Apps By Yourself</h4>
+                            <p data-i18n="multiVideo2Desc">Guide to manually updating and modding TikTok Global/Plugin when new versions release.</p>
                         </div>
                     </div>
                 </div>
@@ -647,32 +687,32 @@
                     <a href="https://www.mediafire.com/folder/1mokwf0tf7l1p/Tiktok+apk%27s" target="_blank"
                         class="resource-card">
                         <div class="resource-icon">📦</div>
-                        <div class="resource-title">All Resources Folder</div>
-                        <div class="resource-subtitle">MediaFire</div>
+                        <div class="resource-title" data-i18n="resAllResTitle">All Resources Folder</div>
+                        <div class="resource-subtitle" data-i18n="resAllApkSub">MediaFire</div>
                     </a>
                     <a href="https://www.mediafire.com/file/v2ykl4wahg3dmvb/TIKTOK_Asia_version_%257C%257C_41.9.3_Asia_universal.apk/file"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">🌐</div>
-                        <div class="resource-title">TikTok Asia (v41.9.3)</div>
-                        <div class="resource-subtitle">MediaFire Download</div>
+                        <div class="resource-title" data-i18n="resTiktokAsiaTitle">TikTok Asia (v41.9.3)</div>
+                        <div class="resource-subtitle" data-i18n="resDownloadSub">MediaFire Download</div>
                     </a>
                     <a href="https://www.mediafire.com/file/8gs1ttb6jal24su/%25E2%259C%2585_Tiktok_plugin_updated_%257C%257C_Must_Download_%257C2.22_plugin.apk/file"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">⚙️</div>
-                        <div class="resource-title">TikTok Plugin Updated (v2.22)</div>
-                        <div class="resource-subtitle">MediaFire Download</div>
+                        <div class="resource-title" data-i18n="resTiktokPluginUpdatedTitle">TikTok Plugin Updated (v2.22)</div>
+                        <div class="resource-subtitle" data-i18n="resDownloadSub">MediaFire Download</div>
                     </a>
                     <a href="https://www.mediafire.com/file/lfr9ielvaxye8jy/%25E2%259C%2585Tiktok_global_version_%257C%257C_must_download_%257C%257C_42.4.3_global_universal_fix.apk/file"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">📲</div>
-                        <div class="resource-title">TikTok Global (v42.4.3)</div>
-                        <div class="resource-subtitle">MediaFire Download</div>
+                        <div class="resource-title" data-i18n="resTiktokGlobalTitle">TikTok Global (v42.4.3)</div>
+                        <div class="resource-subtitle" data-i18n="resDownloadSub">MediaFire Download</div>
                     </a>
                     <a href="https://www.mediafire.com/file/tuaub1ql2y4fqsp/DualSpace_v5.0.3_%2528Premium%2529.apk/file"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">👥</div>
-                        <div class="resource-title">Dual Space Premium (v5.0.3)</div>
-                        <div class="resource-subtitle">MediaFire Download</div>
+                        <div class="resource-title" data-i18n="resDualSpaceTitle">Dual Space Premium (v5.0.3)</div>
+                        <div class="resource-subtitle" data-i18n="resDownloadSub">MediaFire Download</div>
                     </a>
                 </div>
             </div>
@@ -680,36 +720,35 @@
 
         <!-- AI Translated Section -->
         <section id="ai-translated">
-            <h2 class="section-title">[ AI TRANSLATED TIKTOK GIP COURSE BY TIKTOK ]</h2>
+            <h2 class="section-title" data-i18n="titleAi">AI Translated TikTok GIP Course</h2>
             <div class="card">
-                <div class="card-title">Official TikTok GIP Guidelines (Hindi/Urdu translation)</div>
-                <p>These documents are translated from the official TikTok creator database. Use them to understand
-                    official rules, though check sections above for the optimized community tactics.</p>
+                <div class="card-title" data-i18n="aiCardTitle">Official TikTok GIP Guidelines (Hindi/Urdu translation)</div>
+                <p data-i18n="aiCardDesc">These documents are translated from the official TikTok creator database. Use them to understand official rules, though check sections above for the optimized community tactics.</p>
 
                 <div class="resources-grid">
                     <a href="https://drive.google.com/file/d/1GAUXJCyOkn7nDunEsn-t6L1pgTfDjRgd/view?usp=drive_link"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">1️⃣</div>
-                        <div class="resource-title">1. Introduction</div>
-                        <div class="resource-subtitle">Google Drive View</div>
+                        <div class="resource-title" data-i18n="resAiIntroTitle">1. Introduction</div>
+                        <div class="resource-subtitle" data-i18n="resDriveLinkSub">Google Drive View</div>
                     </a>
                     <a href="https://drive.google.com/file/d/12srM5aLLw3iAY5NYfikv_4EZlVAz7Q8J/view?usp=drive_link"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">2️⃣</div>
-                        <div class="resource-title">2. Start Earning in 3 Steps</div>
-                        <div class="resource-subtitle">Google Drive View</div>
+                        <div class="resource-title" data-i18n="resAiStepsTitle">2. Start Earning in 3 Steps</div>
+                        <div class="resource-subtitle" data-i18n="resDriveLinkSub">Google Drive View</div>
                     </a>
                     <a href="https://drive.google.com/file/d/1snlEC6VOrBP7--pHWSxl_amgmYy1kIdU/view?usp=drive_link"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">3️⃣</div>
-                        <div class="resource-title">3. Maximize Earnings</div>
-                        <div class="resource-subtitle">Google Drive View</div>
+                        <div class="resource-title" data-i18n="resAiMaxTitle">3. Maximize Earnings</div>
+                        <div class="resource-subtitle" data-i18n="resDriveLinkSub">Google Drive View</div>
                     </a>
                     <a href="https://drive.google.com/file/d/1odzZSKSbYwv_LoTV9DWC8ketVGdwfwcL/view?usp=drive_link"
                         target="_blank" class="resource-card">
                         <div class="resource-icon">4️⃣</div>
-                        <div class="resource-title">4. How to Withdraw</div>
-                        <div class="resource-subtitle">Google Drive View</div>
+                        <div class="resource-title" data-i18n="resAiWithdrawTitle">4. How to Withdraw</div>
+                        <div class="resource-subtitle" data-i18n="resDriveLinkSub">Google Drive View</div>
                     </a>
                 </div>
             </div>
@@ -717,70 +756,65 @@
 
         <!-- Contact Section -->
         <section id="contact">
-            <h2 class="section-title">Contact</h2>
+            <h2 class="section-title" data-i18n="titleContact">Contact</h2>
             <div class="card">
-                <div class="card-title">📫 Get In Touch</div>
-                <p>If you have any questions regarding the TikTok Gaming Incentive Program, need account validation, or
-                    require GIP followers setup, please send me an email.</p>
+                <div class="card-title" data-i18n="contactCard1Title">📫 Get In Touch</div>
+                <p data-i18n="contactCard1Desc">If you have any questions regarding the TikTok Gaming Incentive Program, need account validation, or require GIP followers setup, please send me an email.</p>
 
                 <div class="resources-grid" style="grid-template-columns: 1fr; max-width: 500px; margin-top: 1.5rem;">
                     <a href="mailto:Abdulhadipro47@gmail.com" class="resource-card"
                         style="flex-direction: row; text-align: left; padding: 1.5rem; gap: 1.5rem;">
                         <div class="resource-icon" style="flex-shrink: 0;">✉️</div>
                         <div>
-                            <div class="resource-title" style="font-size: 1.1rem; margin-bottom: 0.2rem;">Email Address
-                            </div>
-                            <div class="resource-subtitle" style="font-size: 0.9rem; color: var(--accent-purple);">
-                                Abdulhadipro47@gmail.com</div>
+                            <div class="resource-title" style="font-size: 1.1rem; margin-bottom: 0.2rem;" data-i18n="contactResTitle">Email Address</div>
+                            <div class="resource-subtitle" style="font-size: 0.9rem; color: var(--accent-purple);">Abdulhadipro47@gmail.com</div>
                         </div>
                     </a>
                 </div>
-                <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">Feel free to reach out for
-                    questions, account verifications, or GIP resources updates. I am always happy to help you scale your
-                    campaigns!</p>
+                <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);" data-i18n="contactFoot">Feel free to reach out for questions, account verifications, or GIP resources updates. I am always happy to help you scale your campaigns!</p>
             </div>
 
             <div class="card">
-                <div class="card-title">💼 Premium Services & Softwares</div>
-                <p>We provide a comprehensive range of premium digital services and custom solutions to scale your workflows:</p>
+                <div class="card-title" data-i18n="contactCard2Title">💼 Premium Services & Softwares</div>
+                <p data-i18n="contactCard2Desc">We provide a comprehensive range of premium digital services and custom solutions to scale your workflows:</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
                     <div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
                         <div style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="color: var(--accent-purple);">🌐</span> Website Subscriptions
+                            <span style="color: var(--accent-purple);">🌐</span> <span data-i18n="serviceSubTitle">Website Subscriptions</span>
                         </div>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Access keys and premium subscription accounts for various marketing, cloud, and analytical platforms.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;" data-i18n="serviceSubDesc">Access keys and premium subscription accounts for various marketing, cloud, and analytical platforms.</p>
                     </div>
                     <div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
                         <div style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="color: var(--accent-purple);">👥</span> Followers & Social Growth
+                            <span style="color: var(--accent-purple);">👥</span> <span data-i18n="serviceFollowTitle">Followers & Social Growth</span>
                         </div>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Fast and secure follower boost services to easily fulfill the GIP application criteria.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;" data-i18n="serviceFollowDesc">Fast and secure follower boost services to easily fulfill the GIP application criteria.</p>
                     </div>
                     <div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
                         <div style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="color: var(--accent-purple);">💻</span> Custom Automation Softwares
+                            <span style="color: var(--accent-purple);">💻</span> <span data-i18n="serviceAutoTitle">Custom Automation Softwares</span>
                         </div>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Automated helper tools, macros, and modded APKs designed to scale up GIP actions.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;" data-i18n="serviceAutoDesc">Automated helper tools, macros, and modded APKs designed to scale up GIP actions.</p>
                     </div>
                     <div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
                         <div style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="color: var(--accent-purple);">🔑</span> Premium Paid Applications
+                            <span style="color: var(--accent-purple);">🔑</span> <span data-i18n="serviceAppTitle">Premium Paid Applications</span>
                         </div>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Licensed accounts for premium video editors, proxies, and VPN applications.</p>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;" data-i18n="serviceAppDesc">Licensed accounts for premium video editors, proxies, and VPN applications.</p>
                     </div>
                 </div>
-                <p>If you require any of these services or have a custom request, please send a message with your specifications to our email: <a href="mailto:Abdulhadipro47@gmail.com" style="color: var(--accent-purple); text-decoration: none; font-weight: 600; border-bottom: 1px dashed var(--accent-purple);">Abdulhadipro47@gmail.com</a>. We will get back to you with the custom setup details and pricing.</p>
+                <p data-i18n="serviceFoot">If you require any of these services or have a custom request, please send a message with your specifications to our email: <a href="mailto:Abdulhadipro47@gmail.com" style="color: var(--accent-purple); text-decoration: none; font-weight: 600; border-bottom: 1px dashed var(--accent-purple);">Abdulhadipro47@gmail.com</a>. We will get back to you with the custom setup details and pricing.</p>
             </div>
         </section>
 
         <footer
             style="margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.8rem;">
-            <p>© 2026 Abdul Hadi GIP Program. All rights reserved.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted); opacity: 0.7;">Website created by Hadi Awan</p>
+            <p data-i18n="footerCopy">© 2026 Abdul Hadi GIP Program. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted); opacity: 0.7;" data-i18n="footerAuthor">Website created by Hadi Awan</p>
         </footer>
     </main>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=1.3"></script>
 </body>
 
 </html>

@@ -224,9 +224,7 @@ class _GipWebViewScreenState extends State<GipWebViewScreen> {
                 // WebView Container
                 Expanded(
                   child: InAppWebView(
-                    initialUrlRequest: URLRequest(
-                      url: WebUri("https://tgipbyhadi.vercel.app/"),
-                    ),
+                    initialFile: "assets/index.html",
                     initialSettings: InAppWebViewSettings(
                       javaScriptEnabled: true,
                       mediaPlaybackRequiresUserGesture: false,
