@@ -336,6 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
             serviceAutoDesc: "Automated helper tools, macros, and modded APKs designed to scale up GIP actions.",
             serviceAppTitle: "Premium Paid Applications",
             serviceAppDesc: "Licensed accounts for premium video editors, proxies, and VPN applications.",
+            serviceAccTitle: "International Accounts",
+            serviceAccDesc: "Verified target region accounts (UK, USA, France, Germany, Japan, etc.) available for campaign setup.",
             serviceFoot: "If you require any of these services or have a custom request, please send a message with your specifications to our email: Abdulhadipro47@gmail.com. We will get back to you with the custom setup details and pricing.",
             
             footerCopy: "© 2026 Abdul Hadi GIP Program. All rights reserved.",
@@ -504,6 +506,8 @@ document.addEventListener('DOMContentLoaded', () => {
             serviceAutoDesc: "GIP workflow ko aasan aur scale karne ke liye helper tools, macros aur modded APKs.",
             serviceAppTitle: "Premium Paid Applications",
             serviceAppDesc: "Premium video editors, secure proxies, aur premium VPN keys.",
+            serviceAccTitle: "International Accounts",
+            serviceAccDesc: "UK, USA, France, Japan, Germany aur tamam dusre countries ke target region verified accounts available hain.",
             serviceFoot: "Agar aapko in mein se koi service chahiye, to apni details is email par send karein: Abdulhadipro47@gmail.com. Hum jald hi aapse details aur pricing share karenge.",
             
             footerCopy: "© 2026 Abdul Hadi GIP Program. All rights reserved.",
