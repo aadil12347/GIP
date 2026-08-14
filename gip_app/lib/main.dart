@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+final InAppLocalhostServer localhostServer = InAppLocalhostServer(documentRoot: 'assets');
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -19,6 +21,9 @@ void main() async {
       systemNavigationBarIconBrightness: Brightness.light,
     ),
   );
+
+  // Start localhost server to serve local assets via http://localhost:8080/
+  await localhostServer.start();
 
   runApp(const GipApp());
 }
@@ -54,6 +59,7 @@ class GipWebViewScreen extends StatefulWidget {
 }
 
 class _GipWebViewScreenState extends State<GipWebViewScreen> {
+  // ignore: unused_field
   InAppWebViewController? _webViewController;
   double _progress = 0;
   bool _isLoading = true;
@@ -70,7 +76,9 @@ class _GipWebViewScreenState extends State<GipWebViewScreen> {
                 // WebView Container
                 Expanded(
                   child: InAppWebView(
-                    initialFile: "assets/index.html",
+                    initialUrlRequest: URLRequest(
+                      url: WebUri("http://localhost:8080/index.html"),
+                    ),
                     initialSettings: InAppWebViewSettings(
                       javaScriptEnabled: true,
                       mediaPlaybackRequiresUserGesture: false,
@@ -83,6 +91,7 @@ class _GipWebViewScreenState extends State<GipWebViewScreen> {
                       minimumFontSize: 8,
                       useShouldOverrideUrlLoading: true,
                       userAgent: "Mozilla/5.0 (Linux; Android 13; Redmi Note 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
+                      requestedWithHeaderOriginAllowList: <String>{}, // Disable X-Requested-With header to bypass WebView blocks on YouTube
                     ),
                     onWebViewCreated: (controller) {
                       _webViewController = controller;
