@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-final InAppLocalhostServer localhostServer = InAppLocalhostServer(documentRoot: 'assets');
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,8 +22,7 @@ void main() async {
     ),
   );
 
-  // Start localhost server to serve local assets via http://localhost:8080/
-  await localhostServer.start();
+  // Loading live hosted website URL directly
 
   runApp(const GipApp());
 }
@@ -77,7 +76,7 @@ class _GipWebViewScreenState extends State<GipWebViewScreen> {
                 Expanded(
                   child: InAppWebView(
                     initialUrlRequest: URLRequest(
-                      url: WebUri("http://localhost:8080/index.html"),
+                      url: WebUri("https://tgipbyhadi.vercel.app/"),
                     ),
                     initialSettings: InAppWebViewSettings(
                       javaScriptEnabled: true,
@@ -90,8 +89,9 @@ class _GipWebViewScreenState extends State<GipWebViewScreen> {
                       horizontalScrollBarEnabled: false,
                       minimumFontSize: 8,
                       useShouldOverrideUrlLoading: true,
-                      userAgent: "Mozilla/5.0 (Linux; Android 13; Redmi Note 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36",
+                      userAgent: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Mobile/15E148 Safari/605.1.15",
                       requestedWithHeaderOriginAllowList: <String>{}, // Disable X-Requested-With header to bypass WebView blocks on YouTube
+                      thirdPartyCookiesEnabled: true,
                     ),
                     onWebViewCreated: (controller) {
                       _webViewController = controller;
