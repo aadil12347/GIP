@@ -519,14 +519,19 @@ header .mentor-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(244, 63, 94, 0.12);
-    border: 1px solid rgba(244, 63, 94, 0.25);
-    color: #fb7185;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--accent-purple);
+    color: var(--accent-purple);
     padding: 0.5rem 0.85rem;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px var(--accent-purple-glow);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+header .mentor-badge svg {
+    color: var(--accent-purple);
 }
 
 header .mentor-badge span {
@@ -534,17 +539,23 @@ header .mentor-badge span {
 }
 
 .hero-alert {
-    background: rgba(168, 85, 247, 0.08) !important;
-    border: 1px solid rgba(168, 85, 247, 0.25) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid var(--accent-purple) !important;
     border-radius: 14px !important;
+    box-shadow: 0 4px 20px var(--accent-purple-glow) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hero-alert .alert-icon {
+    color: var(--accent-purple) !important;
 }
 
 .hero-alert h5 {
-    color: #d8b4fe !important;
+    color: var(--text-primary) !important;
 }
 
 .hero-alert p {
-    color: #e9d5ff !important;
+    color: var(--text-secondary) !important;
 }
 
 /* Section Styling */
@@ -717,13 +728,13 @@ section h2.section-title::before {
 }
 
 .resource-card:hover {
-    background: rgba(168, 85, 247, 0.12);
-    border-color: rgba(168, 85, 247, 0.4);
+    background: var(--accent-purple-glow);
+    border-color: var(--accent-purple);
     border-top-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-4px) scale(1.02);
     box-shadow:
         inset 0 1px 2px rgba(255, 255, 255, 0.2),
-        0 12px 30px rgba(168, 85, 247, 0.2);
+        0 12px 30px var(--accent-purple-glow);
 }
 
 .resource-icon {
@@ -899,32 +910,34 @@ section h2.section-title::before {
 
 /* Warnings and Alerts */
 .alert-box {
-    background: rgba(239, 68, 68, 0.08);
-    border: 1px solid rgba(239, 68, 68, 0.25);
+    background: var(--accent-purple-glow);
+    border: 1px solid var(--accent-purple);
     border-radius: 12px;
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
     display: flex;
     gap: 1rem;
     align-items: flex-start;
+    box-shadow: 0 4px 15px var(--accent-purple-glow);
+    transition: all 0.3s ease;
 }
 
 .alert-icon {
     font-size: 1.5rem;
-    color: #ef4444;
+    color: var(--accent-purple);
     line-height: 1;
 }
 
 .alert-content h5 {
     font-family: 'Outfit', sans-serif;
-    color: #fca5a5;
+    color: var(--text-primary);
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.25rem;
 }
 
 .alert-content p {
-    color: #fca5a5;
+    color: var(--text-secondary);
     font-size: 0.85rem;
     line-height: 1.5;
     margin-bottom: 0;
@@ -1040,7 +1053,12 @@ section h2.section-title::before {
     transform: translateY(0);
 }
 
-/* Responsive Media Queries */
+/* Hide Course Modules and Hero Settings buttons so only Mentor: Hadi Awan remains */
+.hero-actions .btn-modules,
+.hero-actions .hero-settings-btn {
+    display: none !important;
+}
+
 @media (max-width: 1024px) {
     aside {
         transform: translateX(-100%);
@@ -2126,4 +2144,79 @@ html[data-theme="crimson"] .hero-badge {
 @keyframes royalGoldenPulse {
     0% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.3); }
     100% { box-shadow: 0 0 22px rgba(245, 158, 11, 0.7), 0 0 35px rgba(239, 68, 68, 0.4); }
+}
+
+/* ==========================================
+   PROMINENT FOOTER GLOW & TYPOGRAPHY STYLES
+   ========================================== */
+.main-footer {
+    margin-top: 6rem;
+    padding: 3rem 1.5rem 3.5rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    position: relative;
+    background: radial-gradient(ellipse at bottom, var(--accent-purple-glow) 0%, transparent 75%);
+    border-radius: 24px 24px 0 0;
+    overflow: hidden;
+}
+
+.main-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: var(--primary-gradient);
+    box-shadow: 0 0 15px var(--accent-purple-glow), 0 0 30px var(--accent-purple);
+}
+
+.footer-copy {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 0 12px var(--accent-purple), 0 0 25px var(--accent-purple-glow);
+    animation: footerGlowPulse 3s ease-in-out infinite alternate;
+}
+
+.footer-author-box {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1.5px solid var(--accent-purple);
+    border-radius: 50px;
+    box-shadow: 0 0 20px var(--accent-purple-glow), inset 0 0 10px var(--accent-purple-glow);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.footer-author-box:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 0 30px var(--accent-purple), inset 0 0 15px var(--accent-purple);
+}
+
+.footer-author {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px var(--accent-purple-glow);
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+@keyframes footerGlowPulse {
+    0% {
+        text-shadow: 0 0 10px var(--accent-purple), 0 0 20px var(--accent-purple-glow);
+    }
+    100% {
+        text-shadow: 0 0 20px var(--accent-purple), 0 0 40px var(--accent-purple-glow), 0 0 60px var(--accent-purple);
+    }
 }
