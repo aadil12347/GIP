@@ -8,14 +8,14 @@
     --text-primary: #fdf2f8;
     --text-secondary: #cbd5e1;
     --text-muted: #94a3b8;
-    
+
     --accent-purple: #f43f5e;
     --accent-purple-glow: rgba(244, 63, 94, 0.4);
     --accent-green: #f59e0b;
     --accent-green-glow: rgba(245, 158, 11, 0.3);
     --accent-blue: #8b5cf6;
     --accent-blue-glow: rgba(139, 92, 246, 0.3);
-    
+
     --sidebar-width: 280px;
     --transition-speed: 0.3s;
 }
@@ -37,7 +37,7 @@ body {
     display: flex;
     min-height: 100vh;
     overflow-x: hidden;
-    background-image: 
+    background-image:
         radial-gradient(circle at 10% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 40%),
         radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 45%);
     background-attachment: fixed;
@@ -122,10 +122,12 @@ body {
         border-radius: 40% 60% 70% 30% / 40% 50% 60% 70%;
         transform: translate(0, 0) rotate(0deg) scale(1);
     }
+
     50% {
         border-radius: 60% 40% 30% 70% / 50% 30% 70% 50%;
         transform: translate(3%, 8%) rotate(90deg) scale(1.08);
     }
+
     100% {
         border-radius: 30% 70% 50% 50% / 60% 40% 50% 40%;
         transform: translate(-4%, -4%) rotate(180deg) scale(0.94);
@@ -169,10 +171,12 @@ aside {
     flex-direction: column;
     padding: 2rem 1.5rem;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    
+
     /* Hide scrollbar */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
     overflow-y: auto;
 }
 
@@ -336,8 +340,15 @@ header {
 }
 
 @keyframes pulseGlow {
-    0% { opacity: 0.4; transform: scale(0.9); }
-    100% { opacity: 1; transform: scale(1.2); }
+    0% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
 }
 
 header h1 {
@@ -460,42 +471,41 @@ section h2.section-title::before {
 }
 
 .card {
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-    border-left: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 20px;
-    padding: 2.25rem;
-    margin-bottom: 2rem;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 1.25rem 0;
+    margin-bottom: 2.5rem;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    transform: translateZ(0);
-    will-change: transform;
-    overflow: hidden;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
-.card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(168, 85, 247, 0.05) 50%, rgba(59, 130, 246, 0.05) 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
+.card::before,
+.card::after {
+    display: none;
 }
 
 .card:hover {
-    border-color: rgba(168, 85, 247, 0.35);
-    border-top-color: rgba(255, 255, 255, 0.35);
-    box-shadow: 
-        inset 0 1px 2px rgba(255, 255, 255, 0.25),
-        0 25px 60px rgba(0, 0, 0, 0.6),
-        0 0 35px rgba(168, 85, 247, 0.15);
-    transform: translateY(-6px) scale(1.005);
+    transform: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.card:hover {
+    border-color: rgba(244, 63, 94, 0.35);
+    box-shadow:
+        inset 0 1px 2px rgba(255, 255, 255, 0.2),
+        0 28px 65px rgba(0, 0, 0, 0.6),
+        0 0 35px rgba(244, 63, 94, 0.15);
+    transform: translateY(-6px);
+}
+
+.card:hover::after {
+    opacity: 1;
+    left: 2%;
+    right: 2%;
 }
 
 .card:hover::before {
@@ -607,7 +617,7 @@ section h2.section-title::before {
     border-color: rgba(168, 85, 247, 0.4);
     border-top-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 
+    box-shadow:
         inset 0 1px 2px rgba(255, 255, 255, 0.2),
         0 12px 30px rgba(168, 85, 247, 0.2);
 }
@@ -710,14 +720,14 @@ section h2.section-title::before {
 }
 
 /* Hover State */
-.hidden-checkbox:hover ~ .custom-checkbox-box {
+.hidden-checkbox:hover~.custom-checkbox-box {
     border-color: var(--accent-purple);
     box-shadow: 0 0 10px rgba(244, 63, 94, 0.25);
     transform: scale(1.08);
 }
 
 /* Checked State */
-.hidden-checkbox:checked ~ .custom-checkbox-box {
+.hidden-checkbox:checked~.custom-checkbox-box {
     background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
     border-color: transparent;
     box-shadow: 0 0 15px rgba(244, 63, 94, 0.45);
@@ -740,7 +750,7 @@ section h2.section-title::before {
     stroke-linejoin: round;
 }
 
-.hidden-checkbox:checked ~ .custom-checkbox-box .checkmark-svg {
+.hidden-checkbox:checked~.custom-checkbox-box .checkmark-svg {
     stroke-dashoffset: 0;
     transform: scale(1);
 }
@@ -933,17 +943,17 @@ section h2.section-title::before {
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: 20px 0 40px rgba(0, 0, 0, 0.6);
     }
-    
+
     aside.open {
         transform: translateX(0);
     }
-    
+
     main {
         margin-left: 0;
         width: 100%;
         padding: 2rem 2.5rem;
     }
-    
+
     .mobile-nav-toggle {
         display: flex;
     }
@@ -958,21 +968,21 @@ section h2.section-title::before {
         font-size: 2.5rem;
         line-height: 1.2;
     }
-    
+
     main {
         padding: 1.5rem 1.5rem;
     }
-    
+
     .video-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .resources-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 1rem;
     }
-    
+
     .card {
         padding: 1.5rem;
         margin-bottom: 1.5rem;
@@ -984,61 +994,61 @@ section h2.section-title::before {
         font-size: 2rem;
         word-break: break-word;
     }
-    
+
     .hero-subtitle {
         font-size: 1rem;
         margin-bottom: 1.5rem;
     }
-    
+
     main {
         padding: 1rem 1rem;
     }
-    
+
     .card {
         padding: 1.15rem;
         border-radius: 14px;
         margin-bottom: 1.25rem;
     }
-    
+
     .card-title {
         font-size: 1.1rem;
         margin-bottom: 0.75rem;
     }
-    
+
     .card p {
         font-size: 0.9rem;
         line-height: 1.5;
         margin-bottom: 1rem;
     }
-    
+
     .resources-grid {
         grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
         gap: 0.75rem;
     }
-    
+
     .resource-card {
         padding: 1rem 0.75rem;
         border-radius: 10px;
     }
-    
+
     .resource-icon {
         width: 40px;
         height: 40px;
         font-size: 1.25rem;
     }
-    
+
     .checklist-item {
         padding: 0.65rem 0.75rem;
         gap: 0.65rem;
         font-size: 0.88rem;
         border-radius: 8px;
     }
-    
+
     .video-info h4 {
         font-size: 0.95rem;
         margin-top: 0.5rem;
     }
-    
+
     .video-info p {
         font-size: 0.85rem;
     }
@@ -1064,69 +1074,92 @@ section h2.section-title::before {
     background: rgba(255, 255, 255, 0.04);
 }
 
-.lang-status {
-    color: var(--text-secondary);
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.theme-switch {
-    position: relative;
-    display: block;
-    width: 80px;
-    height: 32px;
-    cursor: pointer;
-}
-
-.theme-switch input {
-    display: none;
-}
-
-.theme-switch .slider {
-    position: absolute;
-    inset: 0;
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* ======================================================
+   ULTRA-SLEEK MODERN TOGGLE SWITCH
+   ====================================================== */
+.modern-toggle-box {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 0.5rem;
+    gap: 0.85rem;
 }
 
-.theme-switch .slider-ball {
+.toggle-status-badge {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-primary);
+    background: rgba(244, 63, 94, 0.12);
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    border: 1px solid rgba(244, 63, 94, 0.25);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modern-switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.modern-switch input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+    margin: 0;
+}
+
+.switch-track {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+.switch-thumb {
     position: absolute;
     top: 2px;
-    height: 26px;
-    left: 3px;
-    width: 36px;
-    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-    border-radius: 13px;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 0 8px rgba(244, 63, 94, 0.4);
-    z-index: 1;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.35s ease, box-shadow 0.35s ease !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
 }
 
-.flag-icon {
-    font-size: 0.95rem;
-    z-index: 2;
-    transition: opacity 0.25s ease;
-    user-select: none;
-}
-
-/* Toggle States */
-.theme-switch input:checked + .slider .slider-ball {
-    transform: translateX(38px);
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-    box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
-}
-
-.theme-switch input:focus + .slider {
+/* Hover Effect */
+.modern-switch:hover .switch-track {
     border-color: rgba(244, 63, 94, 0.4);
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.25);
+}
+
+/* Active Checked State */
+.modern-switch input:checked+.switch-track {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    border-color: transparent;
+    box-shadow: 0 0 16px rgba(244, 63, 94, 0.45);
+}
+
+.modern-switch input:checked+.switch-track .switch-thumb {
+    transform: translateX(24px) !important;
+    background: #ffffff;
+    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.9);
 }
 
 /* Contact Email Display */
@@ -1257,7 +1290,7 @@ body.low-device-mode .glass-bg-blobs {
     display: none !important;
 }
 
-body.low-device-mode *,
+body.low-device-mode *:not(.switch-track):not(.switch-thumb):not(.modern-switch):not(.toggle-status-badge),
 body.low-device-mode *::before,
 body.low-device-mode *::after {
     animation: none !important;
@@ -1402,7 +1435,7 @@ body.low-device-mode .mobile-nav-toggle {
     width: 100%;
     max-width: 520px;
     padding: 2rem;
-    box-shadow: 
+    box-shadow:
         0 25px 80px rgba(0, 0, 0, 0.7),
         0 0 40px rgba(244, 63, 94, 0.15);
     transform: scale(0.9) translateY(20px);
@@ -1531,7 +1564,24 @@ body.low-device-mode .settings-modal-card {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
 }
 
+/* Ensure modern switches maintain pristine visual states in Low Device Mode */
+body.low-device-mode .switch-track {
+    background: #1e293b !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+}
 
+body.low-device-mode .modern-switch input:checked+.switch-track {
+    background: #f43f5e !important;
+    border-color: transparent !important;
+}
 
+body.low-device-mode .modern-switch input:checked+.switch-track .switch-thumb {
+    transform: translateX(24px) !important;
+    background: #ffffff !important;
+}
 
-
+body.low-device-mode .toggle-status-badge {
+    background: #1e293b !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: #f1f5f9 !important;
+}

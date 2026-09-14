@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.querySelector('.mobile-nav-toggle');
     const sidebar = document.querySelector('aside');
     const triggerBtns = document.querySelectorAll('.mobile-nav-toggle, .trigger-sidebar');
-    
+
     if (sidebar && triggerBtns.length > 0) {
         triggerBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (toggleBtn) {
                     toggleBtn.classList.toggle('open', isOpen);
                 }
-                
+
                 let overlay = document.querySelector('.sidebar-overlay');
                 if (!overlay) {
                     overlay = document.createElement('div');
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         overlay.classList.remove('show');
                     });
                 }
-                
+
                 if (isOpen) {
                     overlay.classList.add('show');
                 } else {
@@ -78,28 +78,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Interactive Checklists using LocalStorage
     const checklistItems = document.querySelectorAll('.checklist-item');
-    
+
     checklistItems.forEach(item => {
         const checkbox = item.querySelector('input[type="checkbox"]');
         const listId = checkbox.getAttribute('id');
-        
+
         // Load initial state
         const isCompleted = localStorage.getItem(`gip_check_${listId}`) === 'true';
         if (isCompleted) {
             checkbox.checked = true;
             item.classList.add('completed');
         }
-        
+
         // Toggle on item click
         item.addEventListener('click', (e) => {
             if (e.target !== checkbox) {
                 checkbox.checked = !checkbox.checked;
             }
-            
+
             // Save state
             const checked = checkbox.checked;
             localStorage.setItem(`gip_check_${listId}`, checked);
-            
+
             if (checked) {
                 item.classList.add('completed');
             } else {
@@ -132,21 +132,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressBar = document.getElementById('scroll-progress');
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
-    
+
     if (progressBar || mobileNavToggle) {
         let ticking = false;
         window.addEventListener('scroll', () => {
             if (!ticking) {
                 window.requestAnimationFrame(() => {
                     const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                    
+
                     // 1. Scroll Progress Bar
                     if (progressBar) {
                         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                         const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
                         progressBar.style.width = scrolled + '%';
                     }
-                    
+
                     // 2. Auto-Hide Floating Menu on Scroll Down
                     if (mobileNavToggle && sidebar) {
                         if (!sidebar.classList.contains('open')) {
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             }
                         }
                     }
-                    
+
                     lastScrollY = winScroll <= 0 ? 0 : winScroll;
                     ticking = false;
                 });
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navMulti: "Multiple Accounts",
             navAi: "AI Translated Course",
             navContact: "Contact Me",
-            
+
             heroBadge: "TIKTOK GIP MASTERCLASS 2026",
             heroTitle: "TikTok Gaming Incentive Program",
             heroSubtitle: "Complete Step-by-Step Blueprint & Verified Strategies by Hadi",
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mentorLabel: "Mentor: Hadi Awan",
             heroAlertTitle: "Important Course Instructions",
             heroAlertDesc: "Read all instructions carefully and watch each video in sequence without skipping to ensure correct execution!",
-            
+
             titleSetup: "Setup & Plugins",
             setupCard1Title: "Step 1: Download Essential Mod Apps",
             setupCard1Desc: "First download two essential apps from the Resources link. You must uninstall the regular Google Play Store TikTok version before installing these, or they won't install. <strong>Login with your personal account.</strong>",
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resOrionBrowserTitle: "Orion's Browser",
             resPlayStoreSub: "Google Play Store",
             resVpnifyTitle: "Vpnify Premium (v2.5.0)",
-            
+
             titleAccount: "Account Creation",
             accountCardTitle: "How to Create UK & USA TikTok Accounts",
             accountCardDesc: "Follow the step-by-step video instructions to create fully verified UK, USA, or France accounts. In the video, Abdul Hadi explains the precise workflow of creating regional accounts securely.",
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resModApkSub: "Mod APK Link",
             resDownloadVideoTitle: "Download Video",
             resDriveLinkSub: "Google Drive Link",
-            
+
             titleGip: "Gaming Incentive Explained",
             gipCard1Title: "💡 Critical Account Setup & Warm Up (Day 1 - 7)",
             gipCard1Desc1: "Do not treat your accounts as upload machines immediately! We must warm them up to make the algorithm register that we are a real human user. Otherwise, you will run into the zero views issue.",
@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gipLec2Desc: "Step-by-step editing process to create highly engaging gaming content tailored for TikTok GIP.",
             gipLec3Title: "Lecture 3: How to Properly Upload GIP Videos",
             gipLec3Desc: "Guide on hashtags, descriptions, and regional settings during video upload to maximize monetization results.",
-            
+
             titleCpa: "GIP CPA Campaign's & Full-Time Plan",
             cpaCard1Title: "CPA Campaigns & Minis Explained",
             cpaCard1Desc: "Learn how to work with GIP CPA campaigns (Cost Per Action) and maximize earnings. Abdul Hadi outlines the complete full-time plan comparing GIP minis with CRP.",
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cpaVideo2Desc: "Strategy for building a sustainable, long-term full-time GIP campaign stream.",
             cpaCard2Title: "📋 What You Will Learn",
             cpaLearnContent: "1. Introduction to TikTok Minis<br>2. Creator Reward Program (CRP) requirements vs GIP Minis<br>3. Hurdles faced in the TikTok Creator Reward Program<br>4. Requirements & benefits of GIP Minis over CRP<br>5. Why choose GIP over CRP for new zero-follower accounts<br>6. Step-by-step creation of GIP Minis optimized video templates",
-            
+
             titleFollowers: "1k Followers Roadmap (Gaming Creators Method)",
             followersCardTitle: "🎯 The 1000 Followers Gaming Strategy",
             followersCardDesc: "Use this official safe follower strategy to build a real gaming audience and reach 1k followers organically within 1-2 weeks. Ensure you strictly follow the steps below to avoid spam flags.",
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fStep5Desc: "Wait 1-2 days. Keep those who follow back. Slowly unfollow those who don't (limit unfollows to 20-30 max at a time).",
             fStep6Title: "Step 6: Expectation Check (10-14 days to 1k)",
             fStep6Desc: "With a 30-50% followback rate, 80 follows per day yields 25-40 followers. You will reach your target 1000 followers milestone safely in 10-14 days!",
-            
+
             titleViews: "Views & Tricks",
             viewsCardTitle: "Views & Easy Content Strategy",
             viewsCardDesc: "Abdul Hadi shares unique editing and sourcing templates to boost views and revenue without spending massive time editing. Watch the detailed tricks below.",
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             viewsVideo2Desc: "Learn how to source and package viral templates for GIP campaigns.",
             viewsAlertTitle: "Exclusive Side Content Layout",
             viewsAlertDesc: "This section includes an exclusive side content strategy to multiply views across multi-accounts.",
-            
+
             titlePayouts: "Payouts & Tax Info",
             payoutsCard1Title: "Withdrawal Setup: PayPal Creation",
             payoutsCard1Desc: "Since GIP rewards are sent via PayPal, watch the guide to creating a fully working Canada PayPal account from Pakistan or any unsupported region, along with verification tricks.",
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
             payoutsVideo3Desc: "Easy guide to submitting tax questionnaires for European accounts.",
             resTaxGuideTitle: "USA Tax Document Guide",
             resTaxDetailsTitle: "See More Tax Details",
-            
+
             titleProblems: "Problems & Appeals",
             problemsCardTitle: "Disqualification Appeals & No Event Issues",
             problemsCardDesc: "If your videos get disqualified from a campaign or the GIP Event button disappears from your dashboard due to unusual activity, follow these appeal guidelines.",
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
             problemsVideo1Desc: "The correct wording and procedure to submit video appeals successfully.",
             problemsVideo2Title: "No Event Showing Resolution",
             problemsVideo2Desc: "What to do if GIP options are hidden due to system flags or device settings.",
-            
+
             titleMulti: "Managing Multiple Accounts & Mod Updates",
             multiCardTitle: "How to Work on Multiple Accounts Safely",
             multiCardDesc: "Scale up your earnings by running multiple accounts simultaneously on the same device. Follow these safety configurations to prevent device/IP linkage bans.",
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resAllResTitle: "All Resources Folder",
             resTiktokPluginUpdatedTitle: "TikTok Plugin Updated (v2.22)",
             resDualSpaceTitle: "Dual Space Premium (v5.0.3)",
-            
+
             titleAi: "AI Translated TikTok GIP Course",
             aiCardTitle: "Official TikTok GIP Guidelines (Hindi/Urdu translation)",
             aiCardDesc: "These documents are translated from the official TikTok creator database. Use them to understand official rules, though check sections above for the optimized community tactics.",
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resAiStepsTitle: "2. Start Earning in 3 Steps",
             resAiMaxTitle: "3. Maximize Earnings",
             resAiWithdrawTitle: "4. How to Withdraw",
-            
+
             titleContact: "Contact",
             contactCard1Title: "📫 Get In Touch",
             contactCard1Desc: "If you have any questions regarding the TikTok Gaming Incentive Program, need account validation, or require GIP followers setup, please send me an email.",
@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
             serviceAccTitle: "International Accounts",
             serviceAccDesc: "Verified target region accounts (UK, USA, France, Germany, Japan, etc.) available for campaign setup.",
             serviceFoot: "If you require any of these services or have a custom request, please send a message with your specifications to our email: Abdulhadipro47@gmail.com. We will get back to you with the custom setup details and pricing.",
-            
+
             footerCopy: "© 2026 Abdul Hadi GIP Program. All rights reserved.",
             footerAuthor: "Website created by Hadi Awan",
 
@@ -367,7 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navMulti: "Multiple Accounts",
             navAi: "AI Translated Course",
             navContact: "Rabta Karein",
-            
+
             heroBadge: "TIKTOK GIP MASTERCLASS 2026",
             heroTitle: "TikTok Gaming Incentive Program",
             heroSubtitle: "Hadi Awan ki GIP course ki complete step-by-step masterclass guide.",
@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mentorLabel: "Mentor: Hadi Awan",
             heroAlertTitle: "Zaroori Course Instructions",
             heroAlertDesc: "Sari instructions ko dhyan se parhein aur har video ko bina skip kiye ek ke baad ek dekhein taake sahi se kaam ho sake!",
-            
+
             titleSetup: "Setup aur Plugins",
             setupCard1Title: "Step 1: Zaroori Mod Apps Download Karein",
             setupCard1Desc: "Sabse pehle resources link se do zaroori apps download karein. Install karne se pehle regular Play Store wali TikTok ko uninstall karna lazmi hai, warna ye install nahi hogi. <strong>Apne personal account se login karein.</strong>",
@@ -392,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resOrionBrowserTitle: "Orion Browser",
             resPlayStoreSub: "Google Play Store",
             resVpnifyTitle: "Vpnify Premium (v2.5.0)",
-            
+
             titleAccount: "Account Banana",
             accountCardTitle: "UK aur USA TikTok Accounts Kaise Banayein",
             accountCardDesc: "UK, USA, ya France ka fully verified account banane ke liye video instructions ko step-by-step follow karein. Video mein Abdul Hadi ne secure tareeqe se accounts banane ka workflow samjhaya hai.",
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resModApkSub: "Mod APK Link",
             resDownloadVideoTitle: "Download Video",
             resDriveLinkSub: "Google Drive Link",
-            
+
             titleGip: "Gaming Incentive ki Detail",
             gipCard1Title: "💡 Account Setup aur Warm Up (Day 1 - 7)",
             gipCard1Desc1: "Apne accounts ko aate hi upload machine mat banayein! Hamein pehle accounts ko warm up karna hoga taake algorithm ko lage ke ye real human hai, warna zero views ka issue aayega.",
@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gipLec2Desc: "TikTok GIP ke liye gaming videos create aur edit karne ka step-by-step tarika.",
             gipLec3Title: "Lecture 3: GIP Videos Sahi se Upload Kaise Karein",
             gipLec3Desc: "Hashtags, descriptions, aur regional settings ke saath video upload karne ki sahi guide.",
-            
+
             titleCpa: "GIP CPA Campaigns aur Full-Time Plan",
             cpaCard1Title: "CPA Campaigns aur Minis ki Detail",
             cpaCard1Desc: "CPA campaigns par kaam karna aur apni earnings barhany ka tarika. Abdul Hadi ne GIP Minis aur CRP ka full plan samjhaya hai.",
@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cpaVideo2Desc: "GIP campaign se long-term earn karne ke liye full-time business strategy.",
             cpaCard2Title: "📋 Aap Kya Seekhenge",
             cpaLearnContent: "1. TikTok Minis kya hain<br>2. CRP requirements vs GIP Minis<br>3. CRP ke masail aur unka hal<br>4. GIP Minis ke requirements aur faide<br>5. Zero-follower accounts par GIP kyun behtar hai<br>6. GIP Minis ke liye optimized video templates banana",
-            
+
             titleFollowers: "1k Followers Roadmap (Gamers Method)",
             followersCardTitle: "🎯 1000 Followers ki Gaming Strategy",
             followersCardDesc: "1-2 weeks ke andar organically 1k followers complete karne ka safe gamers method. Spam se bachne ke liye steps ko strictly follow karein.",
@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fStep5Desc: "1-2 din wait karein. Jo follow back karein unhein rehne dein, baqiyon ko aahista unfollow karein (ek waqt mein max 20-30).",
             fStep6Title: "Step 6: 10-14 Din mein Target",
             fStep6Desc: "30-50% followback ke hisab se daily 80 follows par 25-40 followers milenge. Aap 10-14 din mein 1000 followers complete kar lenge.",
-            
+
             titleViews: "Views aur Aasan Content Tricks",
             viewsCardTitle: "Views aur Aasan Content ki Strategy",
             viewsCardDesc: "Bina zyada mehnat ke views aur revenue barhany ke liye templates aur editing techniques. Nichey di gayi tricks ko dekhein.",
@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
             viewsVideo2Desc: "GIP campaigns ke liye viral templates dhoondne aur unhein set karne ka tarika.",
             viewsAlertTitle: "Exclusive Side Content Layout",
             viewsAlertDesc: "Is section mein multiple accounts par views barhany ki exclusive strategy shamil hai.",
-            
+
             titlePayouts: "Payouts aur Tax Verification",
             payoutsCard1Title: "Withdrawal Setup: PayPal Kaise Banayein",
             payoutsCard1Desc: "GIP rewards PayPal ke zariye milti hain, is liye Pakistan ya kisi bhi unsupported region se Canada ka working PayPal banane aur verify karne ka tarika dekhein.",
@@ -474,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
             payoutsVideo3Desc: "European accounts ke liye tax document submit karne ki aasan guide.",
             resTaxGuideTitle: "USA Tax Document Guide",
             resTaxDetailsTitle: "Mazeed Tax Details",
-            
+
             titleProblems: "Masail aur Appeals",
             problemsCardTitle: "Video Disqualification aur No Event Solution",
             problemsCardDesc: "Agar videos disqualify ho jayein ya dashboard se GIP Event button gayab ho jaye, to in guidelines ko follow kar ke appeal karein.",
@@ -482,7 +482,7 @@ document.addEventListener('DOMContentLoaded', () => {
             problemsVideo1Desc: "Appeals submit karne ka sahi procedure aur words taake video wapas monetize ho.",
             problemsVideo2Title: "No Event Showing ka Solution",
             problemsVideo2Desc: "Agar system flags ya device settings ki wajah se GIP event show na ho to kya karein.",
-            
+
             titleMulti: "Multiple Accounts aur Mod Updates",
             multiCardTitle: "Multiple Accounts par Safely Kaise Kaam Karen",
             multiCardDesc: "Ek hi device par ek se zyada accounts chala kar earning barhayein. IP link hone aur ban se bachne ke liye ye safety settings follow karein.",
@@ -493,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resAllResTitle: "All Resources Folder",
             resTiktokPluginUpdatedTitle: "TikTok Plugin Updated (v2.22)",
             resDualSpaceTitle: "Dual Space Premium (v5.0.3)",
-            
+
             titleAi: "AI Translated TikTok GIP Course",
             aiCardTitle: "Official TikTok GIP Guidelines (Hindi/Urdu translation)",
             aiCardDesc: "Ye official TikTok database se translated documents hain. Official rules ko samajhne ke liye inhein parhein.",
@@ -501,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resAiStepsTitle: "2. Teen Steps mein Earning",
             resAiMaxTitle: "3. Earnings Zyada Karen",
             resAiWithdrawTitle: "4. Withdraw Kaise Karen",
-            
+
             titleContact: "Rabta",
             contactCard1Title: "📫 Get In Touch",
             contactCard1Desc: "Agar GIP program ke baare mein koi sawal ho, account verify karwana ho, ya followers chahiye hon, to mujhe email karein.",
@@ -520,7 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
             serviceAccTitle: "International Accounts",
             serviceAccDesc: "UK, USA, France, Japan, Germany aur tamam dusre countries ke target region verified accounts available hain.",
             serviceFoot: "Agar aapko in mein se koi service chahiye, to apni details is email par send karein: Abdulhadipro47@gmail.com. Hum jald hi aapse details aur pricing share karenge.",
-            
+
             footerCopy: "© 2026 Abdul Hadi GIP Program. All rights reserved.",
             footerAuthor: "Website created by Hadi Awan",
 
@@ -540,55 +540,33 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyTranslation(lang) {
         const isEnglish = (lang === 'en');
         const dict = i18n[isEnglish ? 'en' : 'roman'];
-        
-        // Update checkbox switch state
+
         if (langToggle) {
             langToggle.checked = isEnglish;
         }
 
-        // Update status text next to the switch
-        if (langStatusText) {
-            langStatusText.textContent = isEnglish ? 'English' : 'Roman';
-        }
-
-        // Apply translations to all data-i18n elements
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (dict[key]) {
                 el.innerHTML = dict[key];
             }
         });
-
-        // Re-sync Low Device Mode UI state labels according to language
-        if (typeof updateLowDeviceUI === 'function') {
-            updateLowDeviceUI(document.body.classList.contains('low-device-mode'));
-        }
     }
 
     // -------------------------------------------------------------
     // 7. LOW DEVICE PERFORMANCE MODE TOGGLE SYSTEM
     // -------------------------------------------------------------
     const lowDeviceToggle = document.getElementById('low-device-toggle');
-    const lowDeviceStatusText = document.getElementById('low-device-status-text');
 
     function updateLowDeviceUI(isLowDevice) {
-        const currentLang = localStorage.getItem('gip_lang') || 'en';
-        const dict = i18n[currentLang === 'en' ? 'en' : 'roman'];
-
         if (lowDeviceToggle) {
             lowDeviceToggle.checked = isLowDevice;
         }
 
         if (isLowDevice) {
             document.body.classList.add('low-device-mode');
-            if (lowDeviceStatusText) {
-                lowDeviceStatusText.textContent = dict.lowDeviceStatusOn || "Fast Mode ⚡";
-            }
         } else {
             document.body.classList.remove('low-device-mode');
-            if (lowDeviceStatusText) {
-                lowDeviceStatusText.textContent = dict.lowDeviceStatusOff || "Normal Mode";
-            }
         }
     }
 
@@ -606,6 +584,19 @@ document.addEventListener('DOMContentLoaded', () => {
             setLowDeviceMode(lowDeviceToggle.checked);
         });
     }
+
+    // Enable clicking anywhere on a setting option row to toggle switch
+    document.querySelectorAll('.setting-option-row').forEach(row => {
+        row.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'LABEL' && !e.target.classList.contains('switch-track')) {
+                const checkbox = row.querySelector('input[type="checkbox"]');
+                if (checkbox) {
+                    checkbox.checked = !checkbox.checked;
+                    checkbox.dispatchEvent(new Event('change'));
+                }
+            }
+        });
+    });
 
     // -------------------------------------------------------------
     // 8. SETTINGS MODAL POPUP SYSTEM
