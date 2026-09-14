@@ -350,6 +350,12 @@ document.addEventListener('DOMContentLoaded', () => {
             settingLangDesc: "Select your preferred language (English / Roman Urdu).",
             settingFastTitle: "Low Device Fast Mode",
             settingFastDesc: "Turns off background blurs & heavy animations for smooth performance.",
+            settingThemeTitle: "App Custom Themes",
+            settingThemeDesc: "Select a custom color theme to transform the entire website appearance.",
+            themeCyber: "Cyber Neon",
+            themeEmerald: "Emerald Mint",
+            themeSapphire: "Ocean Sapphire",
+            themeCrimson: "Royal Sunset",
             btnDone: "Done & Save",
             lowDeviceStatusOff: "Normal Mode",
             lowDeviceStatusOn: "Fast Mode ⚡"
@@ -531,6 +537,12 @@ document.addEventListener('DOMContentLoaded', () => {
             settingLangDesc: "Apni marzi ki zaban select karein (English / Roman Urdu).",
             settingFastTitle: "Halka Mobile (Fast Mode)",
             settingFastDesc: "Low devices ke liye heavy blurs aur animations off karta hai taake mobile fast chale.",
+            settingThemeTitle: "App Custom Themes",
+            settingThemeDesc: "Website ka color theme select karein jo pooray design ko badal dega.",
+            themeCyber: "Cyber Neon",
+            themeEmerald: "Emerald Mint",
+            themeSapphire: "Ocean Sapphire",
+            themeCrimson: "Royal Sunset",
             btnDone: "Save & Close",
             lowDeviceStatusOff: "Normal Mode",
             lowDeviceStatusOn: "Fast Mode ⚡"
@@ -609,8 +621,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openSettingsModal() {
         if (settingsModal) {
+            // Auto close mobile sidebar if active
+            if (sidebar && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                if (toggleBtn) toggleBtn.classList.remove('open');
+                const overlay = document.querySelector('.sidebar-overlay');
+                if (overlay) overlay.classList.remove('show');
+            }
             settingsModal.classList.add('show');
             document.body.style.overflow = 'hidden';
+            settingsModal.scrollTop = 0;
+            const modalBody = settingsModal.querySelector('.settings-modal-body');
+            if (modalBody) modalBody.scrollTop = 0;
         }
     }
 
@@ -638,6 +660,39 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && settingsModal && settingsModal.classList.contains('show')) {
             closeSettingsModal();
         }
+    });
+
+    // -------------------------------------------------------------
+    // 9. DYNAMIC APP THEME ENGINE
+    // -------------------------------------------------------------
+    const themeButtons = document.querySelectorAll('.theme-card-btn');
+
+    function applyTheme(themeName) {
+        const validThemes = ['cyber', 'emerald', 'sapphire', 'crimson'];
+        const selectedTheme = validThemes.includes(themeName) ? themeName : 'cyber';
+
+        document.documentElement.setAttribute('data-theme', selectedTheme);
+        localStorage.setItem('gip_theme', selectedTheme);
+
+        themeButtons.forEach(btn => {
+            if (btn.getAttribute('data-theme-val') === selectedTheme) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+    // Load initial theme preference
+    const savedTheme = localStorage.getItem('gip_theme') || 'cyber';
+    applyTheme(savedTheme);
+
+    themeButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const themeVal = btn.getAttribute('data-theme-val');
+            applyTheme(themeVal);
+        });
     });
 
     // Load initial language preference
