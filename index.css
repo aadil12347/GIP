@@ -1202,5 +1202,336 @@ section h2.section-title::before {
     opacity: 1;
 }
 
+/* Sidebar Widgets Container */
+.sidebar-widgets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.low-device-widget {
+    margin-top: 0 !important;
+}
+
+/* Hero Section Fast Mode Button */
+.low-device-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #fcd34d;
+    padding: 0.55rem 1.15rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.low-device-hero-btn:hover {
+    background: rgba(245, 158, 11, 0.22);
+    border-color: rgba(245, 158, 11, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+}
+
+.low-device-hero-btn.active {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border-color: transparent;
+    color: #0c0a15;
+    box-shadow: 0 0 18px rgba(245, 158, 11, 0.5);
+}
+
+/* ======================================================
+   LOW DEVICE / FAST PERFORMANCE MODE OVERRIDES
+   ====================================================== */
+body.low-device-mode {
+    background-color: #0c0a15 !important;
+    background-image: none !important;
+}
+
+body.low-device-mode .glass-bg-blobs {
+    display: none !important;
+}
+
+body.low-device-mode *,
+body.low-device-mode *::before,
+body.low-device-mode *::after {
+    animation: none !important;
+    transition: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+body.low-device-mode aside {
+    background: #141026 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.low-device-mode .card {
+    background: #141026 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transform: none !important;
+}
+
+body.low-device-mode .card:hover {
+    transform: none !important;
+    border-color: var(--accent-purple) !important;
+}
+
+body.low-device-mode .resource-card {
+    background: #1e293b !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transform: none !important;
+}
+
+body.low-device-mode .resource-card:hover {
+    transform: none !important;
+}
+
+body.low-device-mode .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+body.low-device-mode .liquid-scroll-bar {
+    background: var(--accent-purple) !important;
+}
+
+body.low-device-mode .mobile-nav-toggle {
+    background: #141026 !important;
+}
+
+/* Sidebar Footer Settings Button */
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-settings-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sidebar-settings-btn:hover {
+    background: rgba(244, 63, 94, 0.12);
+    border-color: rgba(244, 63, 94, 0.3);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+/* Hero Section Settings Button */
+.hero-settings-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-primary);
+    padding: 0.55rem 1.15rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-settings-btn:hover {
+    background: rgba(244, 63, 94, 0.15);
+    border-color: rgba(244, 63, 94, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 63, 94, 0.25);
+}
+
+.hero-settings-btn svg {
+    transition: transform 0.4s ease;
+}
+
+.hero-settings-btn:hover svg {
+    transform: rotate(60deg);
+}
+
+/* ======================================================
+   SETTINGS MODAL POPUP STYLING
+   ====================================================== */
+.settings-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 7, 18, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.settings-modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.settings-modal-card {
+    background: rgba(20, 16, 38, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 520px;
+    padding: 2rem;
+    box-shadow: 
+        0 25px 80px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(244, 63, 94, 0.15);
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.settings-modal-overlay.show .settings-modal-card {
+    transform: scale(1) translateY(0);
+}
+
+.settings-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.settings-modal-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.settings-close-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.settings-close-btn:hover {
+    background: rgba(244, 63, 94, 0.2);
+    border-color: rgba(244, 63, 94, 0.4);
+    color: white;
+    transform: scale(1.08);
+}
+
+.settings-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.setting-option-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.setting-option-info {
+    flex-grow: 1;
+}
+
+.setting-option-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.setting-option-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.setting-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 0.25rem 0;
+}
+
+.settings-modal-footer {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.settings-done-btn {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    border: none;
+    color: white;
+    padding: 0.65rem 1.75rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(244, 63, 94, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.settings-done-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(244, 63, 94, 0.5);
+}
+
+body.low-device-mode .settings-modal-overlay {
+    backdrop-filter: none !important;
+    background: rgba(9, 7, 18, 0.9) !important;
+}
+
+body.low-device-mode .settings-modal-card {
+    background: #141026 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+}
+
+
+
 
 

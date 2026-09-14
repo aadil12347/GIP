@@ -341,7 +341,18 @@ document.addEventListener('DOMContentLoaded', () => {
             serviceFoot: "If you require any of these services or have a custom request, please send a message with your specifications to our email: Abdulhadipro47@gmail.com. We will get back to you with the custom setup details and pricing.",
             
             footerCopy: "© 2026 Abdul Hadi GIP Program. All rights reserved.",
-            footerAuthor: "Website created by Hadi Awan"
+            footerAuthor: "Website created by Hadi Awan",
+
+            navSettings: "Settings",
+            btnSettings: "Settings",
+            settingsTitle: "Website Settings",
+            settingLangTitle: "Language Mode",
+            settingLangDesc: "Select your preferred language (English / Roman Urdu).",
+            settingFastTitle: "Low Device Fast Mode",
+            settingFastDesc: "Turns off background blurs & heavy animations for smooth performance.",
+            btnDone: "Done & Save",
+            lowDeviceStatusOff: "Normal Mode",
+            lowDeviceStatusOn: "Fast Mode ⚡"
         },
         roman: {
             widgetTitle: "Language Mode",
@@ -511,7 +522,18 @@ document.addEventListener('DOMContentLoaded', () => {
             serviceFoot: "Agar aapko in mein se koi service chahiye, to apni details is email par send karein: Abdulhadipro47@gmail.com. Hum jald hi aapse details aur pricing share karenge.",
             
             footerCopy: "© 2026 Abdul Hadi GIP Program. All rights reserved.",
-            footerAuthor: "Website created by Hadi Awan"
+            footerAuthor: "Website created by Hadi Awan",
+
+            navSettings: "Settings",
+            btnSettings: "Settings",
+            settingsTitle: "Website Settings",
+            settingLangTitle: "Zaban (Language)",
+            settingLangDesc: "Apni marzi ki zaban select karein (English / Roman Urdu).",
+            settingFastTitle: "Halka Mobile (Fast Mode)",
+            settingFastDesc: "Low devices ke liye heavy blurs aur animations off karta hai taake mobile fast chale.",
+            btnDone: "Save & Close",
+            lowDeviceStatusOff: "Normal Mode",
+            lowDeviceStatusOn: "Fast Mode ⚡"
         }
     };
 
@@ -536,9 +558,98 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.innerHTML = dict[key];
             }
         });
+
+        // Re-sync Low Device Mode UI state labels according to language
+        if (typeof updateLowDeviceUI === 'function') {
+            updateLowDeviceUI(document.body.classList.contains('low-device-mode'));
+        }
     }
 
-    // Load initial preference
+    // -------------------------------------------------------------
+    // 7. LOW DEVICE PERFORMANCE MODE TOGGLE SYSTEM
+    // -------------------------------------------------------------
+    const lowDeviceToggle = document.getElementById('low-device-toggle');
+    const lowDeviceStatusText = document.getElementById('low-device-status-text');
+
+    function updateLowDeviceUI(isLowDevice) {
+        const currentLang = localStorage.getItem('gip_lang') || 'en';
+        const dict = i18n[currentLang === 'en' ? 'en' : 'roman'];
+
+        if (lowDeviceToggle) {
+            lowDeviceToggle.checked = isLowDevice;
+        }
+
+        if (isLowDevice) {
+            document.body.classList.add('low-device-mode');
+            if (lowDeviceStatusText) {
+                lowDeviceStatusText.textContent = dict.lowDeviceStatusOn || "Fast Mode ⚡";
+            }
+        } else {
+            document.body.classList.remove('low-device-mode');
+            if (lowDeviceStatusText) {
+                lowDeviceStatusText.textContent = dict.lowDeviceStatusOff || "Normal Mode";
+            }
+        }
+    }
+
+    function setLowDeviceMode(enabled) {
+        localStorage.setItem('gip_low_device', enabled ? 'true' : 'false');
+        updateLowDeviceUI(enabled);
+    }
+
+    // Load initial Low Device preference
+    const savedLowDevice = localStorage.getItem('gip_low_device') === 'true';
+    updateLowDeviceUI(savedLowDevice);
+
+    if (lowDeviceToggle) {
+        lowDeviceToggle.addEventListener('change', () => {
+            setLowDeviceMode(lowDeviceToggle.checked);
+        });
+    }
+
+    // -------------------------------------------------------------
+    // 8. SETTINGS MODAL POPUP SYSTEM
+    // -------------------------------------------------------------
+    const settingsModal = document.getElementById('settings-modal');
+    const openSettingsBtn = document.getElementById('open-settings-btn');
+    const heroSettingsBtn = document.getElementById('hero-settings-btn');
+    const closeSettingsBtn = document.getElementById('close-settings-btn');
+    const saveSettingsBtn = document.getElementById('save-settings-btn');
+
+    function openSettingsModal() {
+        if (settingsModal) {
+            settingsModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeSettingsModal() {
+        if (settingsModal) {
+            settingsModal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (openSettingsBtn) openSettingsBtn.addEventListener('click', openSettingsModal);
+    if (heroSettingsBtn) heroSettingsBtn.addEventListener('click', openSettingsModal);
+    if (closeSettingsBtn) closeSettingsBtn.addEventListener('click', closeSettingsModal);
+    if (saveSettingsBtn) saveSettingsBtn.addEventListener('click', closeSettingsModal);
+
+    if (settingsModal) {
+        settingsModal.addEventListener('click', (e) => {
+            if (e.target === settingsModal) {
+                closeSettingsModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && settingsModal && settingsModal.classList.contains('show')) {
+            closeSettingsModal();
+        }
+    });
+
+    // Load initial language preference
     const savedLang = localStorage.getItem('gip_lang') || 'en';
     applyTranslation(savedLang);
 
@@ -551,3 +662,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+

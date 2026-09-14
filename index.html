@@ -113,17 +113,15 @@
                 </a></li>
         </ul>
 
-        <!-- Translation Toggle Widget -->
-        <div class="translation-widget">
-            <span class="lang-status" id="lang-status-text">English</span>
-            <label class="theme-switch">
-                <input type="checkbox" id="lang-toggle" checked>
-                <span class="slider">
-                    <span class="flag-icon left-flag">🇵🇰</span>
-                    <span class="flag-icon right-flag">🇬🇧</span>
-                    <span class="slider-ball"></span>
-                </span>
-            </label>
+        <!-- Sidebar Footer Settings Button -->
+        <div class="sidebar-footer">
+            <button class="sidebar-settings-btn" id="open-settings-btn" type="button">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span data-i18n="navSettings">Settings</span>
+            </button>
         </div>
     </aside>
 
@@ -144,6 +142,13 @@
                         <line x1="3" y1="18" x2="21" y2="18"></line>
                     </svg>
                     <span data-i18n="btnModules">Course Modules</span>
+                </button>
+                <button class="hero-settings-btn" id="hero-settings-btn" type="button">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    <span data-i18n="btnSettings">Settings</span>
                 </button>
                 <div class="mentor-badge" style="margin-bottom: 0;">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -814,6 +819,71 @@
             <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted); opacity: 0.7;" data-i18n="footerAuthor">Website created by Hadi Awan</p>
         </footer>
     </main>
+
+    <!-- Settings Modal Overlay Popup -->
+    <div class="settings-modal-overlay" id="settings-modal">
+        <div class="settings-modal-card">
+            <div class="settings-modal-header">
+                <div class="settings-modal-title">
+                    <span class="settings-icon">⚙️</span>
+                    <span data-i18n="settingsTitle">Website Settings</span>
+                </div>
+                <button class="settings-close-btn" id="close-settings-btn" aria-label="Close Settings">&times;</button>
+            </div>
+
+            <div class="settings-modal-body">
+                <!-- 1. Language Setting Row -->
+                <div class="setting-option-row">
+                    <div class="setting-option-info">
+                        <div class="setting-option-title">
+                            <span>🌐</span>
+                            <span data-i18n="settingLangTitle">Language Mode</span>
+                        </div>
+                        <p class="setting-option-desc" data-i18n="settingLangDesc">Select your preferred language (English / Roman Urdu).</p>
+                    </div>
+                    <div class="translation-widget">
+                        <span class="lang-status" id="lang-status-text">English</span>
+                        <label class="theme-switch">
+                            <input type="checkbox" id="lang-toggle" checked>
+                            <span class="slider">
+                                <span class="flag-icon left-flag">🇵🇰</span>
+                                <span class="flag-icon right-flag">🇬🇧</span>
+                                <span class="slider-ball"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-divider"></div>
+
+                <!-- 2. Fast Mode Setting Row -->
+                <div class="setting-option-row">
+                    <div class="setting-option-info">
+                        <div class="setting-option-title">
+                            <span>⚡</span>
+                            <span data-i18n="settingFastTitle">Low Device Fast Mode</span>
+                        </div>
+                        <p class="setting-option-desc" data-i18n="settingFastDesc">Turns off background blurs & heavy animations for smooth performance.</p>
+                    </div>
+                    <div class="translation-widget low-device-widget">
+                        <span class="lang-status" id="low-device-status-text" data-i18n="lowDeviceStatusOff">Normal Mode</span>
+                        <label class="theme-switch low-device-switch">
+                            <input type="checkbox" id="low-device-toggle">
+                            <span class="slider">
+                                <span class="flag-icon left-flag">🐢</span>
+                                <span class="flag-icon right-flag">⚡</span>
+                                <span class="slider-ball"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-modal-footer">
+                <button class="settings-done-btn" id="save-settings-btn" data-i18n="btnDone">Done & Save</button>
+            </div>
+        </div>
+    </div>
 
     <script src="app.js?v=1.3"></script>
 </body>
