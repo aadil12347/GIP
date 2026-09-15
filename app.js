@@ -1067,6 +1067,32 @@ document.addEventListener('DOMContentLoaded', () => {
             performLiveSearch('');
         });
     });
+
+    // -------------------------------------------------------------
+    // 12. FLOATING SCROLL TO TOP ENGINE
+    // -------------------------------------------------------------
+    const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 250) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            scrollToTopBtn.blur();
+            if (document.activeElement) {
+                document.activeElement.blur();
+            }
+        });
+    }
 });
 
 
