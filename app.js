@@ -358,7 +358,27 @@ document.addEventListener('DOMContentLoaded', () => {
             themeCrimson: "Royal Sunset",
             btnDone: "Done & Save",
             lowDeviceStatusOff: "Normal Mode",
-            lowDeviceStatusOn: "Fast Mode ⚡"
+            lowDeviceStatusOn: "Fast Mode ⚡",
+
+            progressTitle: "Overall Course Progress",
+            progressStatusLocked: "Incomplete",
+            progressStatusUnlocked: "Completed 100% 🎉",
+            btnClaimCert: "Claim Certificate",
+            btnMarkComplete: "Mark as Watched",
+            btnMarkedDone: "Watched ✓",
+            certModalTitle: "TikTok GIP Masterclass Certificate",
+            certNameLabel: "Enter Your Full Name for Certificate:",
+            btnUpdateName: "Update",
+            certPresentedTo: "This is to proudly certify that",
+            certDescText: "Has successfully completed the comprehensive step-by-step masterclass on <strong>TikTok Gaming Incentive Program (GIP) 2026</strong> including Account Setup, Region Target Optimization, 1k Followers Roadmap, CPA Campaign Monetization & Tax Verification.",
+            certMentorSign: "Hadi Awan (Course Instructor)",
+            certDateLbl: "Date Issued:",
+            certIdLbl: "Verification ID:",
+            btnPrintCert: "Print / Save PDF",
+            btnClose: "Close",
+            searchPlaceholder: "Search course...",
+            searchPlaceholderHero: "Search course topics (e.g. PayPal, Tax, Warm Up, Plugin)...",
+            lblMatchesFound: "matches found"
         },
         roman: {
             widgetTitle: "Language Mode",
@@ -545,7 +565,27 @@ document.addEventListener('DOMContentLoaded', () => {
             themeCrimson: "Royal Sunset",
             btnDone: "Save & Close",
             lowDeviceStatusOff: "Normal Mode",
-            lowDeviceStatusOn: "Fast Mode ⚡"
+            lowDeviceStatusOn: "Fast Mode ⚡",
+
+            progressTitle: "Course ki Overall Progress",
+            progressStatusLocked: "Aadhori Progress",
+            progressStatusUnlocked: "100% Complete ho gaya 🎉",
+            btnClaimCert: "Certificate Hasil Karen",
+            btnMarkComplete: "Mark as Watched",
+            btnMarkedDone: "Dekh Liya ✓",
+            certModalTitle: "TikTok GIP Masterclass Certificate",
+            certNameLabel: "Certificate ke liye apna Naam Likhein:",
+            btnUpdateName: "Update",
+            certPresentedTo: "Ye Certificate sanad ke tor par diya jata hai ke",
+            certDescText: "Unhon ne <strong>TikTok Gaming Incentive Program (GIP) 2026</strong> ka poora course kamyabi se complete kar liya hai jisme Account Setup, Regional Targeting, 1k Followers Strategy, CPA Campaigns, aur Tax Verification shamil hain.",
+            certMentorSign: "Hadi Awan (Course Mentor)",
+            certDateLbl: "Date Issued:",
+            certIdLbl: "Verification ID:",
+            btnPrintCert: "Print / Save PDF",
+            btnClose: "Band Karein",
+            searchPlaceholder: "Course search karein...",
+            searchPlaceholderHero: "Course topics search karein (e.g. PayPal, Tax, Warm Up)...",
+            lblMatchesFound: "matches mile"
         }
     };
 
@@ -561,6 +601,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const key = el.getAttribute('data-i18n');
             if (dict[key]) {
                 el.innerHTML = dict[key];
+            }
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (dict[key]) {
+                el.placeholder = dict[key];
             }
         });
     }
@@ -699,14 +746,266 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('gip_lang') || 'en';
     applyTranslation(savedLang);
 
-    // Event listener for the language toggle switch
-    if (langToggle) {
-        langToggle.addEventListener('change', () => {
-            const selectedLang = langToggle.checked ? 'en' : 'roman';
-            localStorage.setItem('gip_lang', selectedLang);
-            applyTranslation(selectedLang);
+    // -------------------------------------------------------------
+    // 10. COURSE PROGRESS TRACKER & CERTIFICATE ENGINE
+    // -------------------------------------------------------------
+    const progressFill = document.getElementById('course-progress-fill');
+    const progressPercentText = document.getElementById('progress-percentage-text');
+    const progressModulesCount = document.getElementById('progress-modules-count');
+    const progressStatusBadge = document.getElementById('progress-status-badge');
+    const claimCertBtn = document.getElementById('claim-cert-btn');
+
+    // 1. Attach Video Watched toggle buttons to all video-info elements
+    const videoInfos = document.querySelectorAll('.video-info');
+    videoInfos.forEach((info, index) => {
+        const vidId = `gip_vid_${index + 1}`;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'video-complete-toggle';
+        btn.setAttribute('data-video-id', vidId);
+
+        const isWatched = localStorage.getItem(`gip_vid_check_${vidId}`) === 'true';
+        const currentLang = localStorage.getItem('gip_lang') || 'en';
+
+        if (isWatched) {
+            btn.classList.add('completed');
+            const doneText = currentLang === 'roman' ? 'Dekh Liya ✓' : 'Watched ✓';
+            btn.innerHTML = `<span class="check-icon">✓</span> <span class="label-text" data-i18n="btnMarkedDone">${doneText}</span>`;
+        } else {
+            const completeText = 'Mark as Watched';
+            btn.innerHTML = `<span class="check-icon">○</span> <span class="label-text" data-i18n="btnMarkComplete">${completeText}</span>`;
+        }
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const nowWatched = !btn.classList.contains('completed');
+            btn.classList.toggle('completed', nowWatched);
+            localStorage.setItem(`gip_vid_check_${vidId}`, nowWatched ? 'true' : 'false');
+
+            const lang = localStorage.getItem('gip_lang') || 'en';
+            const doneText = lang === 'roman' ? 'Dekh Liya ✓' : 'Watched ✓';
+            const completeText = 'Mark as Watched';
+
+            if (nowWatched) {
+                btn.innerHTML = `<span class="check-icon">✓</span> <span class="label-text" data-i18n="btnMarkedDone">${doneText}</span>`;
+            } else {
+                btn.innerHTML = `<span class="check-icon">○</span> <span class="label-text" data-i18n="btnMarkComplete">${completeText}</span>`;
+            }
+
+            updateCourseProgress();
+        });
+
+        info.appendChild(btn);
+    });
+
+    // 2. Global Progress Calculation
+    function updateCourseProgress() {
+        const totalChecklists = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+        let completedChecklists = 0;
+        totalChecklists.forEach(chk => { if (chk.checked) completedChecklists++; });
+
+        const videoToggles = document.querySelectorAll('.video-complete-toggle');
+        let completedVideos = 0;
+        videoToggles.forEach(btn => { if (btn.classList.contains('completed')) completedVideos++; });
+
+        const totalTasks = totalChecklists.length + videoToggles.length;
+        const completedTasks = completedChecklists + completedVideos;
+        const percentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+
+        if (progressFill) progressFill.style.width = `${percentage}%`;
+        if (progressPercentText) progressPercentText.textContent = `${percentage}%`;
+
+        const currentLang = localStorage.getItem('gip_lang') || 'en';
+        if (progressModulesCount) {
+            progressModulesCount.textContent = `${completedTasks} of ${totalTasks} Tasks Completed`;
+        }
+
+        if (progressStatusBadge) {
+            if (percentage === 100) {
+                progressStatusBadge.className = 'progress-status-badge unlocked';
+                progressStatusBadge.textContent = currentLang === 'roman' ? '100% Complete ho gaya 🎉' : 'Completed 100% 🎉';
+                if (claimCertBtn) claimCertBtn.classList.add('pulse-gold');
+            } else {
+                progressStatusBadge.className = 'progress-status-badge locked';
+                progressStatusBadge.textContent = currentLang === 'roman'
+                    ? `Aadhori Progress (${percentage}%)`
+                    : `Progress Incomplete (${percentage}%)`;
+                if (claimCertBtn) claimCertBtn.classList.remove('pulse-gold');
+            }
+        }
+    }
+
+    // Connect existing checklist toggle events to progress update
+    document.querySelectorAll('.checklist-item').forEach(item => {
+        item.addEventListener('click', () => {
+            setTimeout(updateCourseProgress, 50);
+        });
+    });
+
+    // Initial Progress calculation
+    updateCourseProgress();
+
+    // 3. Certificate Modal & Generator Logic
+    const certModal = document.getElementById('cert-modal');
+    const closeCertBtn = document.getElementById('close-cert-btn');
+    const closeCertFooterBtn = document.getElementById('close-cert-footer-btn');
+    const printCertBtn = document.getElementById('print-cert-btn');
+    const certUserNameInput = document.getElementById('cert-user-name');
+    const btnUpdateCertName = document.getElementById('btn-update-cert-name');
+    const certDisplayName = document.getElementById('cert-display-name');
+    const certIssueDate = document.getElementById('cert-issue-date');
+    const certVerificationId = document.getElementById('cert-verification-id');
+
+    // Generate static date & unique verification code
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    if (certIssueDate) certIssueDate.textContent = formattedDate;
+
+    let certId = localStorage.getItem('gip_cert_id');
+    if (!certId) {
+        certId = 'GIP-' + today.getFullYear() + '-' + Math.random().toString(36).substring(2, 7).toUpperCase();
+        localStorage.setItem('gip_cert_id', certId);
+    }
+    if (certVerificationId) certVerificationId.textContent = certId;
+
+    // Load saved user name (auto-clears any legacy 'HAIDER ALI' from localStorage)
+    let savedName = localStorage.getItem('gip_cert_name');
+    if (!savedName || savedName.toUpperCase().includes('HAIDER')) {
+        savedName = 'Hadi Awan';
+        localStorage.setItem('gip_cert_name', savedName);
+    }
+    if (certUserNameInput) certUserNameInput.value = savedName;
+    if (certDisplayName) certDisplayName.textContent = savedName.toUpperCase();
+
+    function updateCertificateName(isBlur = false) {
+        if (certUserNameInput && certDisplayName) {
+            let typedVal = certUserNameInput.value;
+            let displayVal = typedVal.trim();
+
+            if (isBlur && !displayVal) {
+                displayVal = 'Hadi Awan';
+                certUserNameInput.value = displayVal;
+            }
+
+            // Clean legacy HAIDER if present
+            if (displayVal.toUpperCase().includes('HAIDER')) {
+                displayVal = 'Hadi Awan';
+                certUserNameInput.value = displayVal;
+            }
+
+            certDisplayName.textContent = (displayVal || 'HADI AWAN').toUpperCase();
+            if (displayVal) {
+                localStorage.setItem('gip_cert_name', displayVal);
+            }
+        }
+    }
+
+    if (btnUpdateCertName) btnUpdateCertName.addEventListener('click', () => updateCertificateName(true));
+    if (certUserNameInput) {
+        certUserNameInput.addEventListener('input', () => updateCertificateName(false));
+        certUserNameInput.addEventListener('blur', () => updateCertificateName(true));
+    }
+
+    function openCertModal() {
+        if (certModal) {
+            certModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeCertModal() {
+        if (certModal) {
+            certModal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (claimCertBtn) claimCertBtn.addEventListener('click', openCertModal);
+    if (closeCertBtn) closeCertBtn.addEventListener('click', closeCertModal);
+    if (closeCertFooterBtn) closeCertFooterBtn.addEventListener('click', closeCertModal);
+
+    if (certModal) {
+        certModal.addEventListener('click', (e) => {
+            if (e.target === certModal) closeCertModal();
         });
     }
+
+    if (printCertBtn) {
+        printCertBtn.addEventListener('click', () => {
+            window.print();
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && certModal && certModal.classList.contains('show')) {
+            closeCertModal();
+        }
+    });
+
+    // -------------------------------------------------------------
+    // 11. LIVE SEARCH BAR FILTER ENGINE
+    // -------------------------------------------------------------
+    const sidebarSearchInput = document.querySelector('.sidebar-search-input');
+    const heroSearchInput = document.querySelector('.hero-search-input');
+    const searchClearBtns = document.querySelectorAll('.search-clear-btn');
+    const searchResultsBadge = document.getElementById('search-results-badge');
+    const searchCountNumber = document.getElementById('search-count-number');
+
+    const searchableCards = document.querySelectorAll('.card, .resource-card, .checklist-item');
+
+    function performLiveSearch(query) {
+        const term = query.toLowerCase().trim();
+
+        // Synchronize search input values
+        if (sidebarSearchInput && sidebarSearchInput.value !== query) sidebarSearchInput.value = query;
+        if (heroSearchInput && heroSearchInput.value !== query) heroSearchInput.value = query;
+
+        // Toggle clear buttons visibility
+        searchClearBtns.forEach(btn => {
+            btn.classList.toggle('show', term.length > 0);
+        });
+
+        if (!term) {
+            // Clear search - reset all cards
+            searchableCards.forEach(card => {
+                card.classList.remove('search-matched', 'search-hidden');
+            });
+            if (searchResultsBadge) searchResultsBadge.style.display = 'none';
+            return;
+        }
+
+        let matchCount = 0;
+        searchableCards.forEach(card => {
+            const textContent = card.textContent.toLowerCase();
+            if (textContent.includes(term)) {
+                card.classList.add('search-matched');
+                card.classList.remove('search-hidden');
+                matchCount++;
+            } else {
+                card.classList.remove('search-matched');
+                card.classList.add('search-hidden');
+            }
+        });
+
+        if (searchResultsBadge && searchCountNumber) {
+            searchCountNumber.textContent = matchCount;
+            searchResultsBadge.style.display = 'inline-flex';
+        }
+    }
+
+    if (sidebarSearchInput) {
+        sidebarSearchInput.addEventListener('input', (e) => performLiveSearch(e.target.value));
+    }
+
+    if (heroSearchInput) {
+        heroSearchInput.addEventListener('input', (e) => performLiveSearch(e.target.value));
+    }
+
+    searchClearBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            performLiveSearch('');
+        });
+    });
 });
 
 

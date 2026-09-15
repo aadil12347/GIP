@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIKTOK GIP COURSE - GIP Complete Guide</title>
-    <link rel="stylesheet" href="index.css?v=1.3">
+    <link rel="stylesheet" href="index.css?v=1.5">
 </head>
 
 <body>
@@ -33,6 +33,19 @@
         <div class="logo-area">
             <div class="logo-icon">CBA</div>
             <div class="logo-text">CheatsByHadi</div>
+        </div>
+
+        <!-- Sidebar Search Widget -->
+        <div class="sidebar-search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="search-input sidebar-search-input" placeholder="Search course..." data-i18n-placeholder="searchPlaceholder">
+            <button type="button" class="search-clear-btn" aria-label="Clear Search">&times;</button>
+        </div>
+        <div class="search-results-badge sidebar-search-badge" id="search-results-badge" style="display: none;">
+            <span id="search-count-number">0</span> <span data-i18n="lblMatchesFound">matches found</span>
         </div>
 
         <ul class="nav-links">
@@ -164,6 +177,34 @@
                     <span data-i18n="mentorLabel">Mentor: Hadi Awan</span>
                 </div>
             </div>
+
+            <!-- Course Progress Bar Widget -->
+            <div class="course-progress-card">
+                <div class="progress-info-row">
+                    <div class="progress-title-wrap">
+                        <span class="progress-icon">🎓</span>
+                        <div>
+                            <div class="progress-label" data-i18n="progressTitle">Overall Course Progress</div>
+                            <div class="progress-subtext" id="progress-modules-count">0 of 21 Tasks Completed</div>
+                        </div>
+                    </div>
+                    <div class="progress-percent-wrap">
+                        <span class="progress-number" id="progress-percentage-text">0%</span>
+                    </div>
+                </div>
+                <div class="progress-bar-track">
+                    <div class="progress-bar-fill" id="course-progress-fill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-action-row">
+                    <span class="progress-status-badge locked" id="progress-status-badge"
+                        data-i18n="progressStatusLocked">Progress Incomplete (0%)</span>
+                    <button class="claim-certificate-btn" id="claim-cert-btn" type="button">
+                        <span>🎖️</span>
+                        <span data-i18n="btnClaimCert">Claim Certificate</span>
+                    </button>
+                </div>
+            </div>
+
             <div class="alert-box hero-alert">
                 <div class="alert-icon">📘</div>
                 <div class="alert-content">
@@ -986,7 +1027,8 @@
                             <span>🌐</span>
                             <span data-i18n="settingLangTitle">Language Mode</span>
                         </div>
-                        <p class="setting-option-desc" data-i18n="settingLangDesc">Select your preferred language (English / Roman Urdu).</p>
+                        <p class="setting-option-desc" data-i18n="settingLangDesc">Select your preferred language
+                            (English / Roman Urdu).</p>
                     </div>
                     <div class="modern-toggle-box">
                         <label class="modern-switch">
@@ -1007,7 +1049,8 @@
                             <span>⚡</span>
                             <span data-i18n="settingFastTitle">Low Device Fast Mode</span>
                         </div>
-                        <p class="setting-option-desc" data-i18n="settingFastDesc">Turns off background blurs & heavy animations for smooth performance.</p>
+                        <p class="setting-option-desc" data-i18n="settingFastDesc">Turns off background blurs & heavy
+                            animations for smooth performance.</p>
                     </div>
                     <div class="modern-toggle-box">
                         <label class="modern-switch">
@@ -1027,7 +1070,8 @@
                         <span>🎨</span>
                         <span data-i18n="settingThemeTitle">App Custom Themes</span>
                     </div>
-                    <p class="setting-option-desc" style="margin-bottom: 0.85rem;" data-i18n="settingThemeDesc">Select a custom color theme to transform the entire website appearance.</p>
+                    <p class="setting-option-desc" style="margin-bottom: 0.85rem;" data-i18n="settingThemeDesc">Select a
+                        custom color theme to transform the entire website appearance.</p>
 
                     <div class="theme-options-grid">
                         <button class="theme-card-btn active" data-theme-val="cyber" type="button">
@@ -1063,7 +1107,95 @@
         </div>
     </div>
 
-    <script src="app.js?v=1.3"></script>
+    <!-- Certificate Modal Overlay Popup -->
+    <div class="settings-modal-overlay" id="cert-modal">
+        <div class="settings-modal-card cert-modal-card">
+            <div class="settings-modal-header">
+                <div class="settings-modal-title">
+                    <span class="settings-icon">🏆</span>
+                    <span data-i18n="certModalTitle">TikTok GIP Masterclass Certificate</span>
+                </div>
+                <button class="settings-close-btn" id="close-cert-btn" aria-label="Close Certificate">&times;</button>
+            </div>
+
+            <div class="settings-modal-body cert-modal-body">
+                <!-- User Name Input Box -->
+                <div class="cert-input-wrap">
+                    <label for="cert-user-name" data-i18n="certNameLabel">Enter Your Full Name for Certificate:</label>
+                    <div class="cert-input-row">
+                        <input type="text" id="cert-user-name" placeholder="e.g. Hadi Awan" maxlength="40">
+                        <button type="button" class="btn-update-cert-name" id="btn-update-cert-name"
+                            data-i18n="btnUpdateName">Update</button>
+                    </div>
+                </div>
+
+                <!-- Printable & Downloadable Certificate Frame -->
+                <div class="certificate-frame" id="printable-certificate">
+                    <div class="cert-border-outer">
+                        <div class="cert-border-inner">
+                            <div class="cert-watermark">GIP</div>
+
+                            <div class="cert-top-branding">
+                                <div class="cert-logo">CHEATS BY HADI</div>
+                                <div class="cert-badge-gold">VERIFIED CREATOR MASTERCLASS</div>
+                            </div>
+
+                            <h1 class="cert-main-title">CERTIFICATE OF COMPLETION</h1>
+                            <p class="cert-subtitle" data-i18n="certPresentedTo">This is to proudly certify that</p>
+
+                            <div class="cert-recipient-name" id="cert-display-name">STUDENT NAME</div>
+
+                            <p class="cert-description" data-i18n="certDescText">
+                                Has successfully completed the comprehensive step-by-step masterclass on
+                                <strong>TikTok Gaming Incentive Program (GIP) 2026</strong> including Account Setup,
+                                Region Target Optimization, 1k Followers Roadmap, CPA Campaign Monetization & Tax
+                                Verification.
+                            </p>
+
+                            <div class="cert-footer-row">
+                                <div class="cert-sign-col">
+                                    <div class="cert-signature-line">Hadi Awan</div>
+                                    <div class="cert-sign-role" data-i18n="certMentorSign">Hadi Awan (Course Instructor)</div>
+                                </div>
+
+                                <div class="cert-seal-col">
+                                    <div class="cert-official-seal">
+                                        <div class="seal-inner">
+                                            <span>OFFICIAL</span>
+                                            <span class="seal-star">★ GIP ★</span>
+                                            <span>VERIFIED</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cert-meta-col">
+                                    <div class="cert-meta-item">
+                                        <span class="meta-lbl" data-i18n="certDateLbl">Date Issued:</span>
+                                        <span class="meta-val" id="cert-issue-date">Sept 15, 2026</span>
+                                    </div>
+                                    <div class="cert-meta-item">
+                                        <span class="meta-lbl" data-i18n="certIdLbl">Verification ID:</span>
+                                        <span class="meta-val" id="cert-verification-id">GIP-2026-89F12</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-modal-footer">
+                <button class="settings-done-btn cert-print-btn" id="print-cert-btn" type="button">
+                    <span>🖨️</span>
+                    <span data-i18n="btnPrintCert">Print / Save PDF</span>
+                </button>
+                <button class="settings-close-btn-footer" id="close-cert-footer-btn" type="button"
+                    data-i18n="btnClose">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=1.5"></script>
 </body>
 
 </html>
