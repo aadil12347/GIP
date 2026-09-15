@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIKTOK GIP COURSE - GIP Complete Guide</title>
-    <link rel="stylesheet" href="index.css?v=1.5">
+    <link rel="stylesheet" href="index.css?v=1.9">
 </head>
 
 <body>
@@ -124,6 +124,13 @@
                     </svg>
                     <span data-i18n="navContact">Contact Me</span>
                 </a></li>
+            <li><a href="javascript:void(0)" id="sidebar-cert-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="8" r="7" />
+                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                    </svg>
+                    <span data-i18n="navCert">Masterclass Certificate</span>
+                </a></li>
         </ul>
 
         <!-- Sidebar Footer Settings Button -->
@@ -194,14 +201,6 @@
                 </div>
                 <div class="progress-bar-track">
                     <div class="progress-bar-fill" id="course-progress-fill" style="width: 0%;"></div>
-                </div>
-                <div class="progress-action-row">
-                    <span class="progress-status-badge locked" id="progress-status-badge"
-                        data-i18n="progressStatusLocked">Progress Incomplete (0%)</span>
-                    <button class="claim-certificate-btn" id="claim-cert-btn" type="button">
-                        <span>🎖️</span>
-                        <span data-i18n="btnClaimCert">Claim Certificate</span>
-                    </button>
                 </div>
             </div>
 
@@ -774,8 +773,7 @@
                         </div>
                         <div class="video-info">
                             <h4 data-i18n="problemsVideo1Title">How to Appeal Disqualified Videos</h4>
-                            <p data-i18n="problemsVideo1Desc">The correct wording and procedure to submit video appeals
-                                successfully.</p>
+                            <p data-i18n="problemsVideo1Desc">This exclusive step-by-step video guide and verified appeal scripts will be provided to you directly by the Admin (Hadi Awan).</p>
                         </div>
                     </div>
                     <div>
@@ -1186,8 +1184,8 @@
 
             <div class="settings-modal-footer">
                 <button class="settings-done-btn cert-print-btn" id="print-cert-btn" type="button">
-                    <span>🖨️</span>
-                    <span data-i18n="btnPrintCert">Print / Save PDF</span>
+                    <span>📥</span>
+                    <span data-i18n="btnPrintCert">Save</span>
                 </button>
                 <button class="settings-close-btn-footer" id="close-cert-footer-btn" type="button"
                     data-i18n="btnClose">Close</button>
@@ -1195,7 +1193,8 @@
         </div>
     </div>
 
-    <script src="app.js?v=1.5"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="app.js?v=1.8"></script>
 </body>
 
 </html>

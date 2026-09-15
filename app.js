@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
             problemsCardTitle: "Disqualification Appeals & No Event Issues",
             problemsCardDesc: "If your videos get disqualified from a campaign or the GIP Event button disappears from your dashboard due to unusual activity, follow these appeal guidelines.",
             problemsVideo1Title: "How to Appeal Disqualified Videos",
-            problemsVideo1Desc: "The correct wording and procedure to submit video appeals successfully.",
+            problemsVideo1Desc: "This exclusive step-by-step video guide and verified appeal scripts will be provided to you directly by the Admin (Hadi Awan).",
             problemsVideo2Title: "No Event Showing Resolution",
             problemsVideo2Desc: "What to do if GIP options are hidden due to system flags or device settings.",
 
@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
             certMentorSign: "Hadi Awan (Course Instructor)",
             certDateLbl: "Date Issued:",
             certIdLbl: "Verification ID:",
-            btnPrintCert: "Print / Save PDF",
+            btnPrintCert: "Save",
             btnClose: "Close",
             searchPlaceholder: "Search course...",
             searchPlaceholderHero: "Search course topics (e.g. PayPal, Tax, Warm Up, Plugin)...",
@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
             problemsCardTitle: "Video Disqualification aur No Event Solution",
             problemsCardDesc: "Agar videos disqualify ho jayein ya dashboard se GIP Event button gayab ho jaye, to in guidelines ko follow kar ke appeal karein.",
             problemsVideo1Title: "Disqualified Videos par Appeal Kaise Karen",
-            problemsVideo1Desc: "Appeals submit karne ka sahi procedure aur words taake video wapas monetize ho.",
+            problemsVideo1Desc: "Ye exclusive video guide aur verified appeal scripts aapko Admin (Hadi Awan) se directly milen gi.",
             problemsVideo2Title: "No Event Showing ka Solution",
             problemsVideo2Desc: "Agar system flags ya device settings ki wajah se GIP event show na ho to kya karein.",
 
@@ -581,7 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
             certMentorSign: "Hadi Awan (Course Mentor)",
             certDateLbl: "Date Issued:",
             certIdLbl: "Verification ID:",
-            btnPrintCert: "Print / Save PDF",
+            btnPrintCert: "Save",
             btnClose: "Band Karein",
             searchPlaceholder: "Course search karein...",
             searchPlaceholderHero: "Course topics search karein (e.g. PayPal, Tax, Warm Up)...",
@@ -634,8 +634,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLowDeviceUI(enabled);
     }
 
-    // Load initial Low Device preference
-    const savedLowDevice = localStorage.getItem('gip_low_device') === 'true';
+    // Load initial Low Device preference (Default ON / Fast Mode)
+    const savedLowDevice = localStorage.getItem('gip_low_device') !== 'false';
     updateLowDeviceUI(savedLowDevice);
 
     if (lowDeviceToggle) {
@@ -921,6 +921,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (claimCertBtn) claimCertBtn.addEventListener('click', openCertModal);
+    const sidebarCertLink = document.getElementById('sidebar-cert-link');
+    if (sidebarCertLink) {
+        sidebarCertLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openCertModal();
+        });
+    }
     if (closeCertBtn) closeCertBtn.addEventListener('click', closeCertModal);
     if (closeCertFooterBtn) closeCertFooterBtn.addEventListener('click', closeCertModal);
 
@@ -930,10 +937,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (printCertBtn) {
-        printCertBtn.addEventListener('click', () => {
+    async function downloadCertificateImage() {
+        const certFrame = document.getElementById('printable-certificate');
+        if (!certFrame || !printCertBtn) return;
+
+        const originalBtnHTML = printCertBtn.innerHTML;
+        printCertBtn.disabled = true;
+        printCertBtn.style.opacity = '0.7';
+        printCertBtn.innerHTML = '<span>⏳</span> <span>Saving...</span>';
+
+        try {
+            if (typeof html2canvas === 'undefined') {
+                await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.head.appendChild(script);
+                });
+            }
+
+            if (typeof html2canvas !== 'undefined') {
+                const canvas = await html2canvas(certFrame, {
+                    scale: 2,
+                    backgroundColor: '#0b0f19',
+                    useCORS: true,
+                    logging: false,
+                    allowTaint: true
+                });
+
+                const imgData = canvas.toDataURL('image/png', 1.0);
+                const rawName = certDisplayName ? certDisplayName.textContent.trim() : 'Hadi_Awan';
+                const safeName = rawName.replace(/[^a-zA-Z0-9_-]/g, '_');
+                const fileName = `TikTok_GIP_Certificate_${safeName}.png`;
+
+                const link = document.createElement('a');
+                link.download = fileName;
+                link.href = imgData;
+                link.target = '_blank';
+                document.body.appendChild(link);
+                link.click();
+                setTimeout(() => {
+                    document.body.removeChild(link);
+                }, 300);
+            } else {
+                window.print();
+            }
+        } catch (err) {
+            console.error('Error rendering certificate image:', err);
             window.print();
-        });
+        } finally {
+            printCertBtn.disabled = false;
+            printCertBtn.style.opacity = '1';
+            printCertBtn.innerHTML = originalBtnHTML;
+        }
+    }
+
+    if (printCertBtn) {
+        printCertBtn.addEventListener('click', downloadCertificateImage);
     }
 
     document.addEventListener('keydown', (e) => {
