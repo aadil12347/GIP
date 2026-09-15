@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIKTOK GIP COURSE - GIP Complete Guide</title>
-    <link rel="stylesheet" href="index.css?v=2.2">
+    <link rel="stylesheet" href="index.css?v=2.3">
 </head>
 
 <body>
@@ -131,6 +131,13 @@
                         <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
                     </svg>
                     <span data-i18n="navCert">Masterclass Certificate</span>
+                </a></li>
+            <li><a href="javascript:void(0)" id="sidebar-notes-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                    </svg>
+                    <span data-i18n="navNotes">My Study Notes</span>
                 </a></li>
         </ul>
 
@@ -1196,6 +1203,45 @@
         </div>
     </div>
 
+    <!-- Quick Notes & Bookmarks Modal Overlay -->
+    <div class="settings-modal-overlay" id="notes-modal">
+        <div class="settings-modal-card notes-modal-card">
+            <div class="settings-modal-header">
+                <div class="settings-modal-title">
+                    <span class="settings-icon">📝</span>
+                    <span data-i18n="notesTitle">My Study Notes & Bookmarks</span>
+                </div>
+                <button class="settings-close-btn" id="close-notes-btn" aria-label="Close Notes">&times;</button>
+            </div>
+
+            <div class="settings-modal-body notes-modal-body">
+                <!-- Add New Note Input Box -->
+                <div class="notes-input-card">
+                    <label for="new-note-input" data-i18n="notesLabel">Add a Quick Note / Course Tip:</label>
+                    <div class="notes-input-area">
+                        <textarea id="new-note-input" rows="3" placeholder="e.g. Tax SSN code, US VPN target region..." data-i18n-placeholder="notesPlaceholder"></textarea>
+                        <button type="button" class="btn-add-note" id="btn-add-note" data-i18n="btnAddNote">
+                            <span>➕</span> <span data-i18n="btnAddNoteText">Add Note</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notes List Container -->
+                <div class="notes-list-header">
+                    <span data-i18n="savedNotesTitle">Saved Notes</span>
+                    <span class="notes-counter-badge" id="notes-count-badge">0</span>
+                </div>
+                <div class="notes-list-wrapper" id="notes-list-container">
+                    <!-- Dynamic Notes rendered via JS -->
+                </div>
+            </div>
+
+            <div class="settings-modal-footer">
+                <button class="settings-close-btn-footer" id="close-notes-footer-btn" type="button" data-i18n="btnClose">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Floating Scroll to Top Button -->
     <button class="scroll-to-top-btn" id="scroll-to-top-btn" aria-label="Scroll to Top" type="button">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -1205,7 +1251,7 @@
     </button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="app.js?v=2.0"></script>
+    <script src="app.js?v=2.1"></script>
 </body>
 
 </html>

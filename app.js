@@ -378,7 +378,13 @@ document.addEventListener('DOMContentLoaded', () => {
             btnClose: "Close",
             searchPlaceholder: "Search course...",
             searchPlaceholderHero: "Search course topics (e.g. PayPal, Tax, Warm Up, Plugin)...",
-            lblMatchesFound: "matches found"
+            lblMatchesFound: "matches found",
+            navNotes: "My Study Notes",
+            notesTitle: "My Study Notes & Bookmarks",
+            notesLabel: "Add a Quick Note / Course Tip:",
+            notesPlaceholder: "e.g. Tax SSN code, US VPN target region...",
+            btnAddNoteText: "Add Note",
+            savedNotesTitle: "Saved Notes"
         },
         roman: {
             widgetTitle: "Language Mode",
@@ -585,7 +591,13 @@ document.addEventListener('DOMContentLoaded', () => {
             btnClose: "Band Karein",
             searchPlaceholder: "Course search karein...",
             searchPlaceholderHero: "Course topics search karein (e.g. PayPal, Tax, Warm Up)...",
-            lblMatchesFound: "matches mile"
+            lblMatchesFound: "matches mile",
+            navNotes: "Meri Study Notes",
+            notesTitle: "Meri Study Notes aur Bookmarks",
+            notesLabel: "Yahan apni note ya tip likhein:",
+            notesPlaceholder: "e.g. Tax SSN code, US VPN target region...",
+            btnAddNoteText: "Note Add Karein",
+            savedNotesTitle: "Save kiye hue Notes"
         }
     };
 
@@ -1091,6 +1103,154 @@ document.addEventListener('DOMContentLoaded', () => {
             if (document.activeElement) {
                 document.activeElement.blur();
             }
+        });
+    }
+
+    // -------------------------------------------------------------
+    // 13. QUICK STUDY NOTES & BOOKMARKS ENGINE
+    // -------------------------------------------------------------
+    const notesModal = document.getElementById('notes-modal');
+    const closeNotesBtn = document.getElementById('close-notes-btn');
+    const closeNotesFooterBtn = document.getElementById('close-notes-footer-btn');
+    const sidebarNotesLink = document.getElementById('sidebar-notes-link');
+    const newNoteInput = document.getElementById('new-note-input');
+    const btnAddNote = document.getElementById('btn-add-note');
+    const notesListContainer = document.getElementById('notes-list-container');
+    const notesCountBadge = document.getElementById('notes-count-badge');
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/&/g, "&amp;")
+                  .replace(/</g, "&lt;")
+                  .replace(/>/g, "&gt;")
+                  .replace(/"/g, "&quot;")
+                  .replace(/'/g, "&#039;");
+    }
+
+    function loadSavedNotes() {
+        try {
+            return JSON.parse(localStorage.getItem('gip_user_notes') || '[]');
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function saveNotes(notes) {
+        localStorage.setItem('gip_user_notes', JSON.stringify(notes));
+    }
+
+    function renderNotesList() {
+        if (!notesListContainer) return;
+
+        const notes = loadSavedNotes();
+        if (notesCountBadge) notesCountBadge.textContent = notes.length;
+
+        if (notes.length === 0) {
+            const currentLang = localStorage.getItem('gip_lang') || 'en';
+            const emptyMsg = currentLang === 'roman'
+                ? 'Abhi koi note save nahi hai. Upar important tip likh kar Add Note dabayein!'
+                : 'No saved notes yet. Type a note or course tip above!';
+
+            notesListContainer.innerHTML = `<div class="notes-empty-state">📝 ${emptyMsg}</div>`;
+            return;
+        }
+
+        let html = '';
+        notes.forEach((note, index) => {
+            html += `
+                <div class="note-item-card">
+                    <div class="note-item-text">${escapeHtml(note.text)}</div>
+                    <div class="note-item-actions">
+                        <span class="note-item-date">📅 ${note.date}</span>
+                        <div class="note-btn-group">
+                            <button type="button" class="btn-note-action btn-copy" data-note-index="${index}">
+                                <span>📋</span> <span>Copy</span>
+                            </button>
+                            <button type="button" class="btn-note-action btn-delete" data-note-index="${index}">
+                                <span>🗑️</span> <span>Delete</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        notesListContainer.innerHTML = html;
+
+        // Attach copy event listeners
+        notesListContainer.querySelectorAll('.btn-copy').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const idx = parseInt(btn.getAttribute('data-note-index'));
+                const noteToCopy = notes[idx];
+                if (noteToCopy) {
+                    navigator.clipboard.writeText(noteToCopy.text).then(() => {
+                        const originalHTML = btn.innerHTML;
+                        btn.innerHTML = '<span>✓</span> <span>Copied!</span>';
+                        setTimeout(() => { btn.innerHTML = originalHTML; }, 1500);
+                    }).catch(err => {
+                        console.error('Failed to copy note:', err);
+                    });
+                }
+            });
+        });
+
+        // Attach delete event listeners
+        notesListContainer.querySelectorAll('.btn-delete').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const idx = parseInt(btn.getAttribute('data-note-index'));
+                notes.splice(idx, 1);
+                saveNotes(notes);
+                renderNotesList();
+            });
+        });
+    }
+
+    function handleAddNote() {
+        if (!newNoteInput) return;
+        const text = newNoteInput.value.trim();
+        if (!text) return;
+
+        const notes = loadSavedNotes();
+        const now = new Date();
+        const formattedDate = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' +
+            now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+        notes.unshift({ text: text, date: formattedDate });
+        saveNotes(notes);
+
+        newNoteInput.value = '';
+        renderNotesList();
+    }
+
+    if (btnAddNote) btnAddNote.addEventListener('click', handleAddNote);
+
+    function openNotesModal() {
+        if (notesModal) {
+            renderNotesList();
+            notesModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeNotesModal() {
+        if (notesModal) {
+            notesModal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (sidebarNotesLink) {
+        sidebarNotesLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openNotesModal();
+        });
+    }
+    if (closeNotesBtn) closeNotesBtn.addEventListener('click', closeNotesModal);
+    if (closeNotesFooterBtn) closeNotesFooterBtn.addEventListener('click', closeNotesModal);
+
+    if (notesModal) {
+        notesModal.addEventListener('click', (e) => {
+            if (e.target === notesModal) closeNotesModal();
         });
     }
 });
