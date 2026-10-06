@@ -73,7 +73,7 @@ full_html = f"""<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="pro_theme.css?v=15.0">
+    <link rel="stylesheet" href="pro_theme.css?v=18.0">
 </head>
 
 <body>
@@ -152,27 +152,26 @@ full_html = f"""<!DOCTYPE html>
         </div>
 
         <!-- ====================================================================
-             SIMPLE GIP RPM & EARNINGS CALCULATOR
+             12. TIKTOK GIP RPM & EARNINGS CALCULATOR (STANDARD SECTION & CARD)
              ==================================================================== -->
         <section class="masterclass-section-block" id="rpm-calculator">
-            <div class="simple-calc-card">
-                <h3 class="simple-calc-title" data-i18n="calcTitle">TikTok GIP RPM & Earnings Calculator</h3>
-                
-                <div class="simple-calc-inputs-row">
-                    <div class="simple-calc-field">
+            <h2 class="section-title" data-i18n="calcTitle">TikTok GIP RPM &amp; Earnings Calculator</h2>
+            <div class="card">
+                <div class="calc-inputs-row">
+                    <div class="calc-field">
                         <label for="calc-views" data-i18n="calcViewsLabel">Views</label>
-                        <input type="number" id="calc-views" class="simple-calc-input" value="100000" step="1000" min="0" placeholder="Enter Views (e.g. 100000)">
+                        <input type="number" id="calc-views" class="calc-input" value="100000" step="1000" min="0" placeholder="100000">
                     </div>
 
-                    <div class="simple-calc-field">
+                    <div class="calc-field">
                         <label for="calc-rpm" data-i18n="calcRpmLabel">RPM ($)</label>
-                        <input type="number" id="calc-rpm" class="simple-calc-input" value="1.20" step="0.05" min="0" placeholder="Enter RPM (e.g. 1.20)">
+                        <input type="number" id="calc-rpm" class="calc-input" value="1.20" step="0.05" min="0" placeholder="1.20">
                     </div>
                 </div>
 
-                <div class="simple-calc-output-box">
-                    <span class="simple-calc-output-label" data-i18n="calcPayoutLabel">Qualified Views Dollars Earning:</span>
-                    <span class="simple-calc-output-amount" id="calc-payout-display">$120.00</span>
+                <div class="calc-output-box">
+                    <span class="calc-output-label" data-i18n="calcPayoutLabel">Qualified Views Dollars Earning:</span>
+                    <span class="calc-output-amount" id="calc-payout-display">$120.00</span>
                 </div>
             </div>
         </section>
@@ -375,7 +374,7 @@ full_html = f"""<!DOCTYPE html>
     </footer>
 
     <!-- Interactive Script -->
-    <script src="pro_app.js?v=9.0"></script>
+    <script src="pro_app.js?v=10.0"></script>
 </body>
 
 </html>
