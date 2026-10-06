@@ -2209,6 +2209,14 @@ body {
     transform: scale(1.03);
 }
 
+.footer-text-desktop {
+    display: inline;
+}
+
+.footer-text-mobile {
+    display: none;
+}
+
 .lang-toast {
     position: fixed;
     top: 76px;
@@ -2754,21 +2762,35 @@ body {
 
     /* 15. Footer */
     .pro-footer {
-        padding: 28px 14px !important;
+        padding: 24px 14px !important;
         font-size: 12px !important;
         line-height: 1.5 !important;
+        text-align: center !important;
     }
 
-    /* 16. Language Mode Toast (Top Right Fixed on Mobile, Below Header) */
+    .footer-text-desktop {
+        display: none !important;
+    }
+
+    .footer-text-mobile {
+        display: inline !important;
+        font-size: 11.5px !important;
+        color: var(--text-muted) !important;
+        letter-spacing: 0.01em;
+    }
+
+    /* 16. Language Mode Toast (Header Top Right on Mobile) */
     .lang-toast {
-        top: 58px !important;
+        top: 10px !important;
         right: 14px !important;
         bottom: auto !important;
         left: auto !important;
-        transform: translateY(-8px) !important;
-        padding: 8px 14px !important;
+        transform: translateY(-6px) !important;
+        padding: 7px 14px !important;
         font-size: 12px !important;
+        font-weight: 600 !important;
         max-width: calc(100vw - 28px) !important;
+        z-index: 10001 !important;
     }
 
     .lang-toast.show {
@@ -2843,5 +2865,13 @@ body {
 
     .calc-output-amount {
         font-size: 20px !important;
+    }
+
+    .lang-toast {
+        top: 8px !important;
+        right: 10px !important;
+        padding: 6px 11px !important;
+        font-size: 11px !important;
+        max-width: calc(100vw - 20px) !important;
     }
 }
