@@ -20,9 +20,8 @@ def open_browser():
 
 def main():
     handler = MyHandler
-    socketserver.TCPServer.allow_reuse_address = True
     
-    with socketserver.TCPServer(("", PORT), handler) as httpd:
+    with http.server.ThreadingHTTPServer(("", PORT), handler) as httpd:
         print(f"Server successfully started at port {PORT}")
         print("Press Ctrl+C in this terminal window to stop the server.")
         
