@@ -319,14 +319,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Toggle Quick Teleport Popover
+    // 4. Toggle Quick Teleport Popover (Without auto-focusing on mobile to prevent unwanted virtual keyboard popup)
     if (dockMenuBtn && teleportPopover) {
         dockMenuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             teleportPopover.classList.toggle('active');
-            if (teleportPopover.classList.contains('active') && teleportSearch) {
-                setTimeout(() => teleportSearch.focus(), 100);
-            }
         });
     }
 
@@ -631,6 +628,30 @@ const i18n = {
             calcViewsLabel: "Views",
             calcRpmLabel: "RPM ($)",
             calcPayoutLabel: "Qualified Views Dollars Earning",
+            titlePostingTimes: "USA & UK Prime Posting Time Converter",
+            postingClockTitle: "Real-Time Target Region Clocks",
+            postingClockDesc: "Posting at the right hour in target timezones (USA EST & UK GMT) ensures algorithm push into high-RPM FYPs. Track live clocks below to schedule uploads perfectly.",
+            titleHooksGen: "AI Content & Viral Hooks Generator",
+            hooksCardTitle: "High-Retention TikTok Gaming Hooks",
+            hooksCardDesc: "The first 3 seconds decide if a viewer watches 60+ seconds for GIP qualified earnings. Select your game below to get 10 battle-tested, high-CTR hooks designed to stop the scroll.",
+            hashtagsCardTitle: "1-Click Copy US/UK Gaming Hashtags",
+            hashtagsCardDesc: "Copy high-RPM, country-targeted hashtags in one click to push your videos straight into US/UK algorithm feeds.",
+            titleAntiBan: "Pre-Upload Anti-Ban & 0-Views Checklist",
+            antiBanHeaderTitle: "6-Point Pre-Upload Verification Protocol",
+            antiBanHeaderDesc: "Execute every check before tapping 'Post' on TikTok to prevent shadowbans, 0 views, or unoriginal content strikes.",
+            antiBanCheck1Title: "1. Video Duration > 60 Seconds (1+ Minute)",
+            antiBanCheck1Desc: "GIP RPM monetization exclusively pays for videos that are at least 1:01 in length. Videos under 60s earn $0 RPM.",
+            antiBanCheck2Title: "2. Metadata Stripped &amp; Visual Filter Applied (Anti-Unoriginal)",
+            antiBanCheck2Desc: "Original EXIF metadata removed, 1.03x–1.05x speed change or subtle crop applied to bypass TikTok's automatic AI duplicate detection strike.",
+            antiBanCheck3Title: "3. Clean US/UK IP Active &amp; WebRTC Leak Verified",
+            antiBanCheck3Desc: "VPNify / Orion browser connection active. IP must not drop during upload, and phone language must remain English (United States).",
+            antiBanCheck4Title: "4. High-CTR Hook Placed in First 3 Seconds",
+            antiBanCheck4Desc: "Bold on-screen text overlay or punchy opening audio hook added so viewers don't swipe away before the 5-second retention threshold.",
+            antiBanCheck5Title: "5. 3–5 Targeted US/UK Hashtags &amp; Copyright-Free Audio",
+            antiBanCheck5Desc: "Added tags from the hashtag pack above and ensured no copyrighted audio is used that could cause audio muting.",
+            antiBanCheck6Title: "6. Scheduled During US/UK Peak Traffic Window",
+            antiBanCheck6Desc: "Checked the live posting time clocks above to confirm the target audience in New York/London is actively browsing their FYP.",
+            antiBanResetBtn: "Reset Checklist",
         },
         roman: {
             widgetTitle: "Language Mode",
@@ -858,6 +879,30 @@ const i18n = {
             calcViewsLabel: "Views",
             calcRpmLabel: "RPM ($)",
             calcPayoutLabel: "Qualified Views Dollars Earning",
+            titlePostingTimes: "USA aur UK ka Best Posting Time Converter",
+            postingClockTitle: "Live International Clocks (Target Region)",
+            postingClockDesc: "Sahi waqt par video post karna FYP algorithm ke liye bohot zaroori hai taake US/UK ki audience mile aur high RPM bane. Neeche diye gaye live clocks se exact time monitor karein.",
+            titleHooksGen: "AI Content aur Viral Gaming Hooks Generator",
+            hooksCardTitle: "TikTok Gaming ke liye Viral Video Hooks",
+            hooksCardDesc: "Video ke pehle 3 seconds decide karte hain ke viewer 60+ seconds tak rukega ya nahi. Apni game select karein aur 10 viral hooks hasil karein.",
+            hashtagsCardTitle: "1-Click Copy Trending US/UK Hashtags",
+            hashtagsCardDesc: "Ek click me high-RPM US/UK targeted hashtags copy karein aur apni video ko foreign FYP feed par push karein.",
+            titleAntiBan: "Upload se Pehle Anti-Ban aur 0-Views Checklist",
+            antiBanHeaderTitle: "6 Zaroori Checks Har Video Upload se Pehle",
+            antiBanHeaderDesc: "TikTok par video post karne se pehle ye 6 checks lazmi complete karein taake account safe rahe aur strike ya 0 views ka masla na aaye.",
+            antiBanCheck1Title: "1. Video ki Duration 60 Seconds se Ziada (1+ Minute)",
+            antiBanCheck1Desc: "GIP RPM monetization sirf un videos par milti hai jo kam az kam 1 minute 1 second (1:01) lambi hon. 60s se kam duration wali video par $0 RPM banta hai.",
+            antiBanCheck2Title: "2. Metadata Remove aur Visual Filter (Anti-Unoriginal Strike)",
+            antiBanCheck2Desc: "Original EXIF metadata remove karein, 1.03x–1.05x speed change ya halka sa crop karein taake TikTok ka AI system duplicate ya unoriginal content strike na lagaye.",
+            antiBanCheck3Title: "3. Clean US/UK IP Active aur WebRTC Leak Check",
+            antiBanCheck3Desc: "VPNify / Orion browser connection active ho. Uploading ke doran IP drop nahi hona chahiye aur mobile ki language English (United States) honi chahiye.",
+            antiBanCheck4Title: "4. Pehle 3 Seconds mein High-CTR Viral Hook",
+            antiBanCheck4Desc: "Screen par bold text overlay ya zabardast audio hook lagayein taake viewer pehle 5 seconds mein scroll na kare aur retention barhe.",
+            antiBanCheck5Title: "5. 3–5 Targeted US/UK Hashtags aur Copyright-Free Audio",
+            antiBanCheck5Desc: "Targeted US/UK gaming hashtags use karein aur kisi qisam ka copyrighted audio use na karein taake video mute na ho.",
+            antiBanCheck6Title: "6. US/UK Peak Traffic Timing par Upload Karein",
+            antiBanCheck6Desc: "Confirm karein ke New York aur London ki audience is waqt active hai taake video seedhi foreign FYP feeds par chal sake.",
+            antiBanResetBtn: "Checklist Reset Karein",
         }
     };
 
@@ -922,7 +967,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // 5. Toast notification
+        // 5. Update checklist meter text if initialized
+        if (typeof updateChecklistUI === 'function') {
+            updateChecklistUI();
+        }
+
+        // 6. Toast notification
         if (showNotification) {
             showLangToast(isRoman ? '🌐 <strong>Roman English</strong> Mode ON' : '🌐 <strong>English</strong> Mode ON');
         }
@@ -988,4 +1038,103 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Run calculation once on initialization
     updateRpmCalc();
+
+
+    // ----------------------------------------------------------------------
+    // PRE-UPLOAD ANTI-BAN CHECKLIST (WITH LOCALSTORAGE PERSISTENCE)
+    // ----------------------------------------------------------------------
+    const checklistRows = document.querySelectorAll('.checklist-item-row');
+    const checklistProgressFill = document.getElementById('checklist-progress-fill');
+    const meterBadge = document.getElementById('checklist-meter-badge');
+    const meterIcon = document.getElementById('checklist-meter-icon');
+    const meterText = document.getElementById('checklist-meter-text');
+    const resetChecklistBtn = document.getElementById('btn-reset-checklist');
+
+    function loadChecklistState() {
+        try {
+            const saved = JSON.parse(localStorage.getItem('gip_antiban_checklist') || '[]');
+            checklistRows.forEach(row => {
+                const checkId = row.getAttribute('data-check-id');
+                if (saved.includes(checkId)) {
+                    row.classList.add('checked');
+                } else {
+                    row.classList.remove('checked');
+                }
+            });
+            updateChecklistUI();
+        } catch (e) {
+            updateChecklistUI();
+        }
+    }
+
+    function saveChecklistState() {
+        const checkedIds = [];
+        checklistRows.forEach(row => {
+            if (row.classList.contains('checked')) {
+                checkedIds.push(row.getAttribute('data-check-id'));
+            }
+        });
+        localStorage.setItem('gip_antiban_checklist', JSON.stringify(checkedIds));
+    }
+
+    function updateChecklistUI() {
+        const total = checklistRows.length || 6;
+        let checkedCount = 0;
+        checklistRows.forEach(row => {
+            if (row.classList.contains('checked')) checkedCount++;
+        });
+
+        const pct = Math.round((checkedCount / total) * 100);
+        if (checklistProgressFill) {
+            checklistProgressFill.style.width = pct + '%';
+        }
+
+        if (meterBadge && meterIcon && meterText) {
+            const isRoman = (currentLang === 'roman');
+            if (checkedCount === total) {
+                meterBadge.style.background = 'rgba(5, 150, 105, 0.12)';
+                meterBadge.style.color = '#059669';
+                meterBadge.style.borderColor = 'rgba(5, 150, 105, 0.3)';
+                meterIcon.textContent = '🚀';
+                meterText.textContent = isRoman
+                    ? `${checkedCount} / ${total} Checks Mukammal (100% Upload ke liye Ready!)`
+                    : `${checkedCount} / ${total} Checks Passed (100% Safe to Upload!)`;
+            } else if (checkedCount >= 3) {
+                meterBadge.style.background = 'rgba(217, 119, 6, 0.1)';
+                meterBadge.style.color = '#d97706';
+                meterBadge.style.borderColor = 'rgba(217, 119, 6, 0.3)';
+                meterIcon.textContent = '🟡';
+                meterText.textContent = isRoman
+                    ? `${checkedCount} / ${total} Checks Mukammal (Taqreeban Ready)`
+                    : `${checkedCount} / ${total} Checks Passed (Almost Ready)`;
+            } else {
+                meterBadge.style.background = 'rgba(225, 29, 72, 0.08)';
+                meterBadge.style.color = '#e11d48';
+                meterBadge.style.borderColor = 'rgba(225, 29, 72, 0.25)';
+                meterIcon.textContent = '⚠️';
+                meterText.textContent = isRoman
+                    ? `${checkedCount} / ${total} Checks (0-Views ka Khatra Zyada Hai)`
+                    : `${checkedCount} / ${total} Checks (High 0-Views Risk)`;
+            }
+        }
+    }
+
+    checklistRows.forEach(row => {
+        row.addEventListener('click', () => {
+            row.classList.toggle('checked');
+            saveChecklistState();
+            updateChecklistUI();
+        });
+    });
+
+    if (resetChecklistBtn) {
+        resetChecklistBtn.addEventListener('click', () => {
+            checklistRows.forEach(row => row.classList.remove('checked'));
+            localStorage.removeItem('gip_antiban_checklist');
+            updateChecklistUI();
+        });
+    }
+
+    // Load initial checklist status
+    loadChecklistState();
 });

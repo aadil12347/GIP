@@ -1677,8 +1677,10 @@ body {
 
 @media (max-width: 768px) {
     .drive-video-wrapper {
-        height: 380px;
-        min-height: 350px;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important;
+        min-height: 200px !important;
     }
 
     .drive-header-toolbar {
@@ -2355,29 +2357,54 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
 
-    /* 1. Global Viewport & Container Spacing */
-    html,
+    /* 1. Global Viewport & Screen Lock (Zero Horizontal Overflow / Wobble) */
+    html {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        -webkit-text-size-adjust: 100%;
+    }
+
     body {
-        overflow-x: hidden;
-        max-width: 100vw;
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        touch-action: pan-y;
+    }
+
+    *, *::before, *::after {
+        box-sizing: border-box !important;
     }
 
     .page-container {
-        padding: 0 16px 60px 16px !important;
-        width: 100%;
-        box-sizing: border-box;
+        padding: 0 16px 120px 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     /* 2. Sleek Sticky Header & Compact Brand Bar */
     .pro-header {
         border-bottom: 1px solid var(--border-medium);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
     }
 
     .pro-nav {
         padding: 10px 16px !important;
-        gap: 8px;
-        align-items: center;
-        justify-content: flex-start !important;
+        gap: 10px;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        min-height: 56px !important;
+        box-sizing: border-box !important;
     }
 
     .brand-badge {
@@ -2385,128 +2412,148 @@ body {
         margin: 0;
         display: flex;
         align-items: center;
+        text-decoration: none;
     }
 
     .brand-icon-box {
-        width: 32px;
-        height: 32px;
-        font-size: 13px;
-        border-radius: 8px;
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 13.5px !important;
+        border-radius: 9px !important;
+        flex-shrink: 0;
     }
 
     .brand-title {
-        font-size: 14px;
+        font-size: 15px !important;
+        font-weight: 800 !important;
         line-height: 1.2;
+        color: var(--text-primary);
     }
 
     .brand-subtitle {
         display: none !important;
-        /* Hide subtitle on mobile to give room to action buttons */
     }
 
     .header-actions {
-        display: none !important;
-        /* Hidden on mobile view as requested */
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
     }
 
-    .btn-pill-subtle {
+    .header-actions .vip-user-badge,
+    .header-actions .btn-pill-primary {
+        display: none !important;
+    }
+
+    .btn-lang-switch {
         padding: 6px 10px !important;
         font-size: 11.5px !important;
-        gap: 4px;
-        border-radius: 999px;
+        border-radius: var(--radius-pill) !important;
+        gap: 4px !important;
     }
 
-    .btn-pill-primary {
-        padding: 6px 12px !important;
-        font-size: 12px !important;
-        gap: 5px;
-        border-radius: 999px;
-        white-space: nowrap;
+    #open-notes-btn {
+        padding: 6px 10px !important;
+        font-size: 11.5px !important;
+        border-radius: var(--radius-pill) !important;
+        gap: 4px !important;
     }
 
     /* 3. Hero Section Spacing & Typography */
     .pro-hero {
-        padding: 24px 0 18px 0 !important;
+        padding: 24px 0 16px 0 !important;
         text-align: center;
     }
 
     .hero-pill-badge {
-        font-size: 11px !important;
-        padding: 5px 12px !important;
-        margin-bottom: 14px !important;
+        font-size: 11.5px !important;
+        padding: 5px 14px !important;
+        margin-bottom: 12px !important;
         line-height: 1.35;
-        max-width: 100%;
-        box-sizing: border-box;
-        text-align: center;
+        border-radius: var(--radius-pill) !important;
+        display: inline-flex !important;
+        align-items: center !important;
     }
 
     .pro-hero-title {
-        font-size: 27px !important;
-        line-height: 1.35 !important;
+        font-size: 25px !important;
+        line-height: 1.3 !important;
         letter-spacing: -0.025em;
-        margin: 0 0 12px 0 !important;
+        margin: 0 0 10px 0 !important;
+        padding: 0 2px !important;
+        font-weight: 900 !important;
         overflow: visible !important;
     }
 
     .pro-hero-subtitle {
         display: none !important;
-        /* Hidden on mobile view as requested */
     }
 
     /* 4. Stats 2x2 Clean Balanced Grid on Mobile */
     .stats-strip-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 10px !important;
-        margin-top: 8px !important;
+        margin: 12px 0 26px 0 !important;
     }
 
     .stat-chip-card {
-        padding: 12px 14px !important;
-        border-radius: 12px !important;
+        padding: 13px 14px !important;
+        border-radius: 14px !important;
+        background: #ffffff !important;
+        border: 1px solid var(--border-medium) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
     }
 
     .stat-number {
-        font-size: 18px !important;
+        font-size: 17.5px !important;
+        font-weight: 800 !important;
         margin-bottom: 2px;
     }
 
     .stat-label {
         font-size: 11px !important;
-        line-height: 1.3;
+        line-height: 1.35;
+        color: var(--text-muted);
     }
 
     /* 5. Masterclass Section Blocks & Cards */
     .masterclass-section-block {
-        margin-bottom: 32px !important;
-        scroll-margin-top: 68px !important;
+        margin-bottom: 34px !important;
+        scroll-margin-top: 72px !important;
     }
 
     .section-title {
-        font-size: 19.5px !important;
-        margin: 0 0 14px 0 !important;
-        padding-bottom: 9px !important;
+        font-size: 19px !important;
+        font-weight: 800 !important;
+        margin: 0 0 15px 0 !important;
+        padding-bottom: 10px !important;
         gap: 8px;
-        line-height: 1.25;
+        line-height: 1.3;
+        border-bottom: 1.5px solid var(--border-medium) !important;
     }
 
     .card {
-        padding: 18px 16px !important;
+        padding: 18px 15px !important;
         border-radius: 16px !important;
         margin-bottom: 16px !important;
-        box-sizing: border-box;
+        border: 1px solid var(--border-medium) !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+        box-sizing: border-box !important;
     }
 
     .card-title {
-        font-size: 16.5px !important;
+        font-size: 16px !important;
+        font-weight: 800 !important;
         margin-bottom: 10px !important;
-        line-height: 1.3;
+        line-height: 1.35;
     }
 
     /* 6. Drive Clean Lecture Cards */
     .drive-lecture-clean-card {
-        padding: 14px !important;
-        border-radius: 14px !important;
+        padding: 15px 14px !important;
+        border-radius: 16px !important;
         margin-bottom: 16px !important;
+        border: 1px solid var(--border-medium) !important;
     }
 
     .open-in-drive-hero-box {
@@ -2526,7 +2573,7 @@ body {
 
     .btn-open-in-drive-link {
         font-size: 12px !important;
-        padding: 5px 11px !important;
+        padding: 6px 12px !important;
     }
 
     /* 7. Video Grids */
@@ -2539,6 +2586,25 @@ body {
 
     .video-wrapper {
         border-radius: 12px !important;
+        aspect-ratio: 16 / 9 !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .drive-video-wrapper {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9 !important;
+        min-height: 200px !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        background: #000 !important;
+    }
+
+    .drive-video-wrapper iframe {
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
     }
 
     .video-info h4 {
@@ -2562,21 +2628,24 @@ body {
         padding: 12px 14px !important;
         gap: 12px !important;
         border-radius: 12px !important;
+        min-height: 48px;
     }
 
     .resource-icon {
-        width: 38px !important;
-        height: 38px !important;
-        font-size: 18px !important;
-        border-radius: 8px !important;
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 17px !important;
+        border-radius: 9px !important;
+        flex-shrink: 0 !important;
     }
 
     .resource-title {
-        font-size: 13.5px !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
     }
 
     .resource-subtitle {
-        font-size: 11.5px !important;
+        font-size: 11px !important;
     }
 
     /* 9. Checklists & Step Rows */
@@ -2599,18 +2668,72 @@ body {
         height: 18px !important;
         border-radius: 5px !important;
         margin-top: 2px !important;
+        flex-shrink: 0 !important;
     }
 
     .checklist-title,
     .checklist-info-title {
         font-size: 13.5px !important;
+        font-weight: 700 !important;
         margin-bottom: 3px !important;
     }
 
     .checklist-description,
     .checklist-info-desc {
-        font-size: 12.5px !important;
+        font-size: 12px !important;
         line-height: 1.45 !important;
+    }
+
+    /* 9b. Pre-Upload Anti-Ban Checklist Specific Mobile Styles */
+    .checklist-status-header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .checklist-meter-badge {
+        align-self: flex-start !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        padding: 5px 12px !important;
+        border-radius: var(--radius-pill) !important;
+    }
+
+    .checklist-items-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+
+    .checklist-item-row {
+        padding: 12px 14px !important;
+        gap: 12px !important;
+        border-radius: 12px !important;
+        align-items: flex-start !important;
+    }
+
+    .checklist-checkbox-custom {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 11px !important;
+        margin-top: 2px !important;
+        border-radius: 6px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .checklist-item-title {
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        line-height: 1.35 !important;
+        margin-bottom: 3px !important;
+    }
+
+    .checklist-item-desc {
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+        color: var(--text-secondary) !important;
     }
 
     /* 10. Callouts & Alert Boxes */
@@ -2672,11 +2795,12 @@ body {
 
     /* 13. Fast Scroll Dock & Popover Navigation */
     .fast-scroll-dock {
-        bottom: 14px !important;
-        right: 10px !important;
-        padding: 4px 6px !important;
-        gap: 4px !important;
+        bottom: 16px !important;
+        right: 12px !important;
+        padding: 5px 7px !important;
+        gap: 5px !important;
         border-radius: 999px !important;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16) !important;
         z-index: 950 !important;
     }
 
@@ -2698,11 +2822,12 @@ body {
     .quick-teleport-popover {
         left: 10px !important;
         right: 10px !important;
-        bottom: 68px !important;
+        bottom: 74px !important;
         width: auto !important;
-        max-width: none !important;
-        max-height: 76vh !important;
-        border-radius: 18px !important;
+        max-width: calc(100vw - 20px) !important;
+        max-height: 75vh !important;
+        border-radius: 20px !important;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22) !important;
     }
 
     .teleport-popover-header {
@@ -2721,6 +2846,9 @@ body {
     .teleport-items-grid {
         padding: 8px 10px !important;
         gap: 6px !important;
+        max-height: 48vh !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
     }
 
     .teleport-item {
@@ -2740,7 +2868,7 @@ body {
     /* 14. Modals & Popups */
     .pro-modal-container {
         padding: 20px 16px !important;
-        border-radius: 18px !important;
+        border-radius: 20px !important;
         max-width: calc(100vw - 24px) !important;
         max-height: 85vh !important;
         box-sizing: border-box !important;
@@ -2762,7 +2890,7 @@ body {
 
     /* 15. Footer */
     .pro-footer {
-        padding: 24px 14px !important;
+        padding: 24px 14px 40px 14px !important;
         font-size: 12px !important;
         line-height: 1.5 !important;
         text-align: center !important;
@@ -2803,15 +2931,15 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 420px) {
     .page-container {
-        padding: 0 12px 50px 12px !important;
+        padding: 0 12px 120px 12px !important;
     }
 
     .pro-nav {
-        padding: 8px 10px !important;
+        padding: 8px 12px !important;
     }
 
     .brand-title {
-        font-size: 13px !important;
+        font-size: 13.5px !important;
     }
 
     .btn-pill-subtle {
@@ -2825,8 +2953,8 @@ body {
     }
 
     .pro-hero-title {
-        font-size: 24px !important;
-        line-height: 1.35 !important;
+        font-size: 23px !important;
+        line-height: 1.3 !important;
         overflow: visible !important;
     }
 
@@ -2839,7 +2967,7 @@ body {
     }
 
     .stat-chip-card {
-        padding: 10px 10px !important;
+        padding: 11px 11px !important;
     }
 
     .stat-number {
@@ -2855,7 +2983,7 @@ body {
     }
 
     .card {
-        padding: 15px 12px !important;
+        padding: 16px 13px !important;
         border-radius: 14px !important;
     }
 
@@ -2875,3 +3003,1108 @@ body {
         max-width: calc(100vw - 20px) !important;
     }
 }
+
+
+/* ==========================================================================
+   NEW FEATURES: VIP COMMUNITY, POSTING CLOCKS, HOOK GENERATOR,
+   ANTI-BAN CHECKLIST & WHATSAPP COMMERCE
+   ========================================================================== */
+
+/* 1. VIP Community & Updates Banner */
+.vip-community-banner {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+    border: 1.5px solid rgba(124, 58, 237, 0.2);
+    border-radius: var(--radius-xl);
+    padding: 24px 28px;
+    margin: 28px 0 36px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    box-shadow: 0 8px 24px -4px rgba(124, 58, 237, 0.08);
+}
+
+.vip-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.vip-banner-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #7c3aed, #059669);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+    flex-shrink: 0;
+}
+
+.vip-banner-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+}
+
+.vip-banner-desc {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.vip-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.btn-vip-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #059669;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 10px 18px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+    transition: all 0.2s ease;
+}
+
+.btn-vip-whatsapp:hover {
+    background: #047857;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35);
+}
+
+.btn-vip-telegram {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #2563eb;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 10px 18px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    transition: all 0.2s ease;
+}
+
+.btn-vip-telegram:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+/* 2. USA / UK Best Posting Time Converter */
+.clocks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.clock-card {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.clock-card:hover {
+    background: #fff;
+    border-color: var(--brand-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.clock-zone-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.clock-digits {
+    font-family: var(--font-mono);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin: 4px 0;
+}
+
+.clock-date {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.posting-status-banner {
+    border-radius: var(--radius-lg);
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 20px 0 24px 0;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.posting-status-banner.prime {
+    background: rgba(5, 150, 105, 0.1);
+    border: 1.5px solid rgba(5, 150, 105, 0.3);
+    color: #065f46;
+}
+
+.posting-status-banner.offpeak {
+    background: rgba(217, 119, 6, 0.1);
+    border: 1.5px solid rgba(217, 119, 6, 0.3);
+    color: #92400e;
+}
+
+.prime-schedule-table-wrap {
+    overflow-x: auto;
+    margin-top: 18px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+}
+
+.prime-schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    text-align: left;
+}
+
+.prime-schedule-table th,
+.prime-schedule-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.prime-schedule-table th {
+    background: var(--bg-subtle);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.prime-schedule-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 3. AI Content & Viral Hooks Generator */
+.generator-controls-box {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    margin-bottom: 24px;
+}
+
+.game-select-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.game-pill-btn {
+    border: 1px solid var(--border-medium);
+    background: #fff;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.game-pill-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.game-pill-btn.active {
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+.hook-actions-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.hooks-display-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hook-card-item {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: all 0.2s ease;
+}
+
+.hook-card-item:hover {
+    border-color: var(--border-medium);
+    box-shadow: var(--shadow-sm);
+    transform: translateX(2px);
+}
+
+.hook-num-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--bg-subtle);
+    color: var(--brand-primary);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.hook-text-content {
+    flex: 1;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.45;
+}
+
+.hook-tag-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(124, 58, 237, 0.08);
+    color: var(--brand-primary);
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.btn-copy-hook {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-medium);
+    color: var(--text-secondary);
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-copy-hook:hover {
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: #fff;
+}
+
+/* 4. Hashtag Bundles & 1-Click Copy */
+.hashtag-bundles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.hashtag-bundle-card {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hashtag-bundle-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hashtag-tags-box {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--brand-primary);
+    line-height: 1.6;
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    margin: 10px 0 16px 0;
+    word-break: break-word;
+}
+
+.btn-copy-bundle {
+    background: #fff;
+    border: 1.5px solid var(--border-medium);
+    color: var(--text-primary);
+    padding: 9px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.btn-copy-bundle:hover {
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+/* 5. Pre-Upload Anti-Ban Checklist */
+.checklist-container {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+}
+
+.checklist-progress-bar-wrap {
+    background: var(--bg-subtle);
+    border-radius: var(--radius-pill);
+    height: 12px;
+    overflow: hidden;
+    margin: 16px 0 20px 0;
+    position: relative;
+}
+
+.checklist-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #d97706, #059669);
+    border-radius: var(--radius-pill);
+    transition: width 0.3s ease;
+}
+
+.checklist-status-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.checklist-meter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.checklist-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checklist-item-row {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.checklist-item-row:hover {
+    background: #fff;
+    border-color: var(--border-medium);
+}
+
+.checklist-item-row.checked {
+    background: rgba(5, 150, 105, 0.05);
+    border-color: rgba(5, 150, 105, 0.3);
+}
+
+.checklist-checkbox-custom {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid var(--border-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: transparent;
+    transition: all 0.2s ease;
+    margin-top: 2px;
+    flex-shrink: 0;
+    background: #fff;
+}
+
+.checklist-item-row.checked .checklist-checkbox-custom {
+    background: #059669;
+    border-color: #059669;
+    color: #fff;
+}
+
+.checklist-item-text {
+    flex: 1;
+}
+
+.checklist-item-title {
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.checklist-item-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+/* 6. WhatsApp Order Button on Services */
+.btn-whatsapp-service {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #059669;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 9px 14px;
+    border-radius: var(--radius-pill);
+    margin-top: 14px;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btn-whatsapp-service:hover {
+    background: #047857;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
+}
+
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .vip-community-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 18px;
+    }
+
+    .vip-banner-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btn-vip-whatsapp,
+    .btn-vip-telegram {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .clocks-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+/* ==========================================================================
+   MENTOR ADMIN CONSOLE STYLES (abdulhadipro47@gmail.com)
+   ========================================================================== */
+
+/* 1. Trigger Buttons (Hidden by default for all visitors; visible ONLY for abdulhadipro47@gmail.com) */
+.btn-admin-header,
+.btn-admin-footer,
+#teleport-admin-btn {
+    display: none !important;
+}
+
+body.mentor-mode-active .btn-admin-header {
+    display: inline-flex !important;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(245, 158, 11, 0.1)) !important;
+    border: 1px solid rgba(124, 58, 237, 0.3) !important;
+    color: #7c3aed !important;
+    font-weight: 700 !important;
+}
+
+body.mentor-mode-active .btn-admin-header:hover {
+    background: #7c3aed !important;
+    color: #ffffff !important;
+}
+
+body.mentor-mode-active .btn-admin-footer {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    background: rgba(124, 58, 237, 0.08);
+    color: #7c3aed;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+body.mentor-mode-active .btn-admin-footer:hover {
+    background: #7c3aed;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+}
+
+body.mentor-mode-active #teleport-admin-btn {
+    display: flex !important;
+}
+
+/* 2. Admin Modal Card */
+.admin-portal-modal-card {
+    max-width: 820px !important;
+    width: 100% !important;
+    padding: 32px 28px !important;
+    background: #ffffff !important;
+    border-radius: 24px !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3) !important;
+}
+
+.admin-shield-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 4px 12px rgba(124, 58, 237, 0.3));
+}
+
+.admin-badge-pill {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(16, 185, 129, 0.1));
+    color: var(--brand-primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    margin-bottom: 10px;
+}
+
+.admin-modal-title {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 900;
+    color: #111827;
+    margin: 0 0 6px 0;
+}
+
+.admin-modal-sub {
+    font-size: 13.5px;
+    color: #4b5563;
+    margin: 0;
+}
+
+/* 3. Login Box */
+.admin-login-box {
+    max-width: 420px;
+    margin: 0 auto;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-medium);
+    border-radius: 18px;
+    padding: 24px 20px;
+    box-sizing: border-box;
+}
+
+.admin-field-group {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.admin-field-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.admin-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.admin-input-icon {
+    position: absolute;
+    left: 12px;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.admin-field-input {
+    width: 100%;
+    padding: 12px 14px 12px 40px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border-medium);
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    background: #ffffff;
+    transition: all 0.2s ease;
+}
+
+.admin-field-input:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.btn-toggle-pass-clean {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+
+.btn-toggle-pass-clean:hover {
+    color: #374151;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.btn-admin-submit {
+    width: 100%;
+    padding: 13px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    color: #ffffff;
+    font-size: 14.5px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+    transition: all 0.2s ease;
+}
+
+.btn-admin-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.45);
+}
+
+.admin-error-msg {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(225, 29, 72, 0.1);
+    color: #e11d48;
+    border: 1px solid rgba(225, 29, 72, 0.25);
+    font-size: 12.5px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* 4. Dashboard View */
+.admin-dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1.5px solid var(--border-light);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.admin-user-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #4b5563;
+    margin-top: 4px;
+}
+
+.status-dot-green {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #059669;
+    box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.2);
+}
+
+.admin-stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.admin-stat-pill {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-medium);
+    border-radius: 14px;
+    padding: 14px;
+    text-align: center;
+}
+
+.admin-stat-num {
+    display: block;
+    font-size: 24px;
+    font-weight: 900;
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+}
+
+.admin-stat-lbl {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.admin-gen-box {
+    background: #fdfbf7;
+    border: 1.5px solid #ded7c9;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.admin-gen-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.admin-input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border-medium);
+    font-size: 13px;
+    box-sizing: border-box;
+    outline: none;
+    background: #ffffff;
+}
+
+.admin-input:focus {
+    border-color: var(--brand-primary);
+}
+
+.admin-key-output {
+    margin-top: 14px;
+    background: rgba(5, 150, 105, 0.08);
+    border: 1.5px dashed #059669;
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+}
+
+.admin-licenses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.admin-license-item {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.15s ease;
+}
+
+.admin-license-item:hover {
+    border-color: var(--brand-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.admin-license-item.inactive {
+    opacity: 0.6;
+    background: #f9fafb;
+}
+
+.lic-key-tag {
+    font-family: monospace;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--brand-primary);
+    letter-spacing: 0.04em;
+    display: inline-block;
+}
+
+.lic-badge-bound {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(5, 150, 105, 0.1);
+    color: #059669;
+}
+
+.lic-badge-open {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(217, 119, 6, 0.1);
+    color: #d97706;
+}
+
+.lic-student-details {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+}
+
+.lic-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.btn-lic-action {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid var(--border-medium);
+    background: #ffffff;
+    transition: all 0.15s ease;
+}
+
+.btn-lic-action.reset {
+    background: rgba(124, 58, 237, 0.08);
+    color: var(--brand-primary);
+    border-color: rgba(124, 58, 237, 0.3);
+}
+
+.btn-lic-action.reset:hover {
+    background: var(--brand-primary);
+    color: #ffffff;
+}
+
+.btn-lic-action.toggle:hover {
+    background: #f3f4f6;
+}
+
+.btn-lic-action.delete {
+    color: #e11d48;
+    border-color: rgba(225, 29, 72, 0.2);
+}
+
+.btn-lic-action.delete:hover {
+    background: #e11d48;
+    color: #ffffff;
+}
+
+/* 4.5 Authorized Admin Emails List & Management */
+.authorized-admins-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.admin-email-item {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.15s ease;
+}
+
+.admin-email-item:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.admin-email-item.is-master {
+    background: #fffdf5;
+    border-color: #fde68a;
+}
+
+.admin-role-badge-master {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(245, 158, 11, 0.15);
+    color: #b45309;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.admin-role-badge-co {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
+    border: 1px solid rgba(124, 58, 237, 0.25);
+}
+
+.btn-admin-action {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid var(--border-medium);
+    background: #ffffff;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-admin-action.copy {
+    background: rgba(124, 58, 237, 0.08);
+    color: var(--brand-primary);
+    border-color: rgba(124, 58, 237, 0.3);
+}
+
+.btn-admin-action.copy:hover {
+    background: var(--brand-primary);
+    color: #ffffff;
+}
+
+.btn-admin-action.delete {
+    color: #e11d48;
+    border-color: rgba(225, 29, 72, 0.2);
+}
+
+.btn-admin-action.delete:hover {
+    background: #e11d48;
+    color: #ffffff;
+}
+
+/* 5. Mobile Adjustments for Admin Portal */
+@media (max-width: 768px) {
+    .admin-portal-modal-card {
+        padding: 22px 16px !important;
+        border-radius: 20px !important;
+        max-height: 88vh !important;
+    }
+
+    .admin-gen-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .admin-stats-strip {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .admin-stat-num {
+        font-size: 18px;
+    }
+
+    .admin-stat-lbl {
+        font-size: 10px;
+    }
+
+    .admin-license-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .lic-actions-right {
+        width: 100%;
+        justify-content: flex-end;
+        border-top: 1px solid var(--border-light);
+        padding-top: 8px;
+    }
+}
+

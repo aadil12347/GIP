@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="pro_theme.css?v=18.0">
+    <link rel="stylesheet" href="pro_theme.css?v=25.0">
 </head>
 
 <body>
@@ -30,6 +30,10 @@
 
             <!-- Header Action Buttons (Visible on PC, hidden on mobile via CSS) -->
             <div class="header-actions">
+                <div class="vip-user-badge" id="vip-user-badge" style="display:none;">
+                    <span>🔑 VIP:</span>
+                    <strong id="vip-user-name">Creator</strong>
+                </div>
                 <button class="btn-pill-subtle btn-lang-switch" id="lang-toggle-btn" title="Toggle English / Roman English">
                     <span class="lang-icon">🌐</span>
                     <span id="lang-btn-text">Roman: <strong>OFF</strong></span>
@@ -38,6 +42,11 @@
                     <span>📝</span>
                     <span>Notes</span>
                 </button>
+                <button class="btn-pill-subtle btn-admin-header" id="btn-header-admin" title="Mentor Admin Panel">
+                    <span>👑</span>
+                    <span>Admin</span>
+                </button>
+
                 <a href="#gip-explained" class="btn-pill-primary">
                     <span>🎮 GIP Course</span>
                 </a>
@@ -77,6 +86,8 @@
                     <div class="stat-label" data-i18n="statEnrolled">Active Creators Enrolled</div>
                 </div>
             </div>
+
+
         </section>
 
         <!-- ====================================================================
@@ -744,52 +755,160 @@
 </div>
 <div class="card">
 <div class="card-title" data-i18n="contactCard2Title">💼 Premium Services &amp; Softwares</div>
-<p data-i18n="contactCard2Desc">We provide a comprehensive range of premium digital services and custom
-                    solutions to scale your workflows:</p>
+<p data-i18n="contactCard2Desc">We provide a comprehensive range of premium digital services and custom solutions to scale your workflows. Order directly on WhatsApp for instant activation:</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
+<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between;">
+<div>
 <div style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
 <span style="color: var(--accent-purple);">🌐</span> <span data-i18n="serviceSubTitle">Website Subscriptions</span>
 </div>
-<p data-i18n="serviceSubDesc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Access keys and premium subscription accounts for various
-                            marketing, cloud, and analytical platforms.</p>
+<p data-i18n="serviceSubDesc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Access keys and premium subscription accounts for various marketing, cloud, and analytical platforms.</p>
 </div>
-<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
+<a href="https://wa.me/?text=Salam%20Hadi%20bhai%2C%20mujhe%20Website%20Subscriptions%20service%20leni%20hai.%20Details%20aur%20price%20guide%20karein." target="_blank" rel="noopener" class="btn-whatsapp-service">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.128-.517-1.745-.726-2.883-2.508-2.97-2.624-.088-.117-.706-.94-.706-1.792s.445-1.272.604-1.446c.159-.175.347-.219.462-.219.116 0 .232.001.332.006.106.005.249-.04.39.299.144.35.491 1.199.534 1.287.043.088.072.191.014.307-.058.117-.087.19-.174.292-.087.102-.183.228-.261.307-.088.087-.179.182-.077.357.101.175.452.746.969 1.206.666.594 1.228.778 1.402.865.174.088.275.073.377-.044.101-.116.435-.51.551-.685.116-.175.232-.146.39-.088.16.058 1.011.477 1.184.564.174.087.29.131.333.204.043.073.043.423-.101.828z"/></svg>
+<span>Order via WhatsApp</span>
+</a>
+</div>
+<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between;">
+<div>
 <div style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
 <span style="color: var(--accent-purple);">👥</span> <span data-i18n="serviceFollowTitle">Followers &amp; Social Growth</span>
 </div>
-<p data-i18n="serviceFollowDesc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Fast and secure follower boost services to easily fulfill the
-                            GIP application criteria.</p>
+<p data-i18n="serviceFollowDesc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Fast and secure 1,000+ follower boost services to easily unlock live studio and GIP application criteria.</p>
 </div>
-<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
+<a href="https://wa.me/?text=Salam%20Hadi%20bhai%2C%20mujhe%201k%20Followers%20%2F%20Social%20Growth%20service%20leni%20hai.%20Details%20aur%20price%20guide%20karein." target="_blank" rel="noopener" class="btn-whatsapp-service">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.128-.517-1.745-.726-2.883-2.508-2.97-2.624-.088-.117-.706-.94-.706-1.792s.445-1.272.604-1.446c.159-.175.347-.219.462-.219.116 0 .232.001.332.006.106.005.249-.04.39.299.144.35.491 1.199.534 1.287.043.088.072.191.014.307-.058.117-.087.19-.174.292-.087.102-.183.228-.261.307-.088.087-.179.182-.077.357.101.175.452.746.969 1.206.666.594 1.228.778 1.402.865.174.088.275.073.377-.044.101-.116.435-.51.551-.685.116-.175.232-.146.39-.088.16.058 1.011.477 1.184.564.174.087.29.131.333.204.043.073.043.423-.101.828z"/></svg>
+<span>Order via WhatsApp</span>
+</a>
+</div>
+<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between;">
+<div>
 <div style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
 <span style="color: var(--accent-purple);">💻</span> <span data-i18n="serviceAutoTitle">Custom Automation Softwares</span>
 </div>
-<p data-i18n="serviceAutoDesc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Automated helper tools, macros, and modded APKs designed to
-                            scale up GIP actions.</p>
+<p data-i18n="serviceAutoDesc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Automated helper tools, macros, and modded APKs designed to scale up GIP actions.</p>
 </div>
-<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
+<a href="https://wa.me/?text=Salam%20Hadi%20bhai%2C%20mujhe%20Custom%20Automation%20Softwares%20service%20leni%20hai.%20Details%20aur%20price%20guide%20karein." target="_blank" rel="noopener" class="btn-whatsapp-service">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.128-.517-1.745-.726-2.883-2.508-2.97-2.624-.088-.117-.706-.94-.706-1.792s.445-1.272.604-1.446c.159-.175.347-.219.462-.219.116 0 .232.001.332.006.106.005.249-.04.39.299.144.35.491 1.199.534 1.287.043.088.072.191.014.307-.058.117-.087.19-.174.292-.087.102-.183.228-.261.307-.088.087-.179.182-.077.357.101.175.452.746.969 1.206.666.594 1.228.778 1.402.865.174.088.275.073.377-.044.101-.116.435-.51.551-.685.116-.175.232-.146.39-.088.16.058 1.011.477 1.184.564.174.087.29.131.333.204.043.073.043.423-.101.828z"/></svg>
+<span>Order via WhatsApp</span>
+</a>
+</div>
+<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between;">
+<div>
 <div style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
 <span style="color: var(--accent-purple);">🔑</span> <span data-i18n="serviceAppTitle">Premium Paid Applications</span>
 </div>
-<p data-i18n="serviceAppDesc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Licensed accounts for premium video editors, proxies, and VPN
-                            applications.</p>
+<p data-i18n="serviceAppDesc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Licensed accounts for premium video editors, proxies, and VPN applications.</p>
 </div>
-<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
+<a href="https://wa.me/?text=Salam%20Hadi%20bhai%2C%20mujhe%20Premium%20Paid%20Applications%20service%20leni%20hai.%20Details%20aur%20price%20guide%20karein." target="_blank" rel="noopener" class="btn-whatsapp-service">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.128-.517-1.745-.726-2.883-2.508-2.97-2.624-.088-.117-.706-.94-.706-1.792s.445-1.272.604-1.446c.159-.175.347-.219.462-.219.116 0 .232.001.332.006.106.005.249-.04.39.299.144.35.491 1.199.534 1.287.043.088.072.191.014.307-.058.117-.087.19-.174.292-.087.102-.183.228-.261.307-.088.087-.179.182-.077.357.101.175.452.746.969 1.206.666.594 1.228.778 1.402.865.174.088.275.073.377-.044.101-.116.435-.51.551-.685.116-.175.232-.146.39-.088.16.058 1.011.477 1.184.564.174.087.29.131.333.204.043.073.043.423-.101.828z"/></svg>
+<span>Order via WhatsApp</span>
+</a>
+</div>
+<div style="background: rgba(15, 23, 42, 0.3); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between;">
+<div>
 <div style="font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
 <span style="color: var(--accent-purple);">🌍</span> <span data-i18n="serviceAccTitle">International Accounts</span>
 </div>
-<p data-i18n="serviceAccDesc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Verified target region accounts (UK, USA, France, Germany, Japan,
-                            etc.) available for campaign setup.</p>
+<p data-i18n="serviceAccDesc" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0;">Verified target region accounts (UK, USA, France, Germany, Japan, etc.) available for campaign setup.</p>
+</div>
+<a href="https://wa.me/?text=Salam%20Hadi%20bhai%2C%20mujhe%20International%20Accounts%20service%20leni%20hai.%20Details%20aur%20price%20guide%20karein." target="_blank" rel="noopener" class="btn-whatsapp-service">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-2.128-.517-1.745-.726-2.883-2.508-2.97-2.624-.088-.117-.706-.94-.706-1.792s.445-1.272.604-1.446c.159-.175.347-.219.462-.219.116 0 .232.001.332.006.106.005.249-.04.39.299.144.35.491 1.199.534 1.287.043.088.072.191.014.307-.058.117-.087.19-.174.292-.087.102-.183.228-.261.307-.088.087-.179.182-.077.357.101.175.452.746.969 1.206.666.594 1.228.778 1.402.865.174.088.275.073.377-.044.101-.116.435-.51.551-.685.116-.175.232-.146.39-.088.16.058 1.011.477 1.184.564.174.087.29.131.333.204.043.073.043.423-.101.828z"/></svg>
+<span>Order via WhatsApp</span>
+</a>
 </div>
 </div>
-<p data-i18n="serviceFoot">If you require any of these services or have a custom request, please send a
-                    message with your specifications to our email: <a href="mailto:Abdulhadipro47@gmail.com" style="color: var(--accent-purple); text-decoration: none; font-weight: 600; border-bottom: 1px dashed var(--accent-purple);">Abdulhadipro47@gmail.com</a>.
-                    We will get back to you with the custom setup details and pricing.</p>
+<p data-i18n="serviceFoot">If you require any of these services or have a custom request, please tap any button above to chat on WhatsApp or send an email to: <a href="mailto:Abdulhadipro47@gmail.com" style="color: var(--accent-purple); text-decoration: none; font-weight: 600; border-bottom: 1px dashed var(--accent-purple);">Abdulhadipro47@gmail.com</a>.</p>
 </div>
 
+    <!-- ====================================================================
+         CREATOR TOOLS: PRE-UPLOAD ANTI-BAN CHECKLIST
+         ==================================================================== -->
+
+
+    <!-- 3. Pre-Upload Anti-Ban Checklist -->
+    <section class="masterclass-section-block" id="anti-ban-checklist">
+        <h2 class="section-title">
+            <span>🛡️</span>
+            <span data-i18n="titleAntiBan">Pre-Upload Anti-Ban &amp; 0-Views Checklist</span>
+        </h2>
+        <div class="card">
+            <div class="checklist-status-header">
+                <div>
+                    <div class="card-title" style="margin-bottom:4px;" data-i18n="antiBanHeaderTitle">6-Point Pre-Upload Verification Protocol</div>
+                    <div style="font-size: 13.5px; color: var(--text-secondary);" data-i18n="antiBanHeaderDesc">Execute every check before tapping 'Post' on TikTok to prevent shadowbans, 0 views, or unoriginal content strikes.</div>
+                </div>
+                <div class="checklist-meter-badge" id="checklist-meter-badge" style="background: rgba(217, 119, 6, 0.1); color: #d97706; border: 1px solid rgba(217, 119, 6, 0.3);">
+                    <span id="checklist-meter-icon">⚠️</span>
+                    <span id="checklist-meter-text">0 / 6 Checks Passed</span>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="checklist-progress-bar-wrap">
+                <div class="checklist-progress-fill" id="checklist-progress-fill" style="width: 0%;"></div>
+            </div>
+
+            <!-- Checklist Items List -->
+            <div class="checklist-items-list" id="checklist-items-list">
+                <div class="checklist-item-row" data-check-id="check-1">
+                    <div class="checklist-checkbox-custom">✓</div>
+                    <div class="checklist-item-text">
+                        <div class="checklist-item-title" data-i18n="antiBanCheck1Title">1. Video Duration > 60 Seconds (1+ Minute)</div>
+                        <div class="checklist-item-desc" data-i18n="antiBanCheck1Desc">GIP RPM monetization exclusively pays for videos that are at least 1:01 in length. Videos under 60s earn $0 RPM.</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item-row" data-check-id="check-2">
+                    <div class="checklist-checkbox-custom">✓</div>
+                    <div class="checklist-item-text">
+                        <div class="checklist-item-title" data-i18n="antiBanCheck2Title">2. Metadata Stripped &amp; Visual Filter Applied (Anti-Unoriginal)</div>
+                        <div class="checklist-item-desc" data-i18n="antiBanCheck2Desc">Original EXIF metadata removed, 1.03x–1.05x speed change or subtle crop applied to bypass TikTok's automatic AI duplicate detection strike.</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item-row" data-check-id="check-3">
+                    <div class="checklist-checkbox-custom">✓</div>
+                    <div class="checklist-item-text">
+                        <div class="checklist-item-title" data-i18n="antiBanCheck3Title">3. Clean US/UK IP Active &amp; WebRTC Leak Verified</div>
+                        <div class="checklist-item-desc" data-i18n="antiBanCheck3Desc">VPNify / Orion browser connection active. IP must not drop during upload, and phone language must remain English (United States).</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item-row" data-check-id="check-4">
+                    <div class="checklist-checkbox-custom">✓</div>
+                    <div class="checklist-item-text">
+                        <div class="checklist-item-title" data-i18n="antiBanCheck4Title">4. High-CTR Hook Placed in First 3 Seconds</div>
+                        <div class="checklist-item-desc" data-i18n="antiBanCheck4Desc">Bold on-screen text overlay or punchy opening audio hook added so viewers don't swipe away before the 5-second retention threshold.</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item-row" data-check-id="check-5">
+                    <div class="checklist-checkbox-custom">✓</div>
+                    <div class="checklist-item-text">
+                        <div class="checklist-item-title" data-i18n="antiBanCheck5Title">5. 3–5 Targeted US/UK Hashtags &amp; Copyright-Free Audio</div>
+                        <div class="checklist-item-desc" data-i18n="antiBanCheck5Desc">Added tags from the hashtag pack above and ensured no copyrighted audio is used that could cause audio muting.</div>
+                    </div>
+                </div>
+
+                <div class="checklist-item-row" data-check-id="check-6">
+                    <div class="checklist-checkbox-custom">✓</div>
+                    <div class="checklist-item-text">
+                        <div class="checklist-item-title" data-i18n="antiBanCheck6Title">6. Scheduled During US/UK Peak Traffic Window</div>
+                        <div class="checklist-item-desc" data-i18n="antiBanCheck6Desc">Checked the live posting time clocks above to confirm the target audience in New York/London is actively browsing their FYP.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checklist Actions -->
+            <div style="display: flex; justify-content: flex-end; margin-top: 18px;">
+                <button type="button" class="btn-pill-subtle" id="btn-reset-checklist" style="font-size: 13px;">
+                    <span>🔄</span>
+                    <span data-i18n="antiBanResetBtn">Reset Checklist</span>
+                </button>
+            </div>
+        </div>
     </section>
-    
         </div>
 
         <!-- ====================================================================
@@ -979,6 +1098,25 @@
                     <span class="teleport-item-sub">Live Earnings Estimator</span>
                 </div>
             </button>
+
+
+
+            <button type="button" class="teleport-item" data-jump="#anti-ban-checklist">
+                <span class="teleport-item-icon">🛡️</span>
+                <div class="teleport-item-meta">
+                    <span class="teleport-item-title">Pre-Upload Anti-Ban Checklist</span>
+                    <span class="teleport-item-sub">6-Point Safety Verification</span>
+                </div>
+            </button>
+
+            <!-- Mentor Admin Portal Quick Jump Item -->
+            <button type="button" class="teleport-item" id="teleport-admin-btn" style="border: 1px solid rgba(124, 58, 237, 0.25); background: rgba(124, 58, 237, 0.04); margin-top: 4px;">
+                <span class="teleport-item-icon">👑</span>
+                <div class="teleport-item-meta">
+                    <span class="teleport-item-title" style="color: var(--brand-primary); font-weight: 800;">Mentor Admin Console</span>
+                    <span class="teleport-item-sub">abdulhadipro47@gmail.com</span>
+                </div>
+            </button>
         </div>
     </div>
 
@@ -1006,19 +1144,194 @@
         </div>
     </div>
 
+    <!-- ====================================================================
+         MENTOR ADMIN CONSOLE (VERIFIED LOGIN FOR abdulhadipro47@gmail.com)
+         ==================================================================== -->
+    <div class="pro-modal-backdrop" id="gip-admin-portal-modal">
+        <div class="pro-modal-container admin-portal-modal-card">
+            <button class="modal-close-icon" id="close-admin-portal-btn" title="Close Admin Portal">&times;</button>
+            
+            <!-- VIEW 1: Mentor Login Screen -->
+            <div id="admin-login-view">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div class="admin-shield-icon">👑</div>
+                    <div class="admin-badge-pill">OFFICIAL MENTOR PORTAL</div>
+                    <h2 class="admin-modal-title">Mentor Admin Login</h2>
+                    <p class="admin-modal-sub">Restricted Mentor Area • Verification Required</p>
+                </div>
+
+                <div class="admin-login-box">
+                    <div class="admin-field-group">
+                        <label class="admin-field-label">Mentor Email:</label>
+                        <div class="admin-input-wrap">
+                            <span class="admin-input-icon">📧</span>
+                            <input type="email" id="admin-login-email" placeholder="Enter Mentor Email" class="admin-field-input" autocomplete="off" spellcheck="false">
+                        </div>
+                    </div>
+
+                    <div class="admin-field-group">
+                        <label class="admin-field-label">Master Admin Password / PIN:</label>
+                        <div class="admin-input-wrap">
+                            <span class="admin-input-icon">🔒</span>
+                            <input type="password" id="admin-login-password" placeholder="Enter Admin Password" class="admin-field-input" autocomplete="off" style="padding-right: 42px;">
+                            <button type="button" id="btn-toggle-admin-pass" class="btn-toggle-pass-clean" title="Show password" aria-label="Toggle password visibility">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="button" id="btn-admin-login-submit" class="btn-admin-submit">
+                        <span>🚀</span>
+                        <span>Login to Admin Dashboard</span>
+                    </button>
+
+                    <div id="admin-login-error" class="admin-error-msg" style="display:none;"></div>
+                </div>
+            </div>
+
+            <!-- VIEW 2: Mentor Dashboard (Shown once logged in) -->
+            <div id="admin-dashboard-view" style="display:none;">
+                <div class="admin-dash-header">
+                    <div>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size: 22px;">👑</span>
+                            <h3 style="margin: 0; font-size: 19px; font-weight: 800; color: var(--text-primary);">Mentor Command Center</h3>
+                        </div>
+                        <div class="admin-user-pill">
+                            <span class="status-dot-green"></span>
+                            <span>Verified Mentor: <strong id="admin-current-active-email">abdulhadipro47@gmail.com</strong></span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button type="button" class="btn-pill-subtle" id="btn-admin-refresh" title="Refresh Data">🔄 Refresh</button>
+                    </div>
+                </div>
+
+                <!-- Stats Strip -->
+                <div class="admin-stats-strip">
+                    <div class="admin-stat-pill">
+                        <span class="admin-stat-num" id="stat-total-licenses">0</span>
+                        <span class="admin-stat-lbl">Issued Keys</span>
+                    </div>
+                    <div class="admin-stat-pill">
+                        <span class="admin-stat-num" id="stat-bound-licenses" style="color:#059669;">0</span>
+                        <span class="admin-stat-lbl">Active Devices</span>
+                    </div>
+                    <div class="admin-stat-pill">
+                        <span class="admin-stat-num" id="stat-active-licenses" style="color:var(--brand-primary);">0</span>
+                        <span class="admin-stat-lbl">Valid Students</span>
+                    </div>
+                </div>
+
+                <!-- Issue New License Card -->
+                <div class="admin-gen-box">
+                    <div style="font-size: 14px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 6px;">
+                        <span>➕</span>
+                        <span>Issue New Student Access Key</span>
+                    </div>
+                    <div class="admin-gen-grid">
+                        <input type="text" id="new-student-name" placeholder="Student Name (e.g. Usman Ali)" class="admin-input">
+                        <input type="text" id="new-student-whatsapp" placeholder="WhatsApp (e.g. +92 300 1234567)" class="admin-input">
+                        <input type="text" id="new-custom-key" placeholder="Custom Key (Optional)" class="admin-input" style="text-transform: uppercase;">
+                    </div>
+                    <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+                        <button type="button" id="btn-generate-key" class="btn-pill-primary" style="padding: 10px 20px; font-size: 13.5px; font-weight: 700;">
+                            <span>➕</span>
+                            <span>Generate &amp; Issue Key</span>
+                        </button>
+                    </div>
+
+                    <!-- Output Card after creation -->
+                    <div id="new-key-output-card" class="admin-key-output" style="display: none;">
+                        <div style="font-size: 12.5px; color: #059669; font-weight: 700; margin-bottom: 4px;">✓ New Key Generated Successfully:</div>
+                        <div style="font-size: 20px; font-weight: 900; color: var(--brand-primary); font-family: monospace; letter-spacing: 0.05em;" id="generated-key-text">GIP-XXXX-XXXX</div>
+                        <button type="button" class="btn-pill-subtle" id="btn-copy-invite-msg" style="margin-top: 10px; width: 100%; background: #fff; font-weight: 700;">
+                            <span>📋</span>
+                            <span>Copy WhatsApp Invite Message</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Authorized Admin Emails Manager Card (Full Access) -->
+                <div class="admin-gen-box" style="margin-top: 18px; border-color: #cbd5e1; background: #fafaf9;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                        <div style="font-size: 14px; font-weight: 800; display: flex; align-items: center; gap: 6px; color: var(--text-primary);">
+                            <span>🛡️</span>
+                            <span>Authorized Admin Emails (Full Access)</span>
+                        </div>
+                        <span style="font-size: 11.5px; color: #6b7280; font-weight: 600;">Only these emails can see &amp; access Admin Panel</span>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <input type="email" id="new-admin-email" placeholder="Enter Co-Admin / Mentor Email (e.g. partner@gmail.com)" class="admin-input" style="flex: 1; min-width: 240px;" autocomplete="off" spellcheck="false">
+                        <button type="button" id="btn-add-admin-email" class="btn-pill-primary" style="padding: 10px 18px; font-size: 13px; font-weight: 700; white-space: nowrap;">
+                            <span>➕</span>
+                            <span>Add Admin Email</span>
+                        </button>
+                    </div>
+
+                    <!-- Output Card after Admin Added -->
+                    <div id="new-admin-output-card" class="admin-key-output" style="display: none; background: rgba(124, 58, 237, 0.06); border-color: #7c3aed; margin-top: 12px; text-align: left;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                            <div style="font-size: 12.5px; color: #7c3aed; font-weight: 700;">✓ Co-Admin Added! 1-Click Access Link Ready:</div>
+                            <button type="button" id="btn-close-admin-output" style="background: none; border: none; font-size: 16px; cursor: pointer; color: #6b7280;" title="Close">&times;</button>
+                        </div>
+                        <div id="new-admin-link-text" style="font-size: 12px; font-family: monospace; color: #374151; word-break: break-all; background: #ffffff; padding: 8px 10px; border-radius: 6px; border: 1px solid #e5e7eb; margin-bottom: 8px;"></div>
+                        <button type="button" class="btn-pill-subtle" id="btn-copy-admin-invite" style="width: 100%; background: #ffffff; font-weight: 700; color: #7c3aed; border-color: rgba(124, 58, 237, 0.3);">
+                            <span>📋</span>
+                            <span>Copy 1-Click Access Link (WhatsApp Ready)</span>
+                        </button>
+                    </div>
+
+                    <!-- List of Authorized Admin Emails -->
+                    <div style="margin-top: 14px;">
+                        <div style="font-size: 12px; font-weight: 700; color: #4b5563; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em;">Authorized Admin Team:</div>
+                        <div id="authorized-admins-list" class="authorized-admins-list">
+                            <!-- Populated dynamically by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search & Existing Licenses -->
+                <div style="margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 10px; flex-wrap: wrap;">
+                        <div style="font-size: 14px; font-weight: 800;">📋 Student Licenses &amp; Device Manager</div>
+                        <input type="text" id="admin-search-input" placeholder="Search by name, key or WhatsApp..." style="padding: 7px 12px; border-radius: 8px; border: 1px solid var(--border-medium); font-size: 12.5px; width: 220px; outline: none;">
+                    </div>
+                    <div class="admin-licenses-list" id="admin-licenses-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Pro Footer -->
     <footer class="pro-footer">
-        <div style="max-width:1220px; margin:0 auto; padding:0 24px;">
-            <div style="font-weight:700; color:var(--text-primary); margin-bottom:6px;">TikTok GIP Masterclass • Mentor: Hadi Awan</div>
-            <div class="footer-subtext">
-                <span class="footer-text-desktop">Complete 15-Video Educational Blueprint • All Rights Reserved.</span>
-                <span class="footer-text-mobile">15 Lessons • All Rights Reserved</span>
+        <div style="max-width:1220px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+            <div>
+                <div style="font-weight:700; color:var(--text-primary); margin-bottom:6px;">TikTok GIP Masterclass • Mentor: Hadi Awan</div>
+                <div class="footer-subtext">
+                    <span class="footer-text-desktop">Complete 15-Video Educational Blueprint • All Rights Reserved.</span>
+                    <span class="footer-text-mobile">15 Lessons • All Rights Reserved</span>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="btn-footer-admin" class="btn-admin-footer" title="Mentor Admin Panel">
+                    <span>👑</span>
+                    <span>Admin Panel</span>
+                </button>
             </div>
         </div>
     </footer>
 
-    <!-- Interactive Script -->
-    <script src="pro_app.js?v=10.0"></script>
+    <!-- Interactive Scripts -->
+    <script src="pro_app.js?v=12.0"></script>
+    <script src="admin_portal.js?v=6.0"></script>
 </body>
 
 </html>
+
